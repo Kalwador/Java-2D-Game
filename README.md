@@ -1,4 +1,4 @@
-# Projekt Gry 2d RPG 
+# Projekt Gry 2d RPG /n \n
 Lista: 
 1. Szymon Kulikowski
 2. Wajda Damian
