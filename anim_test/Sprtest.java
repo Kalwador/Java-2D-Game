@@ -13,14 +13,16 @@ import javax.swing.JFrame;
 
 
 public class Sprtest extends JFrame {
+    //kCode = kod przycisku, sx = szerokość klatki grafiki, sy = wysokość klatki grafiki
     int kCode = 0;
-    int i=1;
     int sx = 32;
     int sy = 64;
     public class kListener extends KeyAdapter{
+        
+        //ustawienie keybindów
         @Override
         public void keyPressed(KeyEvent key){
-            int keyCode = key.getKeyCode();
+            int keyCode = kCode = key.getKeyCode();
             
             if(keyCode == KeyEvent.VK_A){
                 sx-=2;
@@ -34,13 +36,14 @@ public class Sprtest extends JFrame {
             if(keyCode == KeyEvent.VK_S){
                 sy+=2;
             }
-            kCode = keyCode;
         }
+        
+        // Sprawdzanie czy przycisk został puszczony, aktualizacja co 100 milisekund
         @Override
         public void keyReleased(KeyEvent key){
             if (kCode!=0){
             try {
-            Thread.sleep(50);
+            Thread.sleep(100);
             kCode = 0;
             } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
@@ -49,6 +52,7 @@ public class Sprtest extends JFrame {
         }
             
     }
+    // inicjalizacja grafik i animacji
     BufferedImage sprite;    
     Animator nogi;
     Animator nogiW;
@@ -144,10 +148,12 @@ public class Sprtest extends JFrame {
         paintComponent(dbg);
         g.drawImage(dbImage, 0, 0, null);
     }
-            //a=65 d=68 w=87 s=83
+    
+    //odgrywanie grafik dla prycisnietych klawiszy, a=65 d=68 w=87 s=83
     public void paintComponent(Graphics g) {
         switch (kCode) {
             case 65:
+                
                 if (nogiW != null) {
                     nogiW.update(System.currentTimeMillis());
                     g.drawImage(nogiW.sprite, sx, sy, 32, 64, null);
