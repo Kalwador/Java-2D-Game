@@ -1,4 +1,5 @@
-# Projekt Gry 2d RPG /n \n
+# Projekt Gry 2d RPG 
+
 Lista: 
 1. Szymon Kulikowski
 2. Wajda Damian
@@ -6,6 +7,7 @@ Lista:
 4. Piotrowski Maciej
 5. Półzieć Szymon
 6. Szpila Piotr
+
 Server:github
 Jezyk:JAVA
 Grafika XML,Javafx
