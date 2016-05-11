@@ -10,5 +10,5 @@ package gra2d;
  * @author Maciek
  */
 public class test {
-    
+    String name;
 }
