@@ -1,4 +1,4 @@
-# Projekt Gry 2d RPG 
+﻿# Projekt Gry 2d RPG 
 
 Lista: 
 1. Szymon Kulikowski
@@ -18,6 +18,7 @@ Obrażenia: statyczne na początek
 HUD: 
 1. dodatkowe okna po bokach
 2. okna z pełnymi danymi pod klawiszami, np: "J"-zadania
+
 Podział Prac:
 Storyline-wyjdzie w praniu
 Postaci-Piotrek
