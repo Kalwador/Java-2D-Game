@@ -17,17 +17,19 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 public class Menu {
-    public static void setScene(Stage window) {
+    //klasa Menu bedzie menu ale jako przerywnik gry, 
+    //czyli po nacisnieciu klawisza ESC pojawia sie nam menu 
+    //i tu bedzie: powrot do gry, wczytaj zapisz,,ustawienia, wyjscie
+    public static void sceneMenu(Stage window) {
         //wielkosc okna
         final int SIZE_W = 800;
         final int SIZE_H = 600;
         
         //pane to okno-siatka na ktorej szkielecie można rozmieszczac przyciski
-        Pane layoutMenu = new Pane();
-        layoutMenu.setPrefSize(SIZE_W, SIZE_H); //wielkość okna
-        layoutMenu.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));//kolor okna
+        Pane canvasMenu = new Pane();
+        canvasMenu.setPrefSize(SIZE_W, SIZE_H); //wielkość okna
+        canvasMenu.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));//kolor okna
         //przyciski menu
         Button wznow = new Button("Wznów grę");
         Button zapisz = new Button(" Zapisz grę ");
@@ -35,36 +37,36 @@ public class Menu {
         Button wyjscie = new Button("   Wyjście    ");
         
         //dodaje do siatki przyciski i usawiam ich polozenie
-        layoutMenu.getChildren().add(wznow);
+        canvasMenu.getChildren().add(wznow);
         wznow.setLayoutX(350);
         wznow.setLayoutY(200);
-        layoutMenu.getChildren().add(zapisz);
+        canvasMenu.getChildren().add(zapisz);
         zapisz.setLayoutX(350);
         zapisz.setLayoutY(250);
-        layoutMenu.getChildren().add(ustawienia);
+        canvasMenu.getChildren().add(ustawienia);
         ustawienia.setLayoutX(350);
         ustawienia.setLayoutY(300);
-        layoutMenu.getChildren().add(wyjscie);
+        canvasMenu.getChildren().add(wyjscie);
         wyjscie.setLayoutX(350);
         wyjscie.setLayoutY(350);
 
         //definuje scene "menu"
-        Scene menu;
-        menu = new Scene(layoutMenu, 800, 600);
+        Scene menuScene;
+        menuScene = new Scene(canvasMenu, 800, 600);
         
         
         Scene mainScene;
         //scena glowna
         
         Button doMenu = new Button("Do Menu");
-        doMenu.setOnAction(e->window.setScene(menu));
+        doMenu.setOnAction(e->window.setScene(menuScene));
         
         Label label1 = new Label("Glowne okno gry"); //dopisek do okna
         
         //definiuje scene glowna
-        VBox layout2 = new VBox(20);
-        layout2.getChildren().addAll(label1,doMenu);
-        mainScene = new Scene(layout2,600,300);
+        VBox canvas2 = new VBox(20);
+        canvas2.getChildren().addAll(label1,doMenu);
+        mainScene = new Scene(canvas2,600,300);
         
         //definicje przyciskow
         wznow.setOnAction(new EventHandler<ActionEvent>() {
@@ -95,17 +97,27 @@ public class Menu {
                 //definicja wyjsca z gry
             }
         });
-        //pane jeden z dostpepnych szkieletow menu, taka siatka
+ 
         
+        window.setScene(menuScene);//ustawiam scene startowa
+        window.setTitle("Menu");//tytol okna
+        window.show();//pokaz okno
         
+         
+        /* licznik fpsow, znajdzie sie w menu w prawym dolnym rogu
         
+        initNodes(mainCanvas.getChildren());//inicializacja 
         
+        public void initNodes(ObservableList<Node> mainCanvas) {
+        tFPS = new Text("FPS : ");
+        tFPS.setTranslateX(SIZE_W - 180);
+        tFPS.setTranslateY(60);
+        tFPS.setFill(Color.WHITE);
+        tFPS.setFont(new Font(20));
+        mainCanvas.add(tFPS);
+        initAnimation(mainCanvas);
+        }
+        */
         
-        //ustawiam scene startowa
-        window.setScene(menu);
-        //tytol okna
-        window.setTitle("PRojekt Gry 2D RPG");
-        //pokaz okno
-        window.show();
     }
 }
