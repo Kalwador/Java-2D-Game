@@ -1,3 +1,4 @@
+/*
 package Core;
 
 import javafx.scene.Node;
@@ -15,31 +16,56 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+public class Menu {
+    public static void setScene(Stage window) {
+        //scena menu i scena w ktorej bedzie gra, potem moze bedzie kilka scen ktore beda sie ladowaly dla danych lokacji
+        Scene menu;
+        final int SIZE_W = 800;
+        final int SIZE_H = 600;
 
-public class Main extends Application {
-    //okno
-    Stage window;
-    //scena menu i scena w ktorej bedzie gra
-    //potem moze bedzie kilka scen ktore beda sie ladowaly dla danych lokacji
-    Scene menu,mainScene;
-    
-    public static void main(String[] args) {
-        launch(args);
-    }   
-    @Override
-    public void start(Stage primaryStage) {
-        window = primaryStage;  //tworzenie okna
-        
-       
-
-        //przyciski
         Button wznow = new Button("Wznów grę");
         Button zapisz = new Button();
         Button ustawienia = new Button();
         Button wyjscie = new Button();
+        
+        Pane layoutMenu = new Pane();
+        
+        
+        
+        //dodaje do siatki przyciski, mozna i inne rzeczy
+        layoutMenu.getChildren().add(wznow);
+        wznow.setLayoutX(350);
+        wznow.setLayoutY(200);
+        layoutMenu.getChildren().add(zapisz);
+        zapisz.setLayoutX(350);
+        zapisz.setLayoutY(250);
+        layoutMenu.getChildren().add(ustawienia);
+        ustawienia.setLayoutX(350);
+        ustawienia.setLayoutY(300);
+        layoutMenu.getChildren().add(wyjscie);
+        wyjscie.setLayoutX(350);
+        wyjscie.setLayoutY(350);
+
+        //definuje scene "menu"
+        menu = new Scene(layoutMenu, 800, 600);
+        
+        
+        Scene mainScene;
+        //scena glowna
+        
+        Button doMenu = new Button("Do Menu");
+        doMenu.setOnAction(e->window.setScene(menu));
+        
+        Label label1 = new Label("Glowne okno gry"); //dopisek do okna
+        
+        //definiuje scene glowna
+        VBox layout2 = new VBox(20);
+        layout2.getChildren().addAll(label1,doMenu);
+        mainScene = new Scene(layout2,600,300);
+        
         //definicje przyciskow
         wznow.setOnAction(new EventHandler<ActionEvent>() {
-        //lub button.setOnAction(e -> window.setScene(mainScene));
+            //lub button.setOnAction(e -> window.setScene(mainScene));
             @Override
             public void handle(ActionEvent event) {
                 window.setScene(mainScene);
@@ -47,7 +73,7 @@ public class Main extends Application {
         });
         zapisz.setText("Zapisz grę");
         zapisz.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("zapisuje gre");
@@ -55,7 +81,7 @@ public class Main extends Application {
         });
         ustawienia.setText("Ustawiena");
         ustawienia.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("ustawienia");
@@ -70,33 +96,10 @@ public class Main extends Application {
             }
         });
         //pane jeden z dostpepnych szkieletow menu, taka siatka
-        Pane layoutMenu = new Pane();
-        //dodaje do siatki przyciski, mozna i inne rzeczy
-        layoutMenu.getChildren().add(wznow);
-        wznow.setLayoutX(350);
-        wznow.setLayoutY(200);
-        layoutMenu.getChildren().add(zapisz);
-        zapisz.setLayoutX(350);
-        zapisz.setLayoutY(250);
-        layoutMenu.getChildren().add(ustawienia);
-        ustawienia.setLayoutX(350);
-        ustawienia.setLayoutY(300);
-        layoutMenu.getChildren().add(wyjscie);
-        wyjscie.setLayoutX(350);
-        wyjscie.setLayoutY(350);
         
-        //definuje scene "menu"
-        menu = new Scene(layoutMenu,800,600);
         
-        Button doMenu = new Button("Do Menu");
-        doMenu.setOnAction(e->window.setScene(menu));
         
-        Label label1 = new Label("Glowne okno gry"); //dopisek do okna
         
-        //definiuje scene glowna
-        VBox layout2 = new VBox(20);
-        layout2.getChildren().addAll(label1,doMenu);
-        mainScene = new Scene(layout2,600,300);
         
         //ustawiam scene startowa
         window.setScene(menu);
@@ -106,3 +109,4 @@ public class Main extends Application {
         window.show();
     }
 }
+*/
