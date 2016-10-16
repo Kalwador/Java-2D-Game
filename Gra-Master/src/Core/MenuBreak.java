@@ -1,5 +1,9 @@
 package Core;
 
+    //klasa Menu bedzie menu ale jako przerywnik gry, 
+    //czyli po nacisnieciu klawisza ESC pojawia sie nam menu 
+    //i tu bedzie: powrot do gry, wczytaj zapisz,,ustawienia, wyjscie
+
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -17,10 +21,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Menu {
-    //klasa Menu bedzie menu ale jako przerywnik gry, 
-    //czyli po nacisnieciu klawisza ESC pojawia sie nam menu 
-    //i tu bedzie: powrot do gry, wczytaj zapisz,,ustawienia, wyjscie
+public class MenuBreak {
+    
+
+    
+    
     public static void sceneMenu(Stage window) {
         //wielkosc okna
         final int SIZE_W = 800;

@@ -1,0 +1,15 @@
+1. Stworzenie klasy MenuMain, posiłkując się badź przerabiając 
+    klase MenuBreak (która jest prawie gotowa)
+    tak aby po skompilowaniu była wstępem do gry 
+    i przekierowywała do odpowiednich metod 
+    w MainLoop zależnie od wyboru
+
+
+
+2.w gameLoop nasłuchiwanie na nacisniencie przycisku z 
+    klawiatury i wywolanie wtedy metody statycznej keyEvent(klawisz)
+
+
+
+3.Nowa klasa keyEvent przez parametr wybiera odpowiednią akcje(na switchu), 
+    klawisz ESC uruchamia Menu.sceneMenu(window);
