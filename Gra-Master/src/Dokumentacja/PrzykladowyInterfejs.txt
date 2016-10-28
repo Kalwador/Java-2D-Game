@@ -1,0 +1,8 @@
+W lewym górnym rogu s¹ paski: ¿ycia, many i doœwiadczenia.
+Ikonka z mieczem oznacza, ¿e postaæ to wojownik.
+Nad paskami znajdowa³aby siê nazwa postaci oraz poziom.
+W prawym górnym by³aby minimapa a pod ni¹ rozwijaj¹cy siê pasek gry.
+Po rozwiniêciu ukaza³by siê szereg opcji. Oczywiœcie do nich bêd¹ 
+przypisane skróty klawiszowe. Na samym œrodku w dole by³by pasek
+z umiejêtnoœciami to te¿ mo¿na w ten pasek dodawaæ jakieœ mikstury
+i tym podobne przedmioty do czêstszego u¿ytku.
