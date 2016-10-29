@@ -1,8 +1,24 @@
-W lewym górnym rogu s¹ paski: ¿ycia, many i doœwiadczenia.
-Ikonka z mieczem oznacza, ¿e postaæ to wojownik.
-Nad paskami znajdowa³aby siê nazwa postaci oraz poziom.
-W prawym górnym by³aby minimapa a pod ni¹ rozwijaj¹cy siê pasek gry.
-Po rozwiniêciu ukaza³by siê szereg opcji. Oczywiœcie do nich bêd¹ 
-przypisane skróty klawiszowe. Na samym œrodku w dole by³by pasek
-z umiejêtnoœciami to te¿ mo¿na w ten pasek dodawaæ jakieœ mikstury
-i tym podobne przedmioty do czêstszego u¿ytku.
+Co musi zawieraÄ‡ :
+- DuÅ¼e okno gÅ‚Ã³wne
+- Pasek Å¼ycia, many, doÅ›wiadczenia (dowolny ksztaÅ‚t i rozmieszczenie)
+- Pasek szybkiego dostÄ™pu eq (na potiony i itemy)
+- Buttony:
+    - Character info
+    - EQ
+    - Quest List
+    - Skills  Tree
+- MiniMapa w rogu
+
+rozmieszczenie ksztaÅ‚ty wyglÄ…d i dodatkowe opcje wedÅ‚ug wÅ‚asnego pomysÅ‚u.
+
+
+
+Opis interfaceu AWilka: 
+W lewym gï¿½rnym rogu sï¿½ paski: ï¿½ycia, many i doï¿½wiadczenia.
+Ikonka z mieczem oznacza, ï¿½e postaï¿½ to wojownik.
+Nad paskami znajdowaï¿½aby siï¿½ nazwa postaci oraz poziom.
+W prawym gï¿½rnym byï¿½aby minimapa a pod niï¿½ rozwijajï¿½cy siï¿½ pasek gry.
+Po rozwiniï¿½ciu ukazaï¿½by siï¿½ szereg opcji. Oczywiï¿½cie do nich bï¿½dï¿½ 
+przypisane skrï¿½ty klawiszowe. Na samym ï¿½rodku w dole byï¿½by pasek
+z umiejï¿½tnoï¿½ciami to teï¿½ moï¿½na w ten pasek dodawaï¿½ jakieï¿½ mikstury
+i tym podobne przedmioty do czï¿½stszego uï¿½ytku.
