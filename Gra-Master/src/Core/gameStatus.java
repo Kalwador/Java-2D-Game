@@ -32,8 +32,9 @@ public class gameStatus {
             while((line=bufor.readLine())!=null){
                 String[] pola=line.split(";");
                 
-                String block = new Integer(pola[0],pola[1],pola[2],pola[3],pola[4],pola[5],pola[6],pola[7],pola[8],pola[9]);
-                lista.add(klient);
+                //String block = new Integer(pola[0],pola[1],pola[2],pola[3],pola[4],pola[5],pola[6],pola[7],pola[8],pola[9]);
+                //lista.add(klient);
+                //nie dokończone - Kalvador
             }
                 
             strIN.close();

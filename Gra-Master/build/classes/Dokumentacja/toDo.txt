@@ -1,0 +1,38 @@
+Lista rzeczy do wykonania w projekcie:
+
+Zadania do wynanaia na teraz, małe i proste do wykonania w dwie godziny, nie są powiązane.
+Kiedy wybierzemy coś z listy zaklepujemy poprzez dopisanie obok swójego nicku:
+
+- dla każdego: do środy 2.11 własny pomysł na rozmieszczenie i wygląd paneli w oknie
+przeglądniemy każdy pomysł i wybierzemy wspólnie rozmieszczenie ostateczne
+własne designy dodawajcie do folderu Dokumentacja w formacie obrazków jpg itp
+
+- napisać klase ActionHandler z metodą handle która poprzez parametr otrzyma zdarzenie
+i wywoła odpowiednią akcje, np klawisz ESC i wywoła dowolny komunikat 
+
+- stworzyć jedną mapkę w tile editor i dołączyć do projektu
+
+- Stworzenie klasy MenuMain, posiłkując się badź przerabiając 
+    klase MenuBreak (która jest prawie gotowa) tak aby po skompilowaniu była wstępem do gry 
+    i przekierowywała do odpowiednich metod w MainLoop zależnie od wyboru
+
+
+
+
+Zadania długoterminowe:
+
+I Etap: 
+- okno główne podzielić na panele wypełnić je kolorami zgodnie z przyjętym rozkładem
+- zapisywanie i odczytywanie stanu gry
+- wyświetlić mapę w oknie
+- wyświetlić sprita z projektu Damiana (możlie że z użyciem TileMap Editora)
+
+II Etap:
+- Mapa przesuwana 
+- poruszanie Sprita 
+- dodać w panelach buttony, paski
+
+III Etap:
+- wyświetlanie okien z skilami, eq, itp
+- nasłuchiwanie na buttony, i pozycje postaci(skrzynie, drzwi itp)
+- w cssie zmiana wyglądu obramowań, buttonów 
