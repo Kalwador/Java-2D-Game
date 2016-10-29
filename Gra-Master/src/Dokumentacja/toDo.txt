@@ -8,7 +8,7 @@ przeglądniemy każdy pomysł i wybierzemy wspólnie rozmieszczenie ostateczne
 własne designy dodawajcie do folderu Dokumentacja w formacie obrazków jpg itp
 
 - napisać klase ActionHandler z metodą handle która poprzez parametr otrzyma zdarzenie
-i wywoła odpowiednią akcje, np klawisz ESC i wywoła dowolny komunikat 
+i wywoła odpowiednią akcje, np klawisz ESC i wywoła dowolny komunikat - Maciej Piotrowski
 
 - stworzyć jedną mapkę w tile editor i dołączyć do projektu
 
