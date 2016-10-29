@@ -16,7 +16,7 @@ i wywoła odpowiednią akcje, np klawisz ESC i wywoła dowolny komunikat
     klase MenuBreak (która jest prawie gotowa) tak aby po skompilowaniu była wstępem do gry 
     i przekierowywała do odpowiednich metod w MainLoop zależnie od wyboru
 
-- 
+- wyświetlenie mapy
 
 
 Zadania długoterminowe:
