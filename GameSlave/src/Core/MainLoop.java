@@ -20,8 +20,8 @@ public class MainLoop extends BasicGame
     @Override
     public void init(GameContainer gc) throws SlickException{
         //info: tutaj inicjalizujemy wszystkie obiekty które się pojawią
-        map = new TiledMap("Resources/graphics/maps/map.tmx");
-        img = new Image("Resources/Graphics/Character/Facet4.png");
+        map = new TiledMap("Resources/graphics/maps/mapTest.tmx");
+        img = new Image("Resources/Graphics/Character/heroTest.png");
         
         x = 400;
         y = 400;
@@ -35,10 +35,10 @@ public class MainLoop extends BasicGame
         
         Input input = gc.getInput();
         
-        if(input.isKeyDown(Input.KEY_W)) {y -= 0.2 * delta;}
-        if(input.isKeyDown(Input.KEY_S)) {y += 0.2 * delta;}
-        if(input.isKeyDown(Input.KEY_A)) {x -= 0.2 * delta;}
-        if(input.isKeyDown(Input.KEY_D)) {x += 0.2 * delta;}
+        if(input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {y -= 0.2 * delta;}
+        if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {y += 0.2 * delta;}
+        if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {x -= 0.2 * delta;}
+        if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {x += 0.2 * delta;}
         
         
         
