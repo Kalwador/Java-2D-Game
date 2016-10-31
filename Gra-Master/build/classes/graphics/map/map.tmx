@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1280" columns="8">
+  <image source="mapeditor/tilesety/tileset.PNG" width="256" height="5120"/>
+ </tileset>
+ <tileset firstgid="1281" name="tmw-concrete_walls-0113a" tilewidth="32" tileheight="32" tilecount="384" columns="16">
+  <image source="tmw-concrete_walls-0113a.png" width="512" height="768"/>
+ </tileset>
+ <tileset firstgid="1665" name="virdos_tileset1" tilewidth="32" tileheight="32" tilecount="240" columns="8">
+  <image source="mapeditor/virdos_tileset1.PNG" width="256" height="960"/>
+ </tileset>
+ <tileset firstgid="1905" name="outsidebforest" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="outsidebforest.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2161" name="medievalhouses_2" tilewidth="32" tileheight="32" tilecount="416" columns="16">
+  <image source="medievalhouses_2.png" width="540" height="854"/>
+ </tileset>
+ <tileset firstgid="2577" name="vx-plants-tileset1" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="vx-plants-tileset1.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2833" name="medievalhouses_2" tilewidth="32" tileheight="32" spacing="2" tilecount="375" columns="15">
+  <image source="medievalhouses_2.png" width="540" height="854"/>
+ </tileset>
+ <layer name="gross" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1z1PwzAQBuBE6gJMUBiAjg1T1anlt7EgZUKM/GRcKZZOls/3nnP+QHR4ByRi/OTO57AbhuHJKF8umyAHl7FCHl12hQy1HWstnGFfyUAduRbOULMWoUNrSRlaO1CLZOjBIVkQQ82zkXJwFsRQuxYpx7yEWlBDD45vl48lM6mLxlC7p7zD79fHO/zPnwpDi1rQevwsCeujNbSoxUhqMUccWkOrWnB9lWto7bAytOqpmCPX0LIWoWONoZTjxuXW5Q50rDWUcty7PLhsAYeFoZTj2eXF5VX4PStDyzM+Ghk2jQ3/1XHpnWnJW2HHeYmlw+8/fJZaToaG94x1kXefet7K4t8/NWjmIPru0TVyZm9s77mOnP3HHNqaSAZ0nlvM/vDMozWxMowGhpgFqYmlwTJHsCbcWbbo7xIOribSjLec3xa9FduT1EupWqLf70iktcKahBbEwDnQ73ck0loxh7fQWtA7Nqwh50C/35FIa3EOaZ9SP/ZwRpB5GvNrvxO5nFesxVlSdwL3zJr/McO5cgJNqW89dE+TkUPqcWqisbyfaW1KOXKj2c8x8zntWf0rDt+n3HzPSWqWxu7Xy9/V9CJqQubpRBLrT+7dWt7VmhrFgvQn57C8q0sE/ZbvPVdHX7k6+kpNxy+xQ01m
+  </data>
+ </layer>
+ <layer name="fortress" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzV2UlwFFUcx/Eek5memSCRRSjXKjYttwMQFNALEcTlBARQbywBPWaPcsoesTxkj3rQ7FFP2aOeskCilocskKjlIQsJaHnIQgKo4HcqM2XTeW+mezI16flXfaqa15Pp37/ffyadQlFWVv/EKMq/uIt7UNas8A1XqWLIvQYPYi1iDfQR51y+Fu9dS1MVJR0ZyFSX1vYKXu8rf+fM1KPkfgyP4wk8aXI/duhy5JE9HwUoVI39TCjqGXI/i+fwPF4Q9JFEnmSkIFWSzVdlnC9HBSoDvDaUtZfc+7AfL+MVQR9Z5MlGDnIDZKvjfD0a0Oh9rdlZk9Vxt/zcYXK/jjfwJt4S9FHEtYtRglLV//608e92dKDTe87IrGkrQZI30S3v5wS5T+JtvIN3BX1Uce1q1KBWDbw/+vsf6llLFPSRSO5zOI/38L6gjyau3YwWtKrL96cL3ehBr7r8/otmTVayvQhUqeROQzoykGng+0q/PwMYxBCGBfdfNGueig/h91YOuXORh3wU6PoQ/a7Q788YxjGBSZP330o1Q9ZZzGFecP/1c2fVsrFnDyAK0YL908+dr26EoafbXOOO9zqxZHtIl++Qc4mR0s9dOMtFRrefnKI+ZPOjnzsrlL9nI9n8BJo7q9Vqzk8oyrdHVpyfYMrq8zPFvZ3G9Qi+x55aIP8ibkV4H9oaY17GMYFJXMMUpp3iZ5hAFY7fhaKaIess5jCPm1jAogU/D/7K5uKzjChEww4HVNf9r7vrUJR7jtXJaKTWkXc9NmAjHsYmbNb14WBeVAt/nraQdyu2YTt24Ck8retjLT3EWriPneTdhd2Iwx68iJfwiWOJpzbRw2YL93GAvPF4FQdxCK/hsCvwz1qpjpD3KI4hAcdxAicjrI9T5D2NMziLRJzD+QjrI1yVxH1JRgpSkYZ0ZCATH+BDXLD4/csiXzZykIs85KMAhfgIF/GxxfsoIl8xSlCKMpSjApX4FJ/hc4v3UUW+atSgFnWoRwMa8RW+xjcW76OJfM1oQSva0I4OdOJbfIfvQ9hHEs+IyUhBKtKQjgxkBvn82EW+bvSgF5dwGX3oxw/4ET+FsI8ssmYjB7nIQz4KUBhkHwPkG8QQhnEFVzGCUfyCX/GbgT4qeMao1DxryKqIrMUoQSnKUI4KVAbZxxj5xjGBSVzDFKZxHTfwB/4M0Icn+xf40sCzdxVZq1GDWtShHg1oDLKPGfLNYg7zuIkFLOIWbuMO/g7hXDWRtRktaEUb2tGBziD7sLn5OwdRiIYdDqhwwgU3YoL8fwZRdZG1Gz3oxSVcRh/6I+jvxAGyDmIIw7iCqxjBqME+bAKRWKI+ZFarzGSz2flcIArR9rBHNVyynGX2JeuwHhuw0f7/utXIcrZ5bcFWbMN2zbrWzybXjTD7nrKc3V47sQu7EadZT9Ic/25g3aNPc+yEC27NWr/J99Suy3L6HMBRHMNBzXqW5vgvA+seI5rjRzR8a6Mm31O7Lsvpc0RzPkFwPliiPlZCltNXpzg+jTM4a1/+PWGVkuX8D65cu0A=
+  </data>
+ </layer>
+</map>

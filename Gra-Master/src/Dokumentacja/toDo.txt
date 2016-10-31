@@ -36,3 +36,4 @@ III Etap:
 - wyświetlanie okien z skilami, eq, itp
 - nasłuchiwanie na buttony, i pozycje postaci(skrzynie, drzwi itp)
 - w cssie zmiana wyglądu obramowań, buttonów 
+- 2 języki gry polski i angielski
