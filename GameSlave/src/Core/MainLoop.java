@@ -1,3 +1,7 @@
+/*
+    pętla główna, możliwe że zostanie podzielona na poszczególne metody, zobaczy się
+*/
+
 package Core;
  
 import org.newdawn.slick.AppGameContainer;
@@ -63,7 +67,7 @@ public class MainLoop extends BasicGame
         try
         {
             AppGameContainer window = new AppGameContainer(new MainLoop());
-            window.setDisplayMode(1000, 1000, false);
+            window.setDisplayMode(1100, 800, false);
             window.setTargetFrameRate(150);
             window.start();
         }

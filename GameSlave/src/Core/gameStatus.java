@@ -1,3 +1,10 @@
+/*    
+    tutaj będzie obsługiwany aktualny status bohatera
+    przy
+    nazwa bohatera, level, hp, mana, exp
+    zawartość plecaka, skille, rasa, klasa 
+*/
+
 package Core;
 
 import java.io.BufferedReader;
@@ -13,8 +20,7 @@ public class gameStatus {
     protected Actor.Actor hero;
     
     public gameStatus(){
-        //wywoała się przy uruchomieniu gry
-        //jescze nie wiem co tutaj wsadzic - Kalv
+
     }
     public void loadStatus(int i){
         //parametr i to slot z ktorego zostanie wczytana gra
