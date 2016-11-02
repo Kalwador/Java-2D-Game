@@ -4,7 +4,7 @@
     zawartość plecaka, skille, rasa, klasa 
 */
 
-package Core;
+package core;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -15,11 +15,14 @@ import java.util.ArrayList;
 public class GameStatus {
     
     public String mapName;
-    static int x,y; //pozycja postaci na mapie
-    protected Core.Actor.Hero hero;
-
+    static public float x = 0,y = 0; //pozycja postaci na mapie
+    static public core.actor.Hero hero;
+    static public int heroSpeed = 1;
+    
     public GameStatus(){
-
+        mapName = "";
+        x = 0;
+        y = 0;
     }
     
     public void saveGame(int i){

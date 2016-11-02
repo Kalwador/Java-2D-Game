@@ -1,24 +1,26 @@
-/*
-    Obsługa wszystkich zdarzeń, klawiatury, myszki,
- */
-package Core;
+package core;
 
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class ActionHandler {
-    float gameSpeed; //przyda się do konsoli
-    public static void handle(Input input,int delta) {
-        if(input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {MainLoop.y -= 0.2 * delta;}
-        if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {MainLoop.y += 0.4 * delta;}
-        if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {MainLoop.x -= 0.2 * delta;}
-        if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {MainLoop.x += 0.4 * delta;}
-        if(input.isKeyPressed(Input.KEY_ESCAPE)) {/*metoda otwierajaca menuPause*/}
+    public static void handlePlay(Input input, GameContainer gc, StateBasedGame sbg, int delta){
+        
+        if(input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
+            GameStatus.y -= GameStatus.heroSpeed * 0.1 * delta;
+        }
+        if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
+            GameStatus.y += GameStatus.heroSpeed * 0.2 * delta;
+        }
+        if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
+            GameStatus.x -= GameStatus.heroSpeed * 0.1 * delta;
+        }
+        if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
+            GameStatus.x += GameStatus.heroSpeed * 0.2 * delta;
+        }
+        if(input.isKeyDown(Input.KEY_ESCAPE)) {
+            sbg.enterState(2);
+        }
     }
 }
