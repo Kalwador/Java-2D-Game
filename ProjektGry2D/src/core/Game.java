@@ -2,7 +2,6 @@ package core;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -26,15 +25,17 @@ public class Game extends StateBasedGame {
         super(gamename);
         this.addState(new Menu(menu));
         this.addState(new Play(play));
-//        this.addState(new Options(character));
-//        this.addState(new Options(bag));
-//        this.addState(new Options(quests));
-//        this.addState(new Options(skills));
-//        this.addState(new Options(map));
+        this.addState(new Options(options));
+//        this.addState(new Character(character));
+//        this.addState(new Bag(bag));
+//        this.addState(new Quests(quests));
+//        this.addState(new Skills(skills));
+//        this.addState(new Map(map));
     }
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
+        this.enterState(play);
         this.getState(menu).init(gc, this);
         this.getState(play).init(gc, this);
         this.getState(options).init(gc, this);
@@ -43,7 +44,7 @@ public class Game extends StateBasedGame {
 //        this.getState(quests).init(gc, this);
 //        this.getState(skills).init(gc, this);
 //        this.getState(map).init(gc, this);
-        this.enterState(menu);
+
     }
 
     public static void main(String[] args) {
