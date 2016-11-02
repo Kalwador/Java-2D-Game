@@ -15,7 +15,7 @@ public class GameStatus {
     public core.actor.Hero hero;
     public double heroSpeed;
 
-    public GameStatus(String mapName, int x, int y, Hero hero) {
+    public GameStatus() {
         this.mapName = "";
         this.x = 0;
         this.y = 0;

@@ -16,20 +16,20 @@ public class Play extends BasicGameState {
     
     private TiledMap map;
     private Image img;
-    GameStatus gs;
+    GameStatus gs = new GameStatus();
     int [] duration = {200,200,200,200}; 
     Animation hero, movingUp, movingDown, movingLeft, movingRight ;
-    double  shiftX;
-    double  shiftY;
+    double  shiftX = gs.x + 550;
+    double  shiftY = gs.y  + 400;;
     
+        
+        
+        
     
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         map = new TiledMap("Resources/graphics/maps/mapTest.tmx");
         img = new Image("Resources/Graphics/Character/heroTest.png");
-        
-        shiftX = gs.x + 550;
-        shiftY = gs.y  + 400;
         
         gs.x = 400;
         gs.y = 400;
@@ -87,7 +87,7 @@ public class Play extends BasicGameState {
         map.render(0, 0,(int)(gs.x / 32),(int)(gs.y / 32),32,23);
          // mapa skacze, wiem i poprawie to - kalvador :)
          
-        // hero.draw(shiftX,shiftY);
+        hero.draw((float)shiftX,(float)shiftY);
         //img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
         //(startXonWindow,startYonWindow,endXonWindow,endYonWindow,
         //  startXpartOfpicture,startYpartOfpicture,endXpartOfpicture,endYpartOfpicture)
