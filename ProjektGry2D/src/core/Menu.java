@@ -2,7 +2,6 @@ package core;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -12,15 +11,12 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Menu extends BasicGameState{
-
-    public Menu(int state) {
-    }
-
-    public Menu() {
-    }
+    String mouse;
+    
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        mouse = "";
     }
 
     @Override
@@ -28,10 +24,18 @@ public class Menu extends BasicGameState{
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
+        mouse = "x= "+xpos+" y="+ypos;
         
-        if((xpos>471&&xpos<629) &&(ypos<325 && ypos<354)){
+        //nowa gra
+        if((xpos>470 && xpos<630) &&(ypos>446 && ypos<477)){
             if(input.isMouseButtonDown(0)){
                 sbg.enterState(1);
+            }
+        }
+        //wyjście
+        if((xpos>470 && xpos<630) &&(ypos>280 && ypos<312)){
+            if(input.isMouseButtonDown(0)){
+                System.exit(0);
             }
         }
     }
@@ -41,10 +45,14 @@ public class Menu extends BasicGameState{
         
         Image menuF = new Image("Resources/Graphics/Menus/MenuF.png");
         g.drawImage(menuF, 0, 0);
+        g.drawString(mouse, 100, 100);
     }
     
+    public Menu(int state) {
+    }
+    public Menu() {
+    }
     public int getID(){
         return 0;
     }
-
 }
