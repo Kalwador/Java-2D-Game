@@ -16,21 +16,23 @@ public class Play extends BasicGameState {
     
     private TiledMap map;
     private Image img;
-    //GameStatus gs;
+    GameStatus gs;
     int [] duration = {200,200,200,200}; 
     Animation hero, movingUp, movingDown, movingLeft, movingRight ;
-    float  shiftX = GameStatus.x + 550;
-    float  shiftY = GameStatus.y + 400;
-
+    double  shiftX;
+    double  shiftY;
+    
     
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         map = new TiledMap("Resources/graphics/maps/mapTest.tmx");
         img = new Image("Resources/Graphics/Character/heroTest.png");
-
-        GameStatus.x = 400;
-        GameStatus.y = 400;
-
+        
+        shiftX = gs.x + 550;
+        shiftY = gs.y  + 400;
+        
+        gs.x = 400;
+        gs.y = 400;
         
         Image [] walkDown =  {img.getSubImage(0, 0, 48, 48),img.getSubImage(48, 0, 48, 48)
                              ,img.getSubImage(96, 0, 48, 48),img.getSubImage(144, 0, 48, 48)};
@@ -56,23 +58,23 @@ public class Play extends BasicGameState {
         
         Input input = gc.getInput(); 
         
-        //ActionHandler.handlePlay(input, gc, sbg, delta);
+        //ActionHandler.handlePlay(input, gc, gs, sbg, delta);
         
         if(input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
             hero = movingUp;
-            GameStatus.y -= GameStatus.heroSpeed * 0.1 * delta;
+            gs.y -= gs.heroSpeed * 0.1f * delta;
         }
         if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
             hero = movingDown;
-            GameStatus.y += GameStatus.heroSpeed * 0.1 * delta;
+            gs.y += gs.heroSpeed * 0.1f * delta;
         }
         if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
             hero = movingLeft;
-            GameStatus.x -= GameStatus.heroSpeed * 0.1 * delta;
+            gs.x -= gs.heroSpeed * 0.1f * delta;
         }
         if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
             hero = movingRight;
-            GameStatus.x += GameStatus.heroSpeed * 0.1 * delta;
+            gs.x += gs.heroSpeed * 0.1f * delta;
         }
         if(input.isKeyDown(Input.KEY_ESCAPE)) {
             sbg.enterState(2);
@@ -82,11 +84,11 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        map.render(0, 0,(int)(GameStatus.x / 32),(int)(GameStatus.y / 32),32,23);
-         // przez to że render przyjmuje inty mapa tak skacze
+        map.render(0, 0,(int)(gs.x / 32),(int)(gs.y / 32),32,23);
+         // mapa skacze, wiem i poprawie to - kalvador :)
          
-         
-        img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
+        // hero.draw(shiftX,shiftY);
+        //img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
         //(startXonWindow,startYonWindow,endXonWindow,endYonWindow,
         //  startXpartOfpicture,startYpartOfpicture,endXpartOfpicture,endYpartOfpicture)
     }

@@ -6,57 +6,27 @@
 
 package core;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import core.actor.Hero;
 
 public class GameStatus {
     
     public String mapName;
-    static public float x = 0,y = 0; //pozycja postaci na mapie
-    static public core.actor.Hero hero;
-    static public int heroSpeed = 1;
-    
-    public GameStatus(){
-        mapName = "";
-        x = 0;
-        y = 0;
-    }
-    
-    public void saveGame(int i){
-        //parametr i to slot z ktorego zostanie zapisana gra
-    }
-    
-    public void loadStatus(int i){
-        //parametr i to slot z ktorego zostanie wczytana gra
-        
-        ArrayList<String> lista=new ArrayList<String>(); /*KOMPOZYCJA*/
+    public int x,y; //pozycja postaci na mapie
+    public core.actor.Hero hero;
+    public double heroSpeed;
 
-        FileReader strIN;
-        
-        try {
-            strIN = new FileReader("slot"+String.valueOf(x)+".txt"); // niewiem czy bedzie dzialac - sprawdzic 
-            BufferedReader bufor = new BufferedReader(strIN);
-        
-            String line;
-        
-            while((line=bufor.readLine())!=null){
-                String[] pola=line.split(";");
-                //nie dokończone - Kalvador
-            }
-                
-            strIN.close();
-            
-            } catch (FileNotFoundException w1) {
-            System.out.println("Plik nie znaleziony.");
-            } catch (IOException w2) {
-                System.out.println("Bład odczytu");
-            }catch (NumberFormatException w3){
-                System.out.println("Bledny format liczby");
-            } 
-        
+    public GameStatus(String mapName, int x, int y, Hero hero) {
+        this.mapName = "";
+        this.x = 0;
+        this.y = 0;
+        this.heroSpeed = 1;
+    }
+    
+
+
+    public GameStatus(String mapName, Hero hero) {
+        this.mapName = mapName;
+        this.hero = hero;
     }
     
     

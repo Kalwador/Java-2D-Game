@@ -24,6 +24,10 @@ public class Options extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        Input input = gc.getInput(); 
+        if(input.isKeyDown(Input.KEY_ESCAPE)) {
+            sbg.enterState(1);
+        }
     }
     
     Options(int menuBreak) {
