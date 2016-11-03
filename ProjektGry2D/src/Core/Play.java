@@ -98,7 +98,8 @@ public class Play extends BasicGameState {
             shiftX=oldX;
             shiftY=oldY;
         }
-
+        //współrzędne -> szymonSanok
+        g.drawString("x "+String.valueOf(gs.x)+" y "+String.valueOf(gs.y), 10f, 30f);
         // mapa skacze, wiem i poprawie to - kalvador :)
          
         hero.draw((float)shiftX,(float)shiftY);
