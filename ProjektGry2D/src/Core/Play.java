@@ -23,7 +23,7 @@ public class Play extends BasicGameState {
     double  shiftY = gs.y ;
     //zmienne do kolizji
     int layID=2, tileID=10;
-    double oldX=gs.x, oldY=gs.y;
+   double oldXX=gs.x, oldYY=gs.y;
 
 
         
@@ -59,7 +59,7 @@ public class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         //info: tutaj kalkulacje, movement itp
-        
+        double oldX=gs.x, oldY=gs.y;
         Input input = gc.getInput(); 
         
         //ActionHandler.handlePlay(input, gc, gs, sbg, delta);
@@ -70,15 +70,21 @@ public class Play extends BasicGameState {
         }
         if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
             hero = movingDown;
-            gs.y += gs.heroSpeed * 0.1f * delta;
+            gs.y += gs.heroSpeed * 0.2f * delta;
+            if (gs.y/32==49){
+                gs.y=(int)oldY;
+            }
         }
         if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
             hero = movingLeft;
             gs.x -= gs.heroSpeed * 0.1f * delta;
         }
         if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
-            hero = movingRight;
-            gs.x += gs.heroSpeed * 0.1f * delta;
+            hero = movingRight; 
+            gs.x += gs.heroSpeed * 0.2f * delta;
+            if (gs.x/32==49){
+                gs.x=(int)oldX;
+            }
         }
         if(input.isKeyDown(Input.KEY_ESCAPE)) {
             sbg.enterState(2);
@@ -90,19 +96,20 @@ public class Play extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         map.render(0, 0, 0, 15, 50, 50); 
         //wprowadzenie do kolizji -> szymonSanok
-        layID = map.getLayerIndex("Background");
+        layID = map.getLayerIndex("Objects");
        tileID=map.getTileId((gs.x/32), (gs.y/32), layID);
         if(tileID==1677){
         //blocked="false".equals(map.getTileProperty(tileID, "Collision", "true"));
         //if(blocked==true){
-            shiftX=oldX;
-            shiftY=oldY;
+            shiftX=oldXX;
+            shiftY=oldYY;
         }
         //współrzędne -> szymonSanok
         g.drawString("x "+String.valueOf(gs.x/32)+" y "+String.valueOf(gs.y/32), 10f, 30f);
+        g.drawString("tileID "+String.valueOf(tileID)+" layID "+String.valueOf(layID), 10f, 60f);
         // mapa skacze, wiem i poprawie to - kalvador :)
          
-        hero.draw(gs.x,400);
+        hero.draw(gs.x,gs.y);
         //img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
         //(startXonWindow,startYonWindow,endXonWindow,endYonWindow,
         //  startXpartOfpicture,startYpartOfpicture,endXpartOfpicture,endYpartOfpicture)
