@@ -19,8 +19,8 @@ public class Play extends BasicGameState {
     GameStatus gs = new GameStatus();
     int [] duration = {200,200,200,200}; 
     Animation hero, movingUp, movingDown, movingLeft, movingRight ;
-    double  shiftX = gs.x + 550;
-    double  shiftY = gs.y  + 400;;
+    double  shiftX = gs.x ;
+    double  shiftY = gs.y ;
     //zmienne do kolizji
     int layID=2, tileID=10;
     double oldX=gs.x, oldY=gs.y;
@@ -35,8 +35,8 @@ public class Play extends BasicGameState {
         map = new TiledMap("Resources/graphics/maps/mapTest.tmx");
         img = new Image("Resources/Graphics/Character/heroTest.png");
         
-        gs.x = 400;
-        gs.y = 400;
+        gs.x = 800;
+        gs.y = 800;
         
         Image [] walkDown =  {img.getSubImage(0, 0, 48, 48),img.getSubImage(48, 0, 48, 48)
                              ,img.getSubImage(96, 0, 48, 48),img.getSubImage(144, 0, 48, 48)};
@@ -88,10 +88,10 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        map.render(0, 0,(int)(gs.x / 32),(int)(gs.y / 32),32,23);
+        map.render(0, 0, 0, 15, 50, 50); 
         //wprowadzenie do kolizji -> szymonSanok
         layID = map.getLayerIndex("Background");
-        tileID=map.getTileId((gs.x*2)/32, (gs.y*2)/32, layID);
+       tileID=map.getTileId((gs.x/32), (gs.y/32), layID);
         if(tileID==1677){
         //blocked="false".equals(map.getTileProperty(tileID, "Collision", "true"));
         //if(blocked==true){
@@ -99,10 +99,10 @@ public class Play extends BasicGameState {
             shiftY=oldY;
         }
         //współrzędne -> szymonSanok
-        g.drawString("x "+String.valueOf(gs.x)+" y "+String.valueOf(gs.y), 10f, 30f);
+        g.drawString("x "+String.valueOf(gs.x/32)+" y "+String.valueOf(gs.y/32), 10f, 30f);
         // mapa skacze, wiem i poprawie to - kalvador :)
          
-        hero.draw((float)shiftX,(float)shiftY);
+        hero.draw(gs.x,400);
         //img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
         //(startXonWindow,startYonWindow,endXonWindow,endYonWindow,
         //  startXpartOfpicture,startYpartOfpicture,endXpartOfpicture,endYpartOfpicture)
