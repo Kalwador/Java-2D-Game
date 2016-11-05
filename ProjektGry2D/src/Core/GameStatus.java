@@ -13,13 +13,15 @@ public class GameStatus {
     public String mapName;
     public int x,y; //pozycja postaci na mapie
     public core.actor.Hero hero;
-    public double heroSpeed;
+    public double heroSpeed,heroH,heroW;
 
     public GameStatus() {
         this.mapName = "";
-        this.x = 0;
-        this.y = 0;
+        this.x = 1;
+        this.y = 1;
         this.heroSpeed = 1;
+        this.heroH=48;
+        this.heroW=48;
     }
     
 
