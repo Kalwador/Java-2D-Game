@@ -23,7 +23,7 @@ public class Play extends BasicGameState {
     double  shiftY = gs.y ;
     //zmienne do kolizji
     int layID=2, tileID=10;
-   double oldXX=gs.x, oldYY=gs.y;
+   
 
 
         
@@ -89,27 +89,27 @@ public class Play extends BasicGameState {
         if(input.isKeyDown(Input.KEY_ESCAPE)) {
             sbg.enterState(2);
         }
-
+        //wprowadzenie do kolizji -> szymonSanok
+        layID = map.getLayerIndex("Objects");
+        tileID=map.getTileId((gs.x/32), (gs.y/32), layID);
+        if(tileID>0){
+        
+            gs.x=(int)oldX;
+            gs.y=(int)oldY;
+        }
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        map.render(0, 0, 0, 15, 50, 50); 
-        //wprowadzenie do kolizji -> szymonSanok
-        layID = map.getLayerIndex("Objects");
-       tileID=map.getTileId((gs.x/32), (gs.y/32), layID);
-        if(tileID==1677){
-        //blocked="false".equals(map.getTileProperty(tileID, "Collision", "true"));
-        //if(blocked==true){
-            shiftX=oldXX;
-            shiftY=oldYY;
-        }
+        map.render(0, 0, 0, 15, 50, 50);
+        
+        
         //współrzędne -> szymonSanok
         g.drawString("x "+String.valueOf(gs.x/32)+" y "+String.valueOf(gs.y/32), 10f, 30f);
         g.drawString("tileID "+String.valueOf(tileID)+" layID "+String.valueOf(layID), 10f, 60f);
         // mapa skacze, wiem i poprawie to - kalvador :)
          
-        hero.draw(gs.x,gs.y);
+        hero.draw(gs.x,gs.y-496);
         //img.draw(GameStatus.x, GameStatus.y, GameStatus.x + 48, GameStatus.y + 48, 0, 0, 48, 48);
         //(startXonWindow,startYonWindow,endXonWindow,endYonWindow,
         //  startXpartOfpicture,startYpartOfpicture,endXpartOfpicture,endYpartOfpicture)
