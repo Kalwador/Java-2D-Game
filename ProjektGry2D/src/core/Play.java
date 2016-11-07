@@ -79,9 +79,9 @@ public class Play extends BasicGameState {
             sbg.enterState(2);
         }
         //wprowadzenie do kolizji -> szymonSanok
-        layID = map.getLayerIndex("Objects");
-        tileID = map.getTileId((gs.x / 32), (gs.y / 32), layID);
-        if (tileID > 0) {
+        layID = map.getLayerIndex("Meta");
+        tileID = map.getTileId(((gs.x) / 32), ((gs.y) / 32), layID);
+        if (tileID == 3208) {
 
             gs.x = (int) oldX;
             gs.y = (int) oldY;
