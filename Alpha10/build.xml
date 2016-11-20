@@ -7,7 +7,7 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="Alpha1.0" default="default" basedir=".">
+<project name="Alpha10" default="default" basedir=".">
     <description>Builds, tests, and runs the project Alpha1.0.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
