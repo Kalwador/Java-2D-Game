@@ -1,4 +1,5 @@
-﻿# Projekt Gry 2d RPG 
+﻿# LegendaryAdventure 
+# Version Alpha 1.0 
 
 Lista: 
 1. Szymon Kulikowski
@@ -9,12 +10,12 @@ Lista:
 6. Szpila Piotr
 
 Server:github
-Jezyk:JAVA 
+Jezyk:JAVA
 Silnik: Slick 2D
+Baza: SQLlite
 
-Sterowanie:klawiatura i mysz do obsługi zdarzeń
-Mapa i poruszanie: Mapa statyczna na poaczątek, składająca sie z dużej iliści mniejszych lokacji połączonych ze sobą przejściami. 
-                  Porusza się postać. Widok lekko przekrzywiony.
+Sterowanie:klawiatura i mysz
+Mapa i poruszanie: Mapa składająca sie z dużej iliści mniejszych lokacji połączonych ze sobą przejściami.     
 Kolizje: Mapa wysokości
 Obrażenia: statyczne na początek
 

@@ -1,0 +1,10 @@
+ProjektGry2D/build/
+*.xml
+/ProjektGry2D/dist/
+/ProjektGry2D/build/
+/ProjektGry2D/nbproject/
+/ProjektGry2D/test/
+/Alfa-10/dist/
+/LegendaryAdventure1.0/build/
+/Alpha1.0/build/
+/Alpha1.0/nbproject/private/
