@@ -9,19 +9,9 @@ Lista:
 5. Półzieć Szymon
 6. Szpila Piotr
 
-Server:github
-Jezyk:JAVA
+RCS:Github
+Jezyk:JAVA 8.0
 Silnik: Slick 2D
-Baza: SQLlite
-
-Sterowanie:klawiatura i mysz
-Mapa i poruszanie: Mapa składająca sie z dużej iliści mniejszych lokacji połączonych ze sobą przejściami.     
-Kolizje: Mapa wysokości
-Obrażenia: statyczne na początek
-
-HUD: 
-1. dodatkowe okna po bokach
-2. okna z pełnymi danymi pod klawiszami, np: "J"-zadania
-
+Baza: SQLlite, Hiberante
 
 
