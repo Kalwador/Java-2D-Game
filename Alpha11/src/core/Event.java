@@ -46,7 +46,7 @@ public class Event extends Actor {
     //obsługa kolizji, eventów i przejść
     public int colision(GameStatus gs, StateBasedGame sbg, HUD hud, Input input, double oldX, double oldY) throws SlickException {
 
-        LoadEntity.recPlayer = new Rectangle(gs.x, gs.y, actor.heroW, actor.heroH);
+        LoadEntity.recPlayer = new Rectangle(gs.x, gs.y, actor.heroW-15, actor.heroH);
         int iter = 0;
 
         //portal
