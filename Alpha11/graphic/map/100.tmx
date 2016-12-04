@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="collisions" tilewidth="32" tileheight="32">
+  <image source="../tiles/collisions.png" width="160" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="gate" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="npc" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="item" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="6" name="doors" tilewidth="32" tileheight="32">
+  <image source="../tiles/Door cr Mack recolor and edit GrandmaDeb_zpsv3mxtwul.png" width="384" height="512"/>
+ </tileset>
+ <tileset firstgid="198" name="furnitures_01" tilewidth="32" tileheight="32">
+  <image source="../tiles/HF1_Indoors_1.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="454" name="furnitures_02" tilewidth="32" tileheight="32">
+  <image source="../tiles/HF1_Indoors_2.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="710" name="furnitures_03" tilewidth="32" tileheight="32">
+  <image source="../tiles/HF1_Indoors_3.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="966" name="walls" tilewidth="32" tileheight="32">
+  <image source="../tiles/tilesetHouse.png" width="288" height="416"/>
+ </tileset>
+ <tileset firstgid="1083" name="fire19pv-1" tilewidth="200" tileheight="200">
+  <image source="../tiles/fire19pv-1.png" width="800" height="800"/>
+ </tileset>
+ <layer name="bg" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3ROQqAMBSE4UByL2/vUrkWbkSMHsED+AetBCUPtLP4mGqYBy/WSiVIhTLkKFALlKgwocMo0MNCG6U2stFHhrLnrqTzd9/phv7qy5ufbvDdFpGR7w6Y4U7LDXdJb8UOK2XijYQDAAA=
+  </data>
+ </layer>
+ <layer name="ob1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC6WPuw4BQRSGj1mVywPY5QVcCrXKi6FRETRuIWjcKhSrZQsvIPQKPIBC7ZeZTWbXRIb9ky8zOXO+s2eJgucOEmEiE1igxIjKoMK8dX/aeH+K+1HQQK0JWozXuwZRD/QNrztln/NGqI3BRLzN4SzAEnQk31a4qtQMzkxyD5Jb+DJnYHC2khtBfxTEQFxzBzcm+i2QBClQDem7afRnQBbkNF1bnPUf93zHEedQ083/8Q03RYV7wv+dwUOgygreGmx8/hX9N8AY56KYv0NtD5wAe8t5ATpSIoyEAwAA
+  </data>
+ </layer>
+ <layer name="ob2" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGN6gmhmCR8EoGKwAAA/yqkeEAwAA
+  </data>
+ </layer>
+ <layer name="ob3" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGN7Ajpky/cYU6h8Fo4AQAAD11jpBhAMAAA==
+  </data>
+ </layer>
+ <layer name="eff" width="15" height="15" opacity="0.71">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGJzAjYWBwZoFuxyyuBsWNbj04bOLFP3o8tjcQA4g1d3DFdjhCAdywtmVimbhA9jcjG63Aw47AVYhogmEAwAA
+  </data>
+ </layer>
+ <layer name="coll" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgpACTAygxB109pXqJ9RuxYvjMJQUwItGUhjO5gNgwwRUGxJhFi3Q1UHrJxQCSNTNshAMAAA==
+  </data>
+ </layer>
+ <layer name="portal" width="15" height="15" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NiGAWjABMwDZDekQgA1uAUe4QDAAA=
+  </data>
+ </layer>
+ <layer name="npc" width="15" height="15" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NmGAWjYBQMJAAAcFW1jIQDAAA=
+  </data>
+ </layer>
+ <layer name="item" width="15" height="15" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NhGHmAZaAdMApGARIAAGnaoEiEAwAA
+  </data>
+ </layer>
+</map>

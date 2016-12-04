@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/Camera.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/Main.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/gauss/ScreenClass.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/Event.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/QuestsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/BagState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/HUD.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/LoadEntity.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/CharacterState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/gauss/PixelUtils.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/MapState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/MenuState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/gauss/AbstractBufferedImageOp.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/PlayState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/states/OptionsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/status/Hero.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/Actor.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/core/GameStatus.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/status/Quest.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha11/src/gauss/Gauss.java</file>
+        </group>
+    </open-files>
+</project-private>
