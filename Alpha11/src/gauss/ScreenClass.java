@@ -23,11 +23,14 @@ import javax.imageio.ImageIO;
  * @author Jarek
  */
 public class ScreenClass {
+
+    //nr aktualnie tworzonego screena
     public static int nrScreena = 0;
+
     //metoda do robienia screenów gry
     public static void makeScreen() {
         try {
-            
+
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             //System.out.println(screenRect.height + " " + screenRect.width + " " + screenRect.x + " " + screenRect.y);
 
@@ -47,15 +50,42 @@ public class ScreenClass {
             BufferedImageOp op = new ConvolveOp(new Kernel(20, 20, matrix), ConvolveOp.EDGE_NO_OP, null);
             BufferedImage capture1 = new BufferedImage(1280, 720, BufferedImage.TYPE_INT_RGB);
             //BufferedImage blurredImage = op.filter(capture, capture1);
-
-            ImageIO.write(op.filter(capture, capture1), "png", new File("graphic/menu/skrin1.png"));
-            op=null;capture=null;capture1=null;
-//            nrScreena ++;
+            nrScreena++;
+            ImageIO.write(op.filter(capture, capture1), "png", new File("graphic/menu/skrin" + nrScreena + ".png"));
+            if (nrScreena > 2) {
+                deleteScreen();
+            }
 
         } catch (AWTException aWTException) {
             System.out.println("Błąd AWT - makeScreen");
         } catch (IOException iOException) {
             System.out.println("Błąd IO - makeScreen");
+        }
+    }
+
+    // zwraca ścieżkę z nr obecnego screena
+    public static String screenNumber() {
+        return "graphic/menu/skrin" + nrScreena + ".png";
+    }
+      
+    // usuwa screeny nie używane przez program
+    public static void deleteScreen() {
+        // souty w celu ew testowania
+        try {
+            File file = null;
+            for (int i = 0; i < nrScreena; i++) {
+                file = new File("graphic/menu/skrin" + i + ".png");
+                if (file.exists()) {
+                    if (file.delete()) {
+                        System.out.println(file.getName() + " is deleted!");
+                    } else {
+                        System.out.println(file.getName() + " delete operation is failed.");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            //raczej się nie zdarzy :D
+            e.printStackTrace();
         }
     }
 }

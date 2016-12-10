@@ -79,7 +79,7 @@ public class Event extends Actor {
         }
         return 0;
     }
-
+//----------skille----------odkomentowałem
     //obsługa klawiszy funkcyjnych
     public static void functionalKey(GameContainer gc, StateBasedGame sbg, Input input,int xpos, int ypos) {
 
@@ -133,17 +133,17 @@ public class Event extends Actor {
                 sbg.enterState(5);
             }
         }
-//        //okno skili
-//        if (input.isKeyPressed(Input.KEY_K)) {
-//            if (sbg.getCurrentStateID() == 6) {
-//                sbg.enterState(1);
-//            } else {
-//                Mouse.setCursorPosition(0, 720);
-//            gauss.ScreenClass.makeScreen();
-//            Mouse.setCursorPosition(xpos, ypos);
-//                sbg.enterState(6);
-//            }
-//        }
+        //okno skili
+        if (input.isKeyPressed(Input.KEY_K)) {
+            if (sbg.getCurrentStateID() == 6) {
+                sbg.enterState(1);
+            } else {
+                Mouse.setCursorPosition(0, 720);
+            gauss.ScreenClass.makeScreen();
+            Mouse.setCursorPosition(xpos, ypos);
+                sbg.enterState(6);
+            }
+        }
         //okno mapy
         if (input.isKeyPressed(Input.KEY_M)) {
             if (sbg.getCurrentStateID() == 7) {

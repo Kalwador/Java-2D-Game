@@ -44,6 +44,7 @@ public class HUD {
         npcMessage = "";
     }
 
+    //dodane robienie screenów dla scen, 4 ify zmienione
     public void update(GameContainer gc, StateBasedGame sbg, int xPos, int yPos) throws SlickException {
 
         Input input = gc.getInput();
@@ -52,22 +53,35 @@ public class HUD {
         //hud obsługa myszką
         if ((xPos > 267 && xPos < 336) && (yPos > 24 && yPos < 93)) {
             if (input.isMouseButtonDown(0)) {
+            Mouse.setCursorPosition(0, 720);
+            gauss.ScreenClass.makeScreen();
+            Mouse.setCursorPosition(640, 360);
                 sbg.enterState(3);
             }
         }
         if ((xPos > 349 && xPos < 418) && (yPos > 24 && yPos < 93)) {
             if (input.isMouseButtonDown(0)) {
+            Mouse.setCursorPosition(0, 720);
+            gauss.ScreenClass.makeScreen();
+            Mouse.setCursorPosition(640, 360);
                 sbg.enterState(5);
             }
         }
         if ((xPos > 429 && xPos < 498) && (yPos > 24 && yPos < 93)) {
             if (input.isMouseButtonDown(0)) {
+            Mouse.setCursorPosition(0, 720);
+            gauss.ScreenClass.makeScreen();
+            Mouse.setCursorPosition(640, 360);
                 sbg.enterState(4);
             }
         }
         if ((xPos > 509 && xPos < 578) && (yPos > 24 && yPos < 93)) {
             if (input.isMouseButtonDown(0)) {
-                sbg.enterState(4);
+            Mouse.setCursorPosition(0, 720);
+            gauss.ScreenClass.makeScreen();
+            Mouse.setCursorPosition(640, 360);
+            //----------------wcześniej było (4)--------------------------
+                sbg.enterState(6);
             }
         }
         if (console == false) {

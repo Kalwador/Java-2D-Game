@@ -23,13 +23,13 @@ public class BagState extends BasicGameState {
     Font font;
     //TrueTypeFont printHead;
     TrueTypeFont printLabel;
-    Image skrinGB;
+    String actualScr;
     
     //---------- GRUPA PLECAKA --------------------
-    ItemToDisplay[][] ittd = new ItemToDisplay[6][5];
+    ItemToDisplay[][] ittd = new ItemToDisplay[6][8];
 
     int corXsqis = 0; //pozycja X kwadratu wyboru przemiotu (0-5)
-    int corYsqis = 0; //pozycja Y kwadratu wyboru przemiotu (0-6)
+    int corYsqis = 0; //pozycja Y kwadratu wyboru przemiotu (0-7)
 
     float posXmqssI = 305; // współrzędna X pozycji miniatury/kwadratu wyboru
     float posYmqssI = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru
@@ -40,10 +40,10 @@ public class BagState extends BasicGameState {
     ArrayList<Item> items = new ArrayList<>(); //kolekcja przedmiotów z plecaka
 
     //------------- GRUPA BRONI -------------------
-    ItemToDisplay[][] ittdW = new ItemToDisplay[6][5];
+    ItemToDisplay[][] ittdW = new ItemToDisplay[6][8];
 
     int corXsqisW = 0; //pozycja X kwadratu wyboru broni (0-5)
-    int corYsqisW = 0; //pozycja Y kwadratu wyboru broni (0-6)
+    int corYsqisW = 0; //pozycja Y kwadratu wyboru broni (0-7)
 
     float posXmqssIW = 683; // współrzędna X pozycji miniatury/kwadratu wyboru broni
     float posYmqssIW = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru broni
@@ -56,7 +56,6 @@ public class BagState extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        Image skrinGB = new Image("graphic/menu/skrin1.png");
         mouse = "";
         //Tablica dodatkowych polskich znaków
         char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
@@ -120,7 +119,8 @@ public class BagState extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
         //Tło sceny - rozmyty printscreen
-        skrinGB = new Image("graphic/menu/skrin1.png");
+        actualScr = gauss.ScreenClass.screenNumber();
+        Image skrinGB = new Image(actualScr);
         g.drawImage(skrinGB, 0, 0);
         //Okna plecaka i broni
         Image menuW = new Image("graphic/menu/BagEquipScene2.png");
@@ -137,14 +137,15 @@ public class BagState extends BasicGameState {
                 }
             }
         }
-        //Wyswietlenie tła kartki w oknie plecaka
-        g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), 307, 403);
-        //Wyswietlenie opisu przedmiotu
-        try {
-            g.drawImage(new Image(ittd[corXsqis][corYsqis].item.itemDescriptionPath), 307, 403);
-        } catch (NullPointerException npe) {
-            g.drawImage(new Image("graphic/items/descriptions/mkPusty.png"), 307, 403);
-        }
+        //------------------stary sposób wyswietlania kartki z opisem przedmiotu----------------
+//////        //Wyswietlenie tła kartki w oknie plecaka
+//////        g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), 307, 403);
+//////        //Wyswietlenie opisu przedmiotu
+//////        try {
+//////            g.drawImage(new Image(ittd[corXsqis][corYsqis].item.itemDescriptionPath), 307, 403);
+//////        } catch (NullPointerException npe) {
+//////            g.drawImage(new Image("graphic/items/descriptions/mkPusty.png"), 307, 403);
+//////        }
 //------------------------------------------------W
         //Rysowanie miniatur broni
         int kW = 0;
@@ -156,14 +157,15 @@ public class BagState extends BasicGameState {
                 }
             }
         }
-        //Wyswietlenie tła kartki w oknie broni
-        g.drawImage(new Image("graphic/itemsWeap/descriptions/malaKartka.png"), 683, 403);
-        //Wyswietlenie opisu broni
-        try {
-            g.drawImage(new Image(ittdW[corXsqisW][corYsqisW].item.itemDescriptionPath), 683, 403);
-        } catch (NullPointerException npe) {
-            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
-        }
+        //------------------stary sposób wyswietlania kartki z opisem broni----------------
+//////        //Wyswietlenie tła kartki w oknie broni
+//////        g.drawImage(new Image("graphic/itemsWeap/descriptions/malaKartka.png"), 683, 403);
+//////        //Wyswietlenie opisu broni
+//////        try {
+//////            g.drawImage(new Image(ittdW[corXsqisW][corYsqisW].item.itemDescriptionPath), 683, 403);
+//////        } catch (NullPointerException npe) {
+//////            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
+//////        }
 //------------------------------------------------
         printLabel.drawString(760, 585, "Powrót do gry");
         g.drawRoundRect(750, 575, 190, 30, 6);
@@ -187,13 +189,17 @@ public class BagState extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        skrinGB = new Image("graphic/menu/skrin1.png");
+        
+        //skrinGB = new Image("graphic/menu/skrin1.png");
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
         //powrót do gry
-        if ((xpos > 750 && xpos < 939) && (ypos > 115 && ypos < 145)) {
+        if (((xpos > 750 && xpos < 939) && (ypos > 115 && ypos < 145)) || //powrot do gry
+                ((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636)) || // X w lewym oknie
+                    ((xpos > 965 && xpos < 996) && (ypos > 606 && ypos < 636))// X w prawym oknie
+                ) {
             if (input.isMouseButtonDown(0)) {
                 sbg.enterState(1);
             }
@@ -225,7 +231,7 @@ public class BagState extends BasicGameState {
             }
 
             if (input.isKeyPressed(Input.KEY_DOWN)) {
-                if (corYsqis < 4) {
+                if (corYsqis < 7) {
                     corYsqis++;
                     r.setY(r.getY() + 47.5f);
                 }
@@ -255,7 +261,7 @@ public class BagState extends BasicGameState {
             }
 
             if (input.isKeyPressed(Input.KEY_DOWN)) {
-                if (corYsqisW < 4) {
+                if (corYsqisW < 7) {
                     corYsqisW++;
                     rW.setY(rW.getY() + 47f);
                 }

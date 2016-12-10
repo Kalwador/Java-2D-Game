@@ -19,11 +19,13 @@ import org.newdawn.slick.state.StateBasedGame;
 public class QuestsState extends BasicGameState {
 
     String mouse;
+    String onScreenLoc;
     Font font;
     TrueTypeFont printLabel;
     ArrayList<String> questy = new ArrayList<>();
     int bp = 0;
     Color c = Color.black;
+    String actualScr;
 
     //wsp pocz suwaka
     int suwX = 790;
@@ -31,7 +33,7 @@ public class QuestsState extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mouse = "";
+        mouse = ""; onScreenLoc = " ";
         questy.add("Zemsta na bandytach");
         questy.add("Gdzie uciekl herszt");
         questy.add("Obozowisko na polach");
@@ -70,12 +72,15 @@ public class QuestsState extends BasicGameState {
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
+        onScreenLoc = "x= " + xpos + " y=" + Math.abs(720-ypos);
+        
         
         if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_M)) {
             sbg.enterState(1);
         }
         //powrót do menu
-        if ((xpos > 520 && xpos < 720) && (ypos > 145 && ypos < 175)) {
+        if (((xpos > 520 && xpos < 720) && (ypos > 145 && ypos < 175))
+                || /* X okna*/((xpos > 779 && xpos < 812) && (ypos > 606 && ypos < 636))) {
             if (input.isMouseButtonDown(0)) {
                 sbg.enterState(1);
             }
@@ -107,7 +112,8 @@ public class QuestsState extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
         //Tło sceny - rozmyty printscreen
-        Image skrinGB = new Image("graphic/menu/skrin1.png");
+        actualScr = gauss.ScreenClass.screenNumber();
+        Image skrinGB = new Image(actualScr);
         g.drawImage(skrinGB, 0, 0);
         //Okno questa
         Image menuW = new Image("graphic/menu/QuestNew.png");
@@ -116,6 +122,7 @@ public class QuestsState extends BasicGameState {
         Image skrolus = new Image("graphic/menu/skrolus.png");
         g.drawImage(skrolus, suwX, suwY);
 
+        printLabel.drawString(100, 30, onScreenLoc);
         printLabel.drawString(100, 10, mouse);
         printLabel.drawString(100, 30, " bieżący indeks " + String.valueOf(bp));
         printLabel.drawString(100, 50, " rozmiar listy " + String.valueOf(questy.size()));

@@ -16,7 +16,7 @@ public class MapState extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        backGround = new Image("graphic/menu/woodBackground.jpg");
+        backGround = new Image("graphic/menu/backgroundMainMenu.jpg");
         map = new Image("graphic/map/map.jpg");
     }
 

@@ -29,12 +29,29 @@ import org.newdawn.slick.state.StateBasedGame;
 public class CharacterState extends BasicGameState {
 
     String mouse;
+    String onScreenLoc;
     Font font;
     TrueTypeFont printLabel;
+    String actualScr;
+    
+    //---Pola do powiązania z zewnętrzem---
+    private static String playerName = "Nazwa gracza";
+    private static int strength = 44;
+    private static int agility = 17;
+    private static int defence = 34;
+    private static int wisdom = 10;
+    
+    private static int actualXPtoSpend = 9;
+    
+    private static int health = 340;
+    private static int attSpeed = 30;
+    private static int mana = 50;
+    private static int movSpeed = 100;
+    //-----------------------------------------
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mouse = "";
+        mouse = ""; onScreenLoc = " ";
 
         //czcionki opisane w bagstate
         char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
@@ -57,38 +74,68 @@ public class CharacterState extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
         //Tło sceny - rozmyty printscreen
-        Image skrinGB = new Image("graphic/menu/skrin1.png");
+        actualScr = gauss.ScreenClass.screenNumber();
+        Image skrinGB = new Image(actualScr);
         g.drawImage(skrinGB, 0, 0);
-        //Okna skilli i char info
-        Image menuW = new Image("graphic/menu/CharInfandSkills.png");
+        //Okno character info
+        Image menuW = new Image("graphic/menu/CharacterInfoWithBack FV1_na_eksport.png");
         g.drawImage(menuW, 0, 0);
-        
-        Image warriorChar = new Image("graphic/heroSprite/warrior_small.png");
-        g.drawImage(warriorChar, 780, 200);
-        
-        Image levelBar = new Image("graphic/heroSprite/LevelStatic.png");
-        g.drawImage(levelBar, 670, 505);
-        
+
+            //Zostali spłaszczeni
+//        Image warriorChar = new Image("graphic/heroSprite/warrior_small.png");
+//        g.drawImage(warriorChar, 780, 200);        
+//        Image levelBar = new Image("graphic/heroSprite/LevelStatic.png");
+//        g.drawImage(levelBar, 670, 505);
+
+
+            //Sloty lewa strona - nie kasować!!! vvvv
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 692, 208);         
+        g.drawImage(new Image("graphic/itemsWeap/miniatures/dagger-3.png"), 692, 261);         
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 692, 317);         
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 692, 372);         
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 692, 426);         
+
+            //Sloty prawa strona
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 868, 208);         
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 868, 261);         
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 868, 317);                
+//        g.drawImage(nowy Obrazek(sciezka obrazka), 868, 372);  
+        g.drawImage(new Image("graphic/itemsWeap/miniatures/Shoes_2.png"), 868, 426);  
+        //         ------------------------- ^^^^
+
         printLabel.drawString(100, 10, mouse);
-
-        printLabel.drawString(313, 162, "Siła    Umysł  Obrona  Magia");
-        printLabel.drawString(380, 585, "Powrót do gry");
-        g.drawRoundRect(370, 575, 190, 30, 6);
-
-        printLabel.drawString(390, 100, "Umiejętności");
-        printLabel.drawString(800, 100, "Info");
-        printLabel.drawString(700, 575, "CharacterInfo & Skills");
+        printLabel.drawString(100, 30, onScreenLoc);
+        
+        
+        //-------------Wszystkie dane liczbowe--------------
+        printLabel.drawString(407, 207, playerName);
+        
+        printLabel.drawString(571, 272, String.valueOf(strength));
+        printLabel.drawString(571, 311, String.valueOf(agility));
+        printLabel.drawString(571, 351, String.valueOf(defence));
+        printLabel.drawString(571, 392, String.valueOf(wisdom));
+        
+        printLabel.drawString(635, 228, String.valueOf(actualXPtoSpend));
+        
+        printLabel.drawString(492, 447, String.valueOf(health));
+        printLabel.drawString(555, 463, String.valueOf(attSpeed));
+        printLabel.drawString(462, 480, String.valueOf(mana));
+        printLabel.drawString(560, 496, String.valueOf(movSpeed));
+        
+        printLabel.drawString(678, 519, "CharacterInfo State");
     }
 
+    //działa X (zamykanie w okienku)
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
+        onScreenLoc = "x= " + xpos + " y=" + Math.abs(720-ypos);
 
-        //powrót do menu
-        if ((xpos > 370 && xpos < 551) && (ypos > 114 && ypos < 143)) {
+        //powrót do gry
+        if ((xpos > 894 && xpos < 916) && (ypos > 564 && ypos < 592)) {
             if (input.isMouseButtonDown(0)) {
                 sbg.enterState(1);
             }
