@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/hud/Frame.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/core/Camera.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/hud/Buttons.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/dataBase/Actions.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/core/LoadEntity.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/hud/Console.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/model/Portal.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/actor/Event.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/core/Sprite.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/actor/Portals.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/dataBase/GameDataBase.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/states/QuestsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/states/PlayState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/dataBase/CharacterInformation.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/dataBase/Skills.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha1.15/Alpha115/src/actor/Movement.java</file>
+        </group>
+    </open-files>
+</project-private>
