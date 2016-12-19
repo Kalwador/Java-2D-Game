@@ -1,5 +1,6 @@
 package states;
 
+import actor.Fonts;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Rectangle;
@@ -33,7 +34,7 @@ public class CharacterState extends BasicGameState {
     Font font;
     TrueTypeFont printLabel;
     String actualScr;
-    
+    Fonts fonts = new Fonts();
     //---Pola do powiązania z zewnętrzem---
     private static String playerName = "Nazwa gracza";
     private static int strength = 44;
@@ -53,22 +54,7 @@ public class CharacterState extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mouse = ""; onScreenLoc = " ";
 
-        //czcionki opisane w bagstate
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-
-        try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fontFormatException) {
-            System.out.println("X");
-        } catch (IOException iOException) {
-            System.out.println("Y");
-        }
-
-//        TrueTypeFont ttf = new TrueTypeFont(font, true, tabc);
-//        ttf.drawString(50, 50, "Zaż" + "\n" + "ółć..." + "Zażółć gęślą jaźń");
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
-    }
+        fonts.ttfont();}
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
@@ -103,26 +89,26 @@ public class CharacterState extends BasicGameState {
         g.drawImage(new Image("graphic/itemsWeap/miniatures/Shoes_2.png"), 868, 426);  
         //         ------------------------- ^^^^
 
-        printLabel.drawString(100, 10, mouse);
-        printLabel.drawString(100, 30, onScreenLoc);
+        fonts.printLabel.drawString(100, 10, mouse);
+        fonts.printLabel.drawString(100, 30, onScreenLoc);
         
         
         //-------------Wszystkie dane liczbowe--------------
-        printLabel.drawString(407, 207, playerName);
+        fonts.printLabel.drawString(407, 207, playerName);
         
-        printLabel.drawString(571, 272, String.valueOf(strength));
-        printLabel.drawString(571, 311, String.valueOf(agility));
-        printLabel.drawString(571, 351, String.valueOf(defence));
-        printLabel.drawString(571, 392, String.valueOf(wisdom));
+        fonts.printLabel.drawString(571, 272, String.valueOf(strength));
+        fonts.printLabel.drawString(571, 311, String.valueOf(agility));
+        fonts.printLabel.drawString(571, 351, String.valueOf(defence));
+        fonts.printLabel.drawString(571, 392, String.valueOf(wisdom));
         
-        printLabel.drawString(635, 228, String.valueOf(actualXPtoSpend));
+        fonts.printLabel.drawString(635, 228, String.valueOf(actualXPtoSpend));
         
-        printLabel.drawString(492, 447, String.valueOf(health));
-        printLabel.drawString(555, 463, String.valueOf(attSpeed));
-        printLabel.drawString(462, 480, String.valueOf(mana));
-        printLabel.drawString(560, 496, String.valueOf(movSpeed));
+        fonts.printLabel.drawString(492, 447, String.valueOf(health));
+        fonts.printLabel.drawString(555, 463, String.valueOf(attSpeed));
+        fonts.printLabel.drawString(462, 480, String.valueOf(mana));
+        fonts.printLabel.drawString(560, 496, String.valueOf(movSpeed));
         
-        printLabel.drawString(678, 519, "CharacterInfo State");
+        fonts.printLabel.drawString(678, 519, "CharacterInfo State");
     }
 
     //działa X (zamykanie w okienku)

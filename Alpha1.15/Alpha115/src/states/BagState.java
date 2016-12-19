@@ -1,9 +1,8 @@
 package states;
 
+import actor.Fonts;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
@@ -11,7 +10,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -20,11 +18,8 @@ public class BagState extends BasicGameState {
 
     boolean czyPlecak = true; //zmienna decydująca o sterowaniu oknem Plecak lub Broń
     String mouse;
-    Font font;
-    //TrueTypeFont printHead;
-    TrueTypeFont printLabel;
     String actualScr;
-    
+    Fonts fonts = new Fonts();
     //---------- GRUPA PLECAKA --------------------
     ItemToDisplay[][] ittd = new ItemToDisplay[6][8];
 
@@ -58,19 +53,8 @@ public class BagState extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mouse = "";
         //Tablica dodatkowych polskich znaków
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-        try {
-            //Utworzenie czcionki
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            //font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fe) {
-            System.out.println("X");
-        } catch (IOException ioe) {
-            System.out.println("Y");
-        }
-        //stworzenie zmiennej printLabel, ustalenie parametrów czcionki
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
-        //printHead = new TrueTypeFont(font.deriveFont(Font.BOLD, 78f), true, tabc);
+        
+        fonts.ttfont();
 
         items.add(new Item("Luneta", "graphic/items/miniatures/advance_lens.png", "graphic/items/descriptions/mkLunetaPirata.png"));
         items.add(new Item("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
@@ -125,7 +109,7 @@ public class BagState extends BasicGameState {
         //Okna plecaka i broni
         Image menuW = new Image("graphic/menu/BagEquipScene2.png");
         g.drawImage(menuW, 0, 0);
-        printLabel.drawString(100, 10, mouse);
+        fonts.printLabel.drawString(100, 10, mouse);
 //------------------------------------------------
         int k = 0;
         //Rysowanie miniatur przedmiotów
@@ -167,24 +151,24 @@ public class BagState extends BasicGameState {
 //////            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
 //////        }
 //------------------------------------------------
-        printLabel.drawString(760, 585, "Powrót do gry");
+        fonts.printLabel.drawString(760, 585, "Powrót do gry");
         g.drawRoundRect(750, 575, 190, 30, 6);
 
         //Wysiwetlanie kwadratów wyboru
         g.drawRect(r.getX(), r.getY(), r.getHeight(), r.getWidth());
         g.drawRect(rW.getX(), rW.getY(), rW.getHeight(), rW.getWidth());
 
-        printLabel.drawString(420, 100, "Plecak");
-        printLabel.drawString(770, 100, "Wyposażenie");
+        fonts.printLabel.drawString(420, 100, "Plecak");
+        fonts.printLabel.drawString(770, 100, "Wyposażenie");
         //------------------------------------------------
-        printLabel.drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(corXsqis));
-        printLabel.drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(corYsqis));
+       fonts.printLabel.drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(corXsqis));
+        fonts.printLabel.drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(corYsqis));
 
         //------------------------------------------------W
-        printLabel.drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
-        printLabel.drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
+        fonts.printLabel.drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
+        fonts.printLabel.drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
         //------------------------------------------------
-        printLabel.drawString(310, 575, "C O N C E P T  BAG & SKILLS");
+        fonts.printLabel.drawString(310, 575, "C O N C E P T  BAG & SKILLS");
     }
 
     @Override

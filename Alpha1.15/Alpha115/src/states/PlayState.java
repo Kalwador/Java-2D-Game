@@ -73,8 +73,8 @@ public class PlayState extends BasicGameState {
         camera.drawMap(4); //efekty
 
         //render mainFrame
-        hud.render(gc, g, camera, gs);
-        
+        hud.render(gc, g, camera, gs, sbg);
+
         camera.translateGraphics();
         
         //render avatar, który siedzi w obiekcie event
