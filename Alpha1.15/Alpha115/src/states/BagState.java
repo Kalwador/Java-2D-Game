@@ -1,17 +1,15 @@
 package states;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
+import gameUtils.Fonts;
 import java.util.ArrayList;
+import model.Item;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -19,12 +17,17 @@ import org.newdawn.slick.state.StateBasedGame;
 public class BagState extends BasicGameState {
 
     boolean czyPlecak = true; //zmienna decydująca o sterowaniu oknem Plecak lub Broń
+    boolean bagCursorActivate = false;
+
     String mouse;
-    Font font;
-    //TrueTypeFont printHead;
-    TrueTypeFont printLabel;
+    gameUtils.Fonts fonts;
     String actualScr;
-    
+
+    // @Gajwer 
+    private int selectedItem;
+    private int selectedItemX;
+    private int selectedItemY;
+
     //---------- GRUPA PLECAKA --------------------
     ItemToDisplay[][] ittd = new ItemToDisplay[6][8];
 
@@ -37,7 +40,7 @@ public class BagState extends BasicGameState {
 
     Rectangle r = new Rectangle(posXmqssI, posYmqssI, hewiSq, hewiSq);//(305, 170, 43, 43);
 
-    ArrayList<Item> items = new ArrayList<>(); //kolekcja przedmiotów z plecaka
+    ArrayList<ItemLocal> itemsLoc = new ArrayList<>(); //kolekcja przedmiotów z plecaka lokalnego
 
     //------------- GRUPA BRONI -------------------
     ItemToDisplay[][] ittdW = new ItemToDisplay[6][8];
@@ -51,36 +54,30 @@ public class BagState extends BasicGameState {
 
     Rectangle rW = new Rectangle(posXmqssIW, posYmqssIW, hewiSqW, hewiSqW);//(683, 169, 43, 43);
 
-    ArrayList<Item> itemsW = new ArrayList<>(); //kolekcja broni
+    ArrayList<ItemLocal> itemsW = new ArrayList<>(); //kolekcja broni
     //------------------------------------------------
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mouse = "";
-        //Tablica dodatkowych polskich znaków
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-        try {
-            //Utworzenie czcionki
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            //font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fe) {
-            System.out.println("X");
-        } catch (IOException ioe) {
-            System.out.println("Y");
-        }
-        //stworzenie zmiennej printLabel, ustalenie parametrów czcionki
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
-        //printHead = new TrueTypeFont(font.deriveFont(Font.BOLD, 78f), true, tabc);
+        //Wytworzenie własnej czcionki
+        fonts = new gameUtils.Fonts();
 
-        items.add(new Item("Luneta", "graphic/items/miniatures/advance_lens.png", "graphic/items/descriptions/mkLunetaPirata.png"));
-        items.add(new Item("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
-        items.add(new Item("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
-        items.add(new Item("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
+        Item i1 = new Item(1, "Luneta", "Luneta znaleziona w porcie pirackim. Pozwala wypatrzeć wilki z ogległości 50m", 1, 1, 0, 0, 0, 0);
+        Item i2 = new Item(2, "Neseser", "Neseser jest ciężki. Skrywa jakiś tajemniczy przemiot... Do jego otwarcia potrzebujesz wytrychu lub klucza.", 1, 3, 0, 0, 0, 0);
+
+        itemsLoc.add(new ItemLocal(i1, "graphic/items/miniatures/advance_lens.png"));
+        itemsLoc.add(new ItemLocal(i2, "graphic/items/miniatures/tajemniczy_neseser.png"));
+
+//        itemsLoc.add(new ItemLocal("Luneta", "graphic/items/miniatures/advance_lens.png", "graphic/items/descriptions/mkLunetaPirata.png"));
+//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
+//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
+//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
 //------------------------------------------------W
-        itemsW.add(new Item("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-        itemsW.add(new Item("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
-        itemsW.add(new Item("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-        itemsW.add(new Item("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
+        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
+        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
+        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
+        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
 //------------------------------------------------
         int k = 0;
         //Generowanie współrzędnych dla wyświetlania miniatur przedmiotów
@@ -88,8 +85,8 @@ public class BagState extends BasicGameState {
         float posYmqssILOC = posYmqssI;
         for (int i = 0; i < ittd[0].length; i++) {
             for (int j = 0; j < ittd.length; j++) {
-                if (k < items.size()) {
-                    ittd[j][i] = new ItemToDisplay(posXmqssILOC, posYmqssILOC, items.get(k));
+                if (k < itemsLoc.size()) {
+                    ittd[j][i] = new ItemToDisplay(posXmqssILOC, posYmqssILOC, itemsLoc.get(k));
                     k++;
                 }
                 posXmqssILOC += 50.5f;
@@ -125,13 +122,14 @@ public class BagState extends BasicGameState {
         //Okna plecaka i broni
         Image menuW = new Image("graphic/menu/BagEquipScene2.png");
         g.drawImage(menuW, 0, 0);
-        printLabel.drawString(100, 10, mouse);
+        Fonts.printf().drawString(100, 10, mouse);
+        Fonts.printf().drawString(100, 70, String.valueOf(selectedItem));
 //------------------------------------------------
         int k = 0;
         //Rysowanie miniatur przedmiotów
         for (int i = 0; i < ittd[0].length; i++) {
             for (int j = 0; j < ittd.length; j++) {
-                if (k < items.size()) {
+                if (k < itemsLoc.size()) {
                     g.drawImage(new Image(ittd[j][i].item.miniaturePath), ittd[j][i].corXi, ittd[j][i].corYi);
                     k++;
                 }
@@ -151,7 +149,7 @@ public class BagState extends BasicGameState {
         int kW = 0;
         for (int i = 0; i < ittdW[0].length; i++) {
             for (int j = 0; j < ittdW.length; j++) {
-                if (kW < items.size()) {
+                if (kW < itemsLoc.size()) {
                     g.drawImage(new Image(ittdW[j][i].item.miniaturePath), ittdW[j][i].corXi, ittdW[j][i].corYi);
                     kW++;
                 }
@@ -167,38 +165,47 @@ public class BagState extends BasicGameState {
 //////            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
 //////        }
 //------------------------------------------------
-        printLabel.drawString(760, 585, "Powrót do gry");
+        Fonts.printf().drawString(760, 585, "Powrót do gry");
         g.drawRoundRect(750, 575, 190, 30, 6);
 
         //Wysiwetlanie kwadratów wyboru
         g.drawRect(r.getX(), r.getY(), r.getHeight(), r.getWidth());
         g.drawRect(rW.getX(), rW.getY(), rW.getHeight(), rW.getWidth());
 
-        printLabel.drawString(420, 100, "Plecak");
-        printLabel.drawString(770, 100, "Wyposażenie");
+        Fonts.printf().drawString(420, 100, "Plecak");
+        Fonts.printf().drawString(770, 100, "Wyposażenie");
         //------------------------------------------------
-        printLabel.drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(corXsqis));
-        printLabel.drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(corYsqis));
+        Fonts.printf().drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(corXsqis));
+        Fonts.printf().drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(corYsqis));
 
         //------------------------------------------------W
-        printLabel.drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
-        printLabel.drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
+        Fonts.printf().drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
+        Fonts.printf().drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
         //------------------------------------------------
-        printLabel.drawString(310, 575, "C O N C E P T  BAG & SKILLS");
+        Fonts.printf().drawString(310, 575, "C O N C E P T  BAG & SKILLS");
+
+        //@Gajwer
+        if (bagCursorActivate) {
+            RednerItemDescription(g);
+            bagCursorActivate = false;
+        }
     }
 
     @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+    public void update(GameContainer gc, StateBasedGame sbg,
+            int i) throws SlickException {
+
         //skrinGB = new Image("graphic/menu/skrin1.png");
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
         //powrót do gry
-        if (((xpos > 750 && xpos < 939) && (ypos > 115 && ypos < 145)) || //powrot do gry
-                ((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636)) || // X w lewym oknie
-                    ((xpos > 965 && xpos < 996) && (ypos > 606 && ypos < 636))// X w prawym oknie
+        if (((xpos > 750 && xpos < 939) && (ypos > 115 && ypos < 145))
+                || //powrot do gry
+                ((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636))
+                || // X w lewym oknie
+                ((xpos > 965 && xpos < 996) && (ypos > 606 && ypos < 636))// X w prawym oknie
                 ) {
             if (input.isMouseButtonDown(0)) {
                 sbg.enterState(1);
@@ -220,6 +227,19 @@ public class BagState extends BasicGameState {
                 czyPlecak = false;
             }
         }
+
+        //Uaktywnienie karteczki dla bag
+        if ((xpos > 305 && xpos < 598) && (ypos > 178 && ypos < 551)) {
+            if (input.isMouseButtonDown(0) || true) {
+                bagCursorActivate = true;
+            }
+        }
+        //Deaktywacja karteczki dla bag - Metoda wyłączona
+//        if ((xpos > 598 && xpos < 305) && (ypos > 551 && ypos < 178)) {
+//            if (input.isMouseButtonDown(0) || true) {
+//                bagCursorDeactivate = true;
+//            }       
+//        }
 
         if (czyPlecak) {
             // Sterowanie kwadratem wyboru p w plecaku
@@ -281,6 +301,73 @@ public class BagState extends BasicGameState {
                 }
             }
         }
+        //@Gajwer
+        int iS = 305;
+        int iE = 556;
+        int jS = 221;
+        int jE = 551;
+        int iL = 50;
+        int jL = 48;
+        int iW = 43;
+        int iH = 44;
+        int itemPositionInBag = 0;
+        if (czyPlecak) {
+            /*for (int j = iS; j < iE; j += iL) {
+                for (int k = jS; k < jE; k += jL) {
+                    if((xpos >= j && xpos <= j + iW)&&(ypos >= k && ypos <= k + iH)){
+                        System.out.println("test" + licznik);
+                        licznik++;
+                    }
+                }
+            }*/
+
+            for (int j = 551; j >= 220; j -= 47) {
+                for (int k = 305; k <= 557; k += 50) {
+                    if (((xpos >= k) && (xpos <= k + iW)) && ((ypos <= j) && (ypos >= j - iH))) {
+                        selectedItem = itemPositionInBag;
+                        selectedItemX = k + 43;
+                        selectedItemY = Math.abs(720 - j) + 22;
+                    }
+                    itemPositionInBag++;
+                }
+            }
+        }
+    }
+
+    public void RednerItemDescription(Graphics g) throws SlickException {
+        if (bagCursorActivate && selectedItem != -1 && itemsLoc.size() > selectedItem) {
+            g.drawImage(new Image("graphic/items/descriptions/malaKartkaWieksza.png"), selectedItemX, selectedItemY);
+
+            String n = itemsLoc.get(selectedItem).outsideItem.getDescription();
+            int size = n.length() / 3 + 1;
+
+            String descArray[] = new String[3];
+            descArray[0] = n.substring(0, size);
+            descArray[1] = n.substring(size, 2 * size);
+            descArray[2] = n.substring(2 * size, n.length());
+
+            Fonts.printfH().drawString(selectedItemX + 40, selectedItemY + 15, itemsLoc.get(selectedItem).outsideItem.getName(), Color.black);//"Nazwa przedmiotu"
+            Fonts.printf().drawString(selectedItemX + 20, selectedItemY + 45, descArray[0], Color.black); //Pierwsza linijka opisu
+            Fonts.printf().drawString(selectedItemX + 20, selectedItemY + 63, descArray[1], Color.black); //Druga linijka opisu
+            Fonts.printf().drawString(selectedItemX + 20, selectedItemY + 81, descArray[2], Color.black); //Trzecia linijka opisu
+
+            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 1) {
+                Fonts.printf().drawString(selectedItemX + 40, selectedItemY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
+            }
+            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 2) {
+                Fonts.printf().drawString(selectedItemX + 40, selectedItemY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
+            }
+            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 3) {
+                Fonts.printf().drawString(selectedItemX + 40, selectedItemY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
+            }
+            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 4) {
+                Fonts.printf().drawString(selectedItemX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
+            }
+
+        }
+//        else if(bagCursorDeactivate){ //Wyłączono
+//            g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), -666, -666);
+//        }
     }
 
     public BagState(int bag) {
@@ -290,28 +377,36 @@ public class BagState extends BasicGameState {
     public int getID() {
         return 4;
     }
+
 }
 
-class Item {
+class ItemLocal {
 
-    String name; // nazwa przedmiotu - nieistotne
+    String name; // nazwa przedmiotu 
     String miniaturePath; // scieżka miniatury
     String itemDescriptionPath; // scieżka do opisu przedmiotu
+    model.Item outsideItem; // chwilowe połączenie z zewnątrz
 
-    public Item(String nazwa, String sciezka_miniatury, String sciezka_opisu) {
+    public ItemLocal(String nazwa, String sciezka_miniatury, String sciezka_opisu) {
         this.name = nazwa;
         this.miniaturePath = sciezka_miniatury;
         this.itemDescriptionPath = sciezka_opisu;
     }
+
+    public ItemLocal(model.Item outsideItem, String miniaturePath) {
+        this.outsideItem = outsideItem;
+        this.miniaturePath = miniaturePath;
+    }
+
 }
 
 class ItemToDisplay {
 
     float corXi; // współrzędna X wyświetlania miniatury przedmiotu
     float corYi; // współrzędna Y wyświetlania miniatury przedmiotu
-    Item item; //Przedmiot
+    ItemLocal item; //Przedmiot
 
-    public ItemToDisplay(float wspXp, float wspYp, Item item) {
+    public ItemToDisplay(float wspXp, float wspYp, ItemLocal item) {
         this.corXi = wspXp;
         this.corYi = wspYp;
         this.item = item;

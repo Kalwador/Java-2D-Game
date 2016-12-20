@@ -1,38 +1,21 @@
 package states;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.Rectangle;
-import java.awt.font.GlyphVector;
-import java.io.File;
-import java.io.IOException;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
+import gameUtils.Fonts;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.util.ReadableColor;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.font.Glyph;
-import org.newdawn.slick.font.effects.ShadowEffect;
 import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class CharacterState extends BasicGameState {
 
     String mouse;
     String onScreenLoc;
-    Font font;
-    TrueTypeFont printLabel;
     String actualScr;
+    gameUtils.Fonts fonts;
     
     //---Pola do powiązania z zewnętrzem---
     private static String playerName = "Nazwa gracza";
@@ -52,22 +35,8 @@ public class CharacterState extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mouse = ""; onScreenLoc = " ";
-
-        //czcionki opisane w bagstate
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-
-        try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fontFormatException) {
-            System.out.println("X");
-        } catch (IOException iOException) {
-            System.out.println("Y");
-        }
-
-//        TrueTypeFont ttf = new TrueTypeFont(font, true, tabc);
-//        ttf.drawString(50, 50, "Zaż" + "\n" + "ółć..." + "Zażółć gęślą jaźń");
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
+        //Wytworzenie własnej czcionki
+        fonts = new gameUtils.Fonts();
     }
 
     @Override
@@ -103,26 +72,26 @@ public class CharacterState extends BasicGameState {
         g.drawImage(new Image("graphic/itemsWeap/miniatures/Shoes_2.png"), 868, 426);  
         //         ------------------------- ^^^^
 
-        printLabel.drawString(100, 10, mouse);
-        printLabel.drawString(100, 30, onScreenLoc);
+        Fonts.printf().drawString(100, 10, mouse);
+        Fonts.printf().drawString(100, 30, onScreenLoc);
         
         
         //-------------Wszystkie dane liczbowe--------------
-        printLabel.drawString(407, 207, playerName);
+        Fonts.printf().drawString(407, 207, playerName);
         
-        printLabel.drawString(571, 272, String.valueOf(strength));
-        printLabel.drawString(571, 311, String.valueOf(agility));
-        printLabel.drawString(571, 351, String.valueOf(defence));
-        printLabel.drawString(571, 392, String.valueOf(wisdom));
+        Fonts.printf().drawString(571, 272, String.valueOf(strength));
+        Fonts.printf().drawString(571, 311, String.valueOf(agility));
+        Fonts.printf().drawString(571, 351, String.valueOf(defence));
+        Fonts.printf().drawString(571, 392, String.valueOf(wisdom));
         
-        printLabel.drawString(635, 228, String.valueOf(actualXPtoSpend));
+        Fonts.printf().drawString(635, 228, String.valueOf(actualXPtoSpend));
         
-        printLabel.drawString(492, 447, String.valueOf(health));
-        printLabel.drawString(555, 463, String.valueOf(attSpeed));
-        printLabel.drawString(462, 480, String.valueOf(mana));
-        printLabel.drawString(560, 496, String.valueOf(movSpeed));
+        Fonts.printf().drawString(492, 447, String.valueOf(health));
+        Fonts.printf().drawString(555, 463, String.valueOf(attSpeed));
+        Fonts.printf().drawString(462, 480, String.valueOf(mana));
+        Fonts.printf().drawString(560, 496, String.valueOf(movSpeed));
         
-        printLabel.drawString(678, 519, "CharacterInfo State");
+        Fonts.printf().drawString(678, 519, "CharacterInfo State");
     }
 
     //działa X (zamykanie w okienku)

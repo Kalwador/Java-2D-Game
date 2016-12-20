@@ -1,10 +1,7 @@
 package states;
 
+import gameUtils.Fonts;
 import org.newdawn.slick.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
@@ -12,7 +9,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -20,8 +16,7 @@ public class QuestsState extends BasicGameState {
 
     String mouse;
     String onScreenLoc;
-    Font font;
-    TrueTypeFont printLabel;
+    gameUtils.Fonts fonts;
     ArrayList<String> questy = new ArrayList<>();
     int bp = 0;
     Color c = Color.black;
@@ -34,6 +29,10 @@ public class QuestsState extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mouse = ""; onScreenLoc = " ";
+        
+        //Wytworzenie własnej czcionki
+        fonts = new gameUtils.Fonts();
+        
         questy.add("Zemsta na bandytach");
         questy.add("Gdzie uciekl herszt");
         questy.add("Obozowisko na polach");
@@ -47,23 +46,6 @@ public class QuestsState extends BasicGameState {
         questy.add("Zaginiona paczka");
         questy.add("Bezdomny pies");
         questy.add("Rybobranie");
-
-        //czcionki opisane w bagstate
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-
-        try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fontFormatException) {
-            System.out.println("X");
-        } catch (IOException iOException) {
-            System.out.println("Y");
-        }
-
-//        TrueTypeFont ttf = new TrueTypeFont(font, true, tabc);
-//        ttf.drawString(50, 50, "Zaż" + "\n" + "ółć..." + "Zażółć gęślą jaźń");
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
-
     }
 
     @Override
@@ -122,10 +104,10 @@ public class QuestsState extends BasicGameState {
         Image skrolus = new Image("graphic/menu/skrolus.png");
         g.drawImage(skrolus, suwX, suwY);
 
-        printLabel.drawString(100, 30, onScreenLoc);
-        printLabel.drawString(100, 10, mouse);
-        printLabel.drawString(100, 30, " bieżący indeks " + String.valueOf(bp));
-        printLabel.drawString(100, 50, " rozmiar listy " + String.valueOf(questy.size()));
+        Fonts.printf().drawString(100, 30, onScreenLoc);
+        Fonts.printf().drawString(100, 10, mouse);
+        Fonts.printf().drawString(100, 30, " bieżący indeks " + String.valueOf(bp));
+        Fonts.printf().drawString(100, 50, " rozmiar listy " + String.valueOf(questy.size()));
 
 //        g.drawString("Opcje", 520, 375);
 //        g.drawRoundRect(520, 375, 300, 60, 6);
@@ -133,17 +115,17 @@ public class QuestsState extends BasicGameState {
 //        g.drawRoundRect(520, 445, 300, 60, 6);
 //        g.drawString("Wyjście", 520, 515);
 //        g.drawRoundRect(520, 515, 300, 60, 6);
-        printLabel.drawString(600, 100, "Questy");// (przewijanie strzalkami)");
+        Fonts.printf().drawString(600, 100, "Questy");// (przewijanie strzalkami)");
 
         int wspqy = 175; // wsp pocz y wyświetlania listy
         for (int i = bp; i < bp + 11; i++) {
-            printLabel.drawString(519, wspqy += 30, questy.get(i), c);
+            Fonts.printf().drawString(519, wspqy += 30, questy.get(i), c);
 
         }
 
-        printLabel.drawString(530, 555, "Powrót do gry", c);
+        Fonts.printf().drawString(530, 555, "Powrót do gry", c);
         g.drawRoundRect(520, 545, 200, 30, 6);
-        printLabel.drawString(510, 595, "C O N C E P T   Q U E S T S", c);
+        Fonts.printf().drawString(510, 595, "C O N C E P T   Q U E S T S", c);
     }
 
     public QuestsState(int state) {

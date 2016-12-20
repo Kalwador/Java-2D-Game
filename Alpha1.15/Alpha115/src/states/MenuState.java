@@ -1,5 +1,6 @@
 package states;
 
+import gameUtils.Fonts;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.File;
@@ -26,8 +27,19 @@ public class MenuState extends BasicGameState {
     Color c = Color.white; //Domyślny kolor napisów
     Color ctab[] = {c,c,c,c,c}; //Tablica kolorów tekstu na przyciskach
 
+    /**
+     * MEGA WAZNE NIE USUWAC, NIE MODYFIKOWAC OBIEKTU font2
+     */
+    gameUtils.Fonts font2;
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        /**
+         * MEGA WAZNE NIE USUWAC, NIE MODYFIKOWAC OBIEKTU font2
+         */
+        font2 = new Fonts();
+        
+        
         mouse = "";
         // wyjasnienia dot. czcionek wyjasnione w BagState
         char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
@@ -41,7 +53,6 @@ public class MenuState extends BasicGameState {
         }
         printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 25f), true, tabc);
         printHead = new TrueTypeFont(font.deriveFont(Font.BOLD, 78f), true, tabc);
-        //printLabel.drawString(50, 50, "Zaż" + "\n" + "ółć..." + "Zażółć gęślą jaźń");
     }
 
     @Override
@@ -59,7 +70,7 @@ public class MenuState extends BasicGameState {
         //wczytaj grę - play state 
         if ((xpos > 520 && xpos < 777) && (ypos > 410 && ypos < 484)) {
             if (input.isMouseButtonDown(0)) {
-                sbg.enterState(1);
+                sbg.enterState(10);
             }
             ctab[0] = Color.orange;
             if (input.isMouseButtonDown(0)) {
@@ -69,7 +80,7 @@ public class MenuState extends BasicGameState {
         //nowa gra - narazie brak
         if ((xpos > 520 && xpos < 777) && (ypos > 326 && ypos < 399)) {
             if (input.isMouseButtonDown(0)) {
-                //sbg.enterState(unknown);
+                sbg.enterState(1);
             }
             ctab[1] = Color.orange;
             if (input.isMouseButtonDown(0)) {
@@ -129,8 +140,8 @@ public class MenuState extends BasicGameState {
         }
 
         printHead.drawString(60, 100, "LEGENDARY ADVENTURES", Color.white);
-        printLabel.drawString(550, 260, "   Nowa gra", ctab[0]);
-        printLabel.drawString(550, 345, "  Wczytaj grę", ctab[1]);
+        printLabel.drawString(550, 260, "  Wczytaj grę", ctab[0]);
+        printLabel.drawString(550, 345, "    Nowa gra", ctab[1]);
         printLabel.drawString(550, 430, "       Opcje", ctab[2]);
         printLabel.drawString(550, 515, "     Twórcy", ctab[3]);
         printLabel.drawString(550, 600, "      Wyjście", ctab[4]);
@@ -138,6 +149,9 @@ public class MenuState extends BasicGameState {
         //g.drawLine(500, 235, 795, 312);
         g.drawString(mouse, 10, 10);
         //g.drawString(String.valueOf(licznik), 70, 70);
+
+        //--------------------- T U T A J     U Ĺ» Y C I E -----------------------------------
+       gameUtils.Fonts.printf().drawString(50, 50, "Zazółć gęślą jaźń");
     }
 
     public MenuState(int state) {

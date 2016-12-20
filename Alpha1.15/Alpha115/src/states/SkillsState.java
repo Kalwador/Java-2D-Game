@@ -1,9 +1,6 @@
 package states;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
+import gameUtils.Fonts;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -11,7 +8,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -19,8 +15,7 @@ public class SkillsState extends BasicGameState {
 
     String mouse;
     String onScreenLoc;
-    Font font;
-    TrueTypeFont printLabel;
+    gameUtils.Fonts fonts;
     String actualScr;
 
     //Pole sterujące aktywną zakładką
@@ -37,21 +32,8 @@ public class SkillsState extends BasicGameState {
         mouse = "";
         onScreenLoc = " ";
 
-        //czcionki opisane w bagstate
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń', 'Ł'};
-
-        try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fontFormatException) {
-            System.out.println("X");
-        } catch (IOException iOException) {
-            System.out.println("Y");
-        }
-
-//        TrueTypeFont ttf = new TrueTypeFont(font, true, tabc);
-//        ttf.drawString(50, 50, "Zaż" + "\n" + "ółć..." + "Zażółć gęślą jaźń");
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
+        //Wytworzenie własnej czcionki
+        fonts = new gameUtils.Fonts();
     }
 
     @Override
@@ -65,28 +47,28 @@ public class SkillsState extends BasicGameState {
         Image menuW = new Image("graphic/menu/SkillsWithBackExport.png");
         g.drawImage(menuW, 0, 0);
 
-        printLabel.drawString(10, 10, mouse);
-        printLabel.drawString(10, 30, onScreenLoc);
-        printLabel.drawString(10, 50, "Bieżąca zakładka: " + String.valueOf(actualSubWindow));
+        Fonts.printf().drawString(10, 10, mouse);
+        Fonts.printf().drawString(10, 30, onScreenLoc);
+        Fonts.printf().drawString(10, 50, "Bieżąca zakładka: " + String.valueOf(actualSubWindow));
 
-        printLabel.drawString(395, 184, "Wojownik", c[0]);
-        printLabel.drawString(602, 184, "Łowca", c[1]);
-        printLabel.drawString(800, 184, "Mag", c[2]);
+        Fonts.printf().drawString(395, 184, "Wojownik", c[0]);
+        Fonts.printf().drawString(602, 184, "Łowca", c[1]);
+        Fonts.printf().drawString(800, 184, "Mag", c[2]);
 
         // wyświetlanie dla zakładki wojownik
         if (actualSubWindow == 0) {
             //tutaj będzie więcej w przeszłości
-            printLabel.drawString(464, 342, "Test wyświetlania dla zakładki wojownik", co);
+            Fonts.printf().drawString(464, 342, "Test wyświetlania dla zakładki wojownik", co);
         }
         // wyświetlanie dla zakładki łowca
         if (actualSubWindow == 1) {
              //tutaj będzie więcej w przeszłości
-             printLabel.drawString(464, 342, "Test wyświetlania dla zakładki łowca", co);
+             Fonts.printf().drawString(464, 342, "Test wyświetlania dla zakładki łowca", co);
         }
         // wyświetlanie dla zakładki mag
         if (actualSubWindow == 2) {
             //tutaj będzie więcej w przeszłości
-            printLabel.drawString(464, 342, "Test wyświetlania dla zakładki mag", co);
+            Fonts.printf().drawString(464, 342, "Test wyświetlania dla zakładki mag", co);
         }
 
     }
