@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -119,7 +120,149 @@ public class LoadEntity {
      * @throws XMLStreamException
      */
 //    File xmlFile = new File("./src/parsexml/dane.xml");
-    public void updatePortalMapList2(ArrayList<model.Portal> portal) {
+    public void updatePortalMapList2(ArrayList<model.Portal> portalMapList) {
+        Portal newPortal;
+        String path = "res/portal/" + core.GameStatus.levelID + ".xml";
+        File filePath = new File(path);
+        try {
+            // tworzenie parsera
+        XMLInputFactory iFactory = XMLInputFactory.newInstance();
+        InputStream xmlFile = new FileInputStream(filePath);
+        XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
+            // dopoki masz nastepny element ...
+            newPortal = new Portal();
+            while (parser.hasNext()) {
+                 
+                // jesli jest to ... , wowczas ...
+                
+                switch (parser.next()) {
+// START ELEMENT // 
+                    case XMLStreamConstants.START_ELEMENT:
+                        if (parser.getLocalName().equals("Portal")) {
+                            newPortal = new Portal();
+                        }
+                        if (parser.getLocalName().equals("xStart")) {
+                            newPortal.setxStart(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("xEnd")) {
+                             newPortal.setxEnd(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("yStart")) {
+                             newPortal.setyStart(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("yEnd")) {
+                             newPortal.setyEnd(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("levelID")) {
+                             newPortal.setLevelID(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("xNew")) {
+                             newPortal.setxNew(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("yNew")) {
+                             newPortal.setyNew(Integer.parseInt(parser.getElementText()));
+                        }
+                        break;
+// END ELEMENT //
+                    case XMLStreamConstants.END_ELEMENT:
+                        
+                        if (parser.getLocalName().equals("Portal")) {
+                            portalMapList.add(newPortal);
+                        }
+                        break;
+                }
+            }
+        } catch (FileNotFoundException e1) {
+            System.out.println("Plik nie znaleziony - LoadPortal2 - " + GameStatus.levelID);
+        } catch (XMLStreamException e2) {
+            System.out.println("Bład pliku XML - LoadPortal");
+        } catch (NumberFormatException e3) {
+            System.out.println("Bledny format liczby - LoadPortal");
+        }
+    }
+    
+    public void loadAllItemsInGame(HashSet<model.Item> itemsInGame) {
+        model.Item newItem;
+        String path = "res/items/items.xml";
+        File filePath = new File(path);
+        try {
+            // tworzenie parsera
+        XMLInputFactory iFactory = XMLInputFactory.newInstance();
+        InputStream xmlFile = new FileInputStream(filePath);
+        XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
+            // dopoki masz nastepny element ...
+            newItem = new model.Item();
+            while (parser.hasNext()) {
+                 
+                // jesli jest to ... , wowczas ...
+                
+                switch (parser.next()) {
+// START ELEMENT // 
+                    case XMLStreamConstants.START_ELEMENT:
+                        if (parser.getLocalName().equals("Potion")) {
+                            newItem = new model.Item();
+                        }
+                        
+                        if (parser.getLocalName().equals("Food")) {
+                            newItem = new model.Item();
+                        }
+                        
+                        if (parser.getLocalName().equals("Herb")) {
+                            newItem = new model.Item();
+                        }
+                        if (parser.getLocalName().equals("id")) {
+                            newItem.setId(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("name")) {
+                            newItem.setName(parser.getElementText());
+                        }
+                        if (parser.getLocalName().equals("description")) {
+                            newItem.setDescription(parser.getElementText());
+                        }
+                        if (parser.getLocalName().equals("value")) {
+                            newItem.setValue(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("nOF")) {
+                            newItem.setnOF(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("hp")) {
+                            newItem.setHp(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("mp")) {
+                            newItem.setMp(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("kt")) {
+                            newItem.setKt(Integer.parseInt(parser.getElementText()));
+                        }
+                        if (parser.getLocalName().equals("id_klucza")) {
+                            newItem.setId_klucza(Integer.parseInt(parser.getElementText()));
+                        }
+                        break;
+// END ELEMENT //
+                    case XMLStreamConstants.END_ELEMENT:
+                        
+                        if (parser.getLocalName().equals("Portal")) {
+                            itemsInGame.add(newItem);
+                        }
+                        if (parser.getLocalName().equals("Food")) {
+                            itemsInGame.add(newItem);
+                        }
+                        if (parser.getLocalName().equals("Herb")) {
+                            itemsInGame.add(newItem);
+                        }
+                        break;
+                }
+            }
+        } catch (FileNotFoundException e1) {
+            System.out.println("Plik nie znaleziony - loadItems");
+        } catch (XMLStreamException e2) {
+            System.out.println("Bład pliku XML - loadItems");
+        } catch (NumberFormatException e3) {
+            System.out.println("Bledny format liczby - loadItems");
+        }
+    }
+    /*
+    public void loadAllEquipInGame(ArrayList<model.Portal> portal) {
         Portal newPortal;
         String path = "res/portal/" + core.GameStatus.levelID + ".xml";
         File filePath = new File(path);
@@ -178,5 +321,5 @@ public class LoadEntity {
         } catch (NumberFormatException e3) {
             System.out.println("Bledny format liczby - LoadPortal");
         }
-    }
+    }*/
 }

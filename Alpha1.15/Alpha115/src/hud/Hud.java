@@ -2,6 +2,7 @@ package hud;
 
 import core.Camera;
 import core.GameStatus;
+import java.util.Iterator;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -24,6 +25,9 @@ public class Hud {
         buttons.clickButton(sbg, input, xPos, yPos);
         if(console.console){console.update(gs);}
         else {gc.setShowFPS(false);}
+        /*Iterator<model.Item> iter = gs.itemsInGame.iterator();
+        model.Item item = iter.next();
+        System.out.println(item.getDescription());*/
     }
     
     public void render(GameContainer gc, Graphics g, Camera camera, GameStatus gs) throws SlickException{
