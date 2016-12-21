@@ -21,9 +21,6 @@ public class MenuState extends BasicGameState {
 
     //int licznik = 0;
     String mouse;
-    Font font;
-    TrueTypeFont printHead;
-    TrueTypeFont printLabel;
     Color c = Color.white; //Domyślny kolor napisów
     Color ctab[] = {c,c,c,c,c}; //Tablica kolorów tekstu na przyciskach
 
@@ -37,22 +34,8 @@ public class MenuState extends BasicGameState {
         /**
          * MEGA WAZNE NIE USUWAC, NIE MODYFIKOWAC OBIEKTU font2
          */
-        font2 = new Fonts();
-        
-        
+        font2 = new Fonts();       
         mouse = "";
-        // wyjasnienia dot. czcionek wyjasnione w BagState
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń'};
-        try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
-            //font = font.deriveFont(Font.BOLD, 48f);
-        } catch (FontFormatException fontFormatException) {
-            System.out.println("X");
-        } catch (IOException iOException) {
-            System.out.println("Y");
-        }
-        printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 25f), true, tabc);
-        printHead = new TrueTypeFont(font.deriveFont(Font.BOLD, 78f), true, tabc);
     }
 
     @Override
@@ -87,20 +70,20 @@ public class MenuState extends BasicGameState {
                 ctab[1] = Color.gray;
             }
         }
-        //opcje - narazie brak
+        //opcje
         if ((xpos > 520 && xpos < 777) && (ypos > 241 && ypos < 314)) {
             if (input.isMouseButtonDown(0)) {
-                //sbg.enterState(unknown);
+                sbg.enterState(2);
             }
             ctab[2] = Color.orange;
             if (input.isMouseButtonDown(0)) {
                 ctab[2] = Color.gray;
             }
         }
-        //twórcy - narazie brak
+        //twórcy
         if ((xpos > 520 && xpos < 777) && (ypos > 156 && ypos < 229)) {
             if (input.isMouseButtonDown(0)) {
-                //sbg.enterState(unknown);
+                sbg.enterState(12);
             }
             ctab[3] = Color.orange;
             if (input.isMouseButtonDown(0)) {
@@ -139,12 +122,12 @@ public class MenuState extends BasicGameState {
             g.drawImage(buttonBB, bx, by += 85);
         }
 
-        printHead.drawString(60, 100, "LEGENDARY ADVENTURES", Color.white);
-        printLabel.drawString(550, 260, "  Wczytaj grę", ctab[0]);
-        printLabel.drawString(550, 345, "    Nowa gra", ctab[1]);
-        printLabel.drawString(550, 430, "       Opcje", ctab[2]);
-        printLabel.drawString(550, 515, "     Twórcy", ctab[3]);
-        printLabel.drawString(550, 600, "      Wyjście", ctab[4]);
+        Fonts.printfMH().drawString(60, 100, "LEGENDARY ADVENTURES", Color.white);
+        Fonts.printfBig().drawString(550, 260, "  Wczytaj grę", ctab[0]);
+        Fonts.printfBig().drawString(550, 345, "    Nowa gra", ctab[1]);
+        Fonts.printfBig().drawString(550, 430, "       Opcje", ctab[2]);
+        Fonts.printfBig().drawString(550, 515, "     Twórcy", ctab[3]);
+        Fonts.printfBig().drawString(550, 600, "      Wyjście", ctab[4]);
 
         //g.drawLine(500, 235, 795, 312);
         g.drawString(mouse, 10, 10);

@@ -21,6 +21,9 @@ public class Main extends StateBasedGame {
     public static final int SKILLS = 6;
     public static final int MAP = 7;
     public static final int LOAD = 10;
+    public static final int SAVE = 11;
+    public static final int CREDITS = 12;
+    public static final int PAUSE = 13;
 
     public Main() {
         super(GAMENAME);
@@ -33,6 +36,9 @@ public class Main extends StateBasedGame {
         this.addState(new states.SkillsState(SKILLS));
         this.addState(new states.MapState(MAP));
         this.addState(new states.LoadGameState(LOAD));
+        this.addState(new states.SaveGameState(SAVE));
+        this.addState(new states.CreditsState(CREDITS));
+        this.addState(new states.PauseState(PAUSE));
     }
 
     @Override
@@ -47,6 +53,9 @@ public class Main extends StateBasedGame {
         this.getState(SKILLS).init(gc, this);
         this.getState(MAP).init(gc, this);
         this.getState(LOAD).init(gc, this);
+        this.getState(SAVE).init(gc, this);
+        this.getState(CREDITS).init(gc, this);
+        this.getState(PAUSE).init(gc, this);
     }
 
     public static void main(String[] args) {

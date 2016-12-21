@@ -13,31 +13,28 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class LoadGameState extends BasicGameState {
-
-    Image backGround;
-    Image borderGold; //zlote ramki
-    Image checkBorderSilver; //srebrny prostokat wyboru
+public class SaveGameState extends BasicGameState {
 
     String mouse;
-    String onScreenLoc; //wspolrzedne do wstawiania elementow
+    String onScreenLoc;
     gameUtils.Fonts fonts;
+    String actualScr;
+
+    Image checkBorderSilverSmall; //srebrny prostokat wyboru
 
     Color cw = Color.white;
     Color co = Color.orange;
     Color cSaves[] = {co, cw, cw}; //Kolory savów
     Color cButtons[] = {cw, cw}; //Kolory tekstu na przyciskach
 
-    boolean existSave[] = {true, true, false}; //Czy savy isnieją (pozycje)
+    boolean existSave[] = {true, true, true}; //Czy savy isnieją (pozycje)
     SaveToDisplay stdTab[] = new SaveToDisplay[3]; //tablica lokalnych savow-testow
 
     int actualBSposition = 1; //Pozycja prostokąta wyboru save'a
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        backGround = new Image("graphic/menu/backgroundMainMenu.jpg");
-        borderGold = new Image("graphic/menu/LoadStateWoutBg.png");
-        checkBorderSilver = new Image("graphic/menu/LSC_SilverBorder.png");
+        //backGround = new Image("graphic/menu/backgroundMainMenu.jpg");
 
         mouse = "";
         onScreenLoc = " ";
@@ -45,25 +42,35 @@ public class LoadGameState extends BasicGameState {
         //Wytworzenie własnej czcionki
         fonts = new gameUtils.Fonts();
 
+        checkBorderSilverSmall = new Image("graphic/menu/LSC_SilverBorder_small.png");
+
         //-----------------------------------------------
         //---- przykładowe savey do wyswietlenia --------
         //new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
-        stdTab[0] = new SaveToDisplay(1, "DOM", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/HomeSaveMiniature.png");
-        stdTab[1] = new SaveToDisplay(2, "GóRY", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/MountainSaveMiniature.png");
-        stdTab[2] = new SaveToDisplay(2, "GóRY", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/MountainSaveMiniature.png");
+        stdTab[0] = new SaveToDisplay(1, "DOM", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/HomeSaveMiniatureSmall.png");
+        stdTab[1] = new SaveToDisplay(2, "GóRY", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/MountainSaveMiniatureSmall.png");
+        stdTab[2] = new SaveToDisplay(2, "GóRY", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()), "graphic/saveMin/MountainSaveMiniatureSmall.png");
 
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.drawImage(backGround, 0, 0);
-        g.drawImage(borderGold, 0, 0); //złote ramki
+        //Tło sceny - rozmyty printscreen
+        actualScr = screenBlur.ScreenClass.screenNumber();
+        Image skrinGB = new Image(actualScr);
+        g.drawImage(skrinGB, 0, 0);
+
+        //Okno save game info
+        Image menuW = new Image("graphic/menu/SaveStateWB.png");
+        g.drawImage(menuW, 0, 0);
 
         Fonts.printf().drawString(10, 10, "wsp. myszy: " + mouse);
         Fonts.printf().drawString(10, 30, onScreenLoc);
 
-        Fonts.printfH().drawString(300, 272, "Wczytaj", cButtons[0]);
-        Fonts.printfH().drawString(329, 386, "Usuń", cButtons[1]);
+        Fonts.printf().drawString(592, 142, "Zapis gry");
+
+        Fonts.printf().drawString(468, 502, "Zapisz", cButtons[0]);
+        Fonts.printf().drawString(750, 502, "Usuń", cButtons[1]);
 
         //Ustalenie kolorów nr savów
         switch (actualBSposition) {
@@ -84,34 +91,34 @@ public class LoadGameState extends BasicGameState {
 
         //Wyświetlanie savów
         if (existSave[0]) {
-            Fonts.printfH().drawString(750, 213, "Zapis Nr 1", cSaves[0]);
-            Fonts.printf().drawString(984, 192, stdTab[0].getMapLocation());
-            Fonts.printf().drawString(929, 252, stdTab[0].getSaveDate());
-            g.drawImage(new Image(stdTab[0].getMiniaturePath()), 630, 178);
+            Fonts.printf().drawString(533, 237, "Zapis Nr 1", cSaves[0]);
+            Fonts.printf().drawString(772, 212, stdTab[0].getMapLocation());
+            Fonts.printf().drawString(660, 268, stdTab[0].getSaveDate());
+            g.drawImage(new Image(stdTab[0].getMiniaturePath()), 435, 203);
         }
         if (existSave[1]) {
-            Fonts.printfH().drawString(750, 324, "Zapis Nr 2", cSaves[1]);
-            Fonts.printf().drawString(984, 313, stdTab[1].getMapLocation());
-            Fonts.printf().drawString(929, 368, stdTab[1].getSaveDate());
-            g.drawImage(new Image(stdTab[1].getMiniaturePath()), 630, 289);
+            Fonts.printf().drawString(533, 327, "Zapis Nr 2", cSaves[1]);
+            Fonts.printf().drawString(772, 307, stdTab[1].getMapLocation());
+            Fonts.printf().drawString(660, 362, stdTab[1].getSaveDate());
+            g.drawImage(new Image(stdTab[1].getMiniaturePath()), 435, 295);
         }
         if (existSave[2]) {
-            Fonts.printfH().drawString(750, 440, "Zapis Nr 3", cSaves[2]);
-            Fonts.printf().drawString(984, 434, stdTab[2].getMapLocation());
-            Fonts.printf().drawString(929, 474, stdTab[2].getSaveDate());
-            g.drawImage(new Image(stdTab[2].getMiniaturePath()), 630, 400);
+            Fonts.printf().drawString(533, 420, "Zapis Nr 3", cSaves[2]);
+            Fonts.printf().drawString(772, 396, stdTab[2].getMapLocation());
+            Fonts.printf().drawString(660, 454, stdTab[2].getSaveDate());
+            g.drawImage(new Image(stdTab[2].getMiniaturePath()), 435, 386);
         }
 
         //Wyswietlanie prostokąta wyboru
         switch (actualBSposition) {
             case 1:
-                g.drawImage(checkBorderSilver, 623, 171);
+                g.drawImage(checkBorderSilverSmall, 420, 187);
                 break;
             case 2:
-                g.drawImage(checkBorderSilver, 623, 286);
+                g.drawImage(checkBorderSilverSmall, 420, 279);
                 break;
             case 3:
-                g.drawImage(checkBorderSilver, 623, 399);
+                g.drawImage(checkBorderSilverSmall, 420, 374);
                 break;
         }
     }
@@ -128,6 +135,13 @@ public class LoadGameState extends BasicGameState {
             sbg.enterState(1);
         }
 
+        //powrót do gry przycisk (X)
+        if ((xpos > 894 && xpos < 916) && (ypos > 564 && ypos < 592)) {
+            if (input.isMouseButtonDown(0)) {
+                sbg.enterState(1);
+            }
+        }
+
         //Odświeżenie kolorów przycisków
         for (int j = 0; j < cButtons.length; j++) {
             cButtons[j] = Color.white;
@@ -136,10 +150,10 @@ public class LoadGameState extends BasicGameState {
             cSaves[j] = Color.white;
         }
 
-        //wczytaj
-        if ((xpos > 262 && xpos < 471) && (ypos > 405 && ypos < 465)) {
+        //zapisz
+        if ((xpos > 428 && xpos < 580) && (ypos > 190 && ypos < 231)) {
             if (input.isMouseButtonDown(0)) {
-                //wczytaj - obsluga przycisku
+                //zapisz - obsluga przycisku
             }
             cButtons[0] = co;
             if (input.isMouseButtonDown(0)) {
@@ -148,7 +162,7 @@ public class LoadGameState extends BasicGameState {
         }
 
         //usun
-        if ((xpos > 262 && xpos < 471) && (ypos > 292 && ypos < 352)) {
+        if ((xpos > 700 && xpos < 852) && (ypos > 190 && ypos < 231)) {
             if (input.isMouseButtonDown(0)) {
                 //usun - obsluga przycisku
             }
@@ -173,47 +187,11 @@ public class LoadGameState extends BasicGameState {
         }
     }
 
-    public LoadGameState(int state) {
+    public SaveGameState(int state) {
     }
 
     @Override
     public int getID() {
-        return 10;
+        return 11;
     }
-}
-
-class SaveToDisplay {
-    //klasa lokalna na potrzeby wyświetlania savów w złotej tabelce
-
-    int nr; //numer 1-3
-    String mapLocation; //nazwa miejsca
-    String saveDate; //Data zapisu
-    String miniaturePath; //Ścieżka miniatury
-
-    public SaveToDisplay() {
-    }
-
-    public SaveToDisplay(int nr, String mapLocation, String saveDate, String miniaturePath) {
-        this.nr = nr;
-        this.mapLocation = mapLocation;
-        this.saveDate = saveDate;
-        this.miniaturePath = miniaturePath;
-    }
-
-    public int getNr() {
-        return nr;
-    }
-
-    public String getMapLocation() {
-        return mapLocation;
-    }
-
-    public String getSaveDate() {
-        return saveDate;
-    }
-
-    public String getMiniaturePath() {
-        return miniaturePath;
-    }
-
 }

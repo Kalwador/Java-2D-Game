@@ -11,12 +11,12 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class OptionsState extends BasicGameState {
+public class CreditsState extends BasicGameState {
 
     String mouse;
     String onScreenLoc;
     Color c = Color.white; //Domyślny kolor napisów
-    Color ctab[] = {c, c, c, c, c}; //Tablica kolorów tekstu na przyciskach
+    Color ctab[] = {c}; //Tablica kolorów tekstu na przyciskach
 
     /**
      * MEGA WAZNE NIE USUWAC, NIE MODYFIKOWAC OBIEKTU font2
@@ -43,18 +43,10 @@ public class OptionsState extends BasicGameState {
         Fonts.printf().drawString(10, 10, "wsp. myszy: " + mouse);
         Fonts.printf().drawString(10, 30, onScreenLoc);
         
-        int bx = 500;
-        int by = 150;
-        for (int i = 0; i < 5; i++) {
-            g.drawImage(buttonBB, bx, by += 85);
-        }
+        g.drawImage(buttonBB, 500, 575);
 
-        Fonts.printfMH().drawString(510, 100, "OPCJE", Color.white);
-        Fonts.printfBig().drawString(565, 260, "Opcja 1", ctab[0]);
-        Fonts.printfBig().drawString(565, 345, "Opcja 2", ctab[1]);
-        Fonts.printfBig().drawString(565, 430, "Opcja 3", ctab[2]);
-        Fonts.printfBig().drawString(565, 515, "Opcja 4", ctab[3]);
-        Fonts.printfBig().drawString(575, 600, "Powrót", ctab[4]);
+        Fonts.printfMH().drawString(510, 100, "Twórcy", Color.white);
+        Fonts.printfBig().drawString(575, 600, "Powrót", ctab[0]);
     }
 
     @Override
@@ -75,64 +67,24 @@ public class OptionsState extends BasicGameState {
             ctab[j] = c;
         }
         
-        //opcja 1 
-        if ((xpos > 520 && xpos < 777) && (ypos > 410 && ypos < 484)) {
-            if (input.isMouseButtonDown(0)) {
-                //działanie - opcja 1 
-            }
-            ctab[0] = Color.orange;
-            if (input.isMouseButtonDown(0)) {
-                ctab[0] = Color.gray;
-            }
-        }
-        //opcja 2 
-        if ((xpos > 520 && xpos < 777) && (ypos > 326 && ypos < 399)) {
-            if (input.isMouseButtonDown(0)) {
-                //działanie - opcja 2 
-            }
-            ctab[1] = Color.orange;
-            if (input.isMouseButtonDown(0)) {
-                ctab[1] = Color.gray;
-            }
-        }
-        //opcja 3 
-        if ((xpos > 520 && xpos < 777) && (ypos > 241 && ypos < 314)) {
-            if (input.isMouseButtonDown(0)) {
-                //działanie - opcja 3
-            }
-            ctab[2] = Color.orange;
-            if (input.isMouseButtonDown(0)) {
-                ctab[2] = Color.gray;
-            }
-        }
-        ///opcja 4 
-        if ((xpos > 520 && xpos < 777) && (ypos > 156 && ypos < 229)) {
-            if (input.isMouseButtonDown(0)) {
-                //działanie - opcja 4 
-            }
-            ctab[3] = Color.orange;
-            if (input.isMouseButtonDown(0)) {
-                ctab[3] = Color.gray;
-            }
-        }
         //powrót do menu
         if ((xpos > 520 && xpos < 777) && (ypos > 69 && ypos < 144)) {
             if (input.isMouseButtonDown(0)) {
                 Mouse.setCursorPosition(xpos, ypos-86);
                 sbg.enterState(0); 
             }
-            ctab[4] = Color.orange;
+            ctab[0] = Color.orange;
             if (input.isMouseButtonDown(0)) {
-                ctab[4] = Color.gray;
+                ctab[0] = Color.gray;
             }
         }
     }
 
-    public OptionsState(int state) {
+    public CreditsState(int state) {
     }
 
     @Override
     public int getID() {
-        return 2;
+        return 12;
     }
 }

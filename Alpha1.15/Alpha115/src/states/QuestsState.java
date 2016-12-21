@@ -8,6 +8,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -53,6 +54,7 @@ public class QuestsState extends BasicGameState {
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
+        int scrolling = Mouse.getDWheel();
         mouse = "x= " + xpos + " y=" + ypos;
         onScreenLoc = "x= " + xpos + " y=" + Math.abs(720-ypos);
         
@@ -73,16 +75,16 @@ public class QuestsState extends BasicGameState {
 //                System.exit(0);
 //            }
 //        }
-
-        //Przewijanie do góry - klawisz, przycisk góra
-        if (input.isKeyPressed(Input.KEY_UP) || ((xpos > 788 && xpos < 814) && (ypos > 546 && ypos < 569) && (input.isMousePressed(0)))) {
+        
+        //Przewijanie do góry - scrool myszy, klawisz, przycisk góra
+        if ((scrolling > 0) || input.isKeyPressed(Input.KEY_UP) || ((xpos > 788 && xpos < 814) && (ypos > 546 && ypos < 569) && (input.isMousePressed(0)))) {
             if (bp > 0) {
                 bp--;
                 suwY -= 24;
             }
         }
-        //Przewijanie do dołu - klawisz, przycisk dół
-        if (input.isKeyPressed(Input.KEY_DOWN) || ((xpos > 788 && xpos < 814) && (ypos > 97 && ypos < 124) && (input.isMousePressed(0)))) {
+        //Przewijanie do dołu - scrool myszy, klawisz, przycisk dół
+        if ((scrolling < 0) || input.isKeyPressed(Input.KEY_DOWN) || ((xpos > 788 && xpos < 814) && (ypos > 97 && ypos < 124) && (input.isMousePressed(0)))) {
             if (bp < (questy.size() - 11)) {
                 bp++;
                 suwY += 24;

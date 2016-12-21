@@ -132,15 +132,15 @@ public class Keys extends Sprite {
                 sbg.enterState(5);
             }
         }
-        
+
         //okno skili
         if (input.isKeyPressed(Input.KEY_K)) {
             if (sbg.getCurrentStateID() == 6) {
                 sbg.enterState(1);
             } else {
                 Mouse.setCursorPosition(0, 720);
-            screenBlur.ScreenClass.makeScreen();
-            Mouse.setCursorPosition(xpos, ypos);
+                screenBlur.ScreenClass.makeScreen();
+                Mouse.setCursorPosition(xpos, ypos);
                 sbg.enterState(6);
             }
         }
@@ -150,6 +150,28 @@ public class Keys extends Sprite {
                 sbg.enterState(1);
             } else {
                 sbg.enterState(7);
+            }
+        }
+        //okno zapisu gry
+        if (input.isKeyPressed(Input.KEY_Z)) {
+            if (sbg.getCurrentStateID() == 11) {
+                sbg.enterState(1);
+            } else {
+                Mouse.setCursorPosition(0, 720);
+                screenBlur.ScreenClass.makeScreen();
+                Mouse.setCursorPosition(xpos, ypos);
+                sbg.enterState(11);
+            }
+        }
+        //okno pauzy
+        if (input.isKeyPressed(Input.KEY_P)) {
+            if (sbg.getCurrentStateID() == 13) {
+                sbg.enterState(1);
+            } else {
+                Mouse.setCursorPosition(0, 720);
+                screenBlur.ScreenClass.makeScreen();
+                Mouse.setCursorPosition(xpos, ypos);
+                sbg.enterState(13);
             }
         }
         //konsola

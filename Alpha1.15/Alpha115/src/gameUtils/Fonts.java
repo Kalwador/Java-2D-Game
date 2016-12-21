@@ -12,9 +12,11 @@ public class Fonts {
     public Font font;
     public static TrueTypeFont printHead;
     public static TrueTypeFont printLabel;
+    public static TrueTypeFont printBig;
+    public static TrueTypeFont printMenuH;
 
     public Fonts() {
-        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń', 'Ł', 'Ó'};
+        char tabc[] = {'ą', 'ę', 'ó', 'ć', 'ż', 'ł', 'ś', 'ź', 'ń', 'Ł', 'Ó','Ś','Ę',};
         try {
             //Utworzenie czcionki
             font = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/TrajanPro-Regular.otf"));
@@ -27,6 +29,8 @@ public class Fonts {
         //stworzenie zmiennej printLabel i printHead, ustalenie parametrów czcionki
         printLabel = new TrueTypeFont(font.deriveFont(Font.BOLD, 18f), true, tabc);
         printHead = new TrueTypeFont(font.deriveFont(Font.BOLD, 28f), true, tabc);
+        printBig = new TrueTypeFont(font.deriveFont(Font.BOLD, 25f), true, tabc);
+        printMenuH = new TrueTypeFont(font.deriveFont(Font.BOLD, 78f), true, tabc);
     }
 
 //    public void ttfont() throws SlickException {
@@ -51,5 +55,13 @@ public class Fonts {
 
     public static TrueTypeFont printfH() {
         return printHead;
+    }
+    
+    public static TrueTypeFont printfBig() {
+        return printBig;
+    }
+    
+    public static TrueTypeFont printfMH() {
+        return printMenuH;
     }
 }

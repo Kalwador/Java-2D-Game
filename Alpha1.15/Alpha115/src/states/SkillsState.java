@@ -47,6 +47,8 @@ public class SkillsState extends BasicGameState {
         Image menuW = new Image("graphic/menu/SkillsWithBackExport.png");
         g.drawImage(menuW, 0, 0);
 
+        Fonts.printf().drawString(577, 142, "Umiejętności");
+        
         Fonts.printf().drawString(10, 10, mouse);
         Fonts.printf().drawString(10, 30, onScreenLoc);
         Fonts.printf().drawString(10, 50, "Bieżąca zakładka: " + String.valueOf(actualSubWindow));
