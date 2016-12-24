@@ -3,6 +3,8 @@ package hud;
 import core.Camera;
 import core.GameStatus;
 import core.LoadEntity;
+import java.util.Iterator;
+import java.util.Set;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -70,7 +72,7 @@ public class Console {
             g.drawString("gateTileID=" + String.valueOf(portalTileID) + " gateID=" + String.valueOf(6), 10f, 170f);
             camera.drawMap(6);
         }
-
+        
     }
 
     public static void showConsole() {

@@ -1,36 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dane>
     <Potion>
-        <id>100</id>
+        <id>101</id>
         <name>Small Potion of Life</name>
-        <description>Adds a little amount of life.</decription>
-		<value>0</value>
+        <description>Adds a little amount of life.</description>
+		<amount>0</amount>
 		<nOF>1</nOF>
 		<hp>50</hp>
 	    <mp>0</mp>
-		<kt>null</kt>
-		<id_klucza>0</id_klucza>
-    </Potion>
-	<Potion>
-        <id>101</id>
-        <name>Medium Potion of Life</name>
-        <description>Adds a medium amount of life.</decription>
-		<value>0</value>
-		<nOF>1</nOF>
-		<hp>100</hp>
-	    <mp>0</mp>
-		<kt>null</kt>
+		<kt>0</kt>
 		<id_klucza>0</id_klucza>
     </Potion>
 	<Potion>
         <id>102</id>
+        <name>Medium Potion of Life</name>
+        <description>Adds a medium amount of life.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>100</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Potion>
+        <id>103</id>
         <name>Big Potion of Life</name>
-        <description>Adds a big amount of life.</decription>
-		<value>0</value>
+        <description>Adds a big amount of life.</description>
+		<amount>0</amount>
 		<nOF>1</nOF>
 		<hp>200</hp>
 	    <mp>0</mp>
-		<kt>null</kt>
+		<kt>0</kt>
 		<id_klucza>0</id_klucza>
     </Potion>
+	<Potion>
+        <id>104</id>
+        <name>Small Potion of Mana</name>
+        <description>Adds a little amount of mana.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>50</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Potion>
+        <id>105</id>
+        <name>Medium Potion of Mana</name>
+        <description>Adds a medium amount of mana.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>100</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Potion>
+        <id>106</id>
+        <name>Big Potion of Mana</name>
+        <description>Adds a big amount of mana.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>200</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Food>
+        <id>201</id>
+        <name>Bread</name>
+        <description>Loaf of bread.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>20</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Food>
+	<Food>
+        <id>202</id>
+        <name>Wine</name>
+        <description>Bootle of wine.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>20</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Food>
+	<Food>
+        <id>203</id>
+        <name>Ham</name>
+        <description>Pork ham.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>40</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Food>
+	<Food>
+        <id>204</id>
+        <name>Fish</name>
+        <description>Delicious fish.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>40</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Food>
+	<Food>
+        <id>205</id>
+        <name>Honey</name>
+        <description>Jar of honey. Difficult to find.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>50</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Food>
+	<Herb>
+        <id>301</id>
+        <name>Wild Berry</name>
+        <description>Adds a little amount of mana.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>10</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Herb>
+	<Herb>
+        <id>302</id>
+        <name>Strange Mushroom</name>
+        <description>Adds a little amount of mana.</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>20</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Herb>
+	<Herb>
+        <id>303</id>
+        <name>Sun Flower Root</name>
+        <description>Adds a little amount of mana</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>30</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Herb>
+	<Herb>
+        <id>304</id>
+        <name>Toadwort</name>
+        <description>Adds a little amount of mana</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>50</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Herb>
+	<Herb>
+        <id>305</id>
+        <name>Ogreleaf</name>
+        <description>Adds a medium amount of mana</description>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<hp>0</hp>
+	    <mp>70</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Herb>
 </dane>

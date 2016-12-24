@@ -1,6 +1,6 @@
 package model;
 
-public class Item {
+public class Herb {
     int id;
     String name; // nazwa przedmiotu
     String description; //opis przedmiotu
@@ -11,10 +11,10 @@ public class Item {
     int kt; //kamien teleportacyjny
     int id_klucza;//id_klucza
 
-    public Item(){
+    public Herb(){
         
     }
-    public Item(int id, String name, String description, int amount, int nOF, int hp, int mp, int kt, int id_klucza) {
+    public Herb(int id, String name, String description, int amount, int nOF, int hp, int mp, int kt, int id_klucza) {
         this.id = id;
         this.name = name;
         this.description = description;

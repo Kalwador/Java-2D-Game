@@ -2,7 +2,8 @@ package core;
 
 import model.Hero;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
+
 import model.Npc;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -32,10 +33,10 @@ public class GameStatus extends core.LoadEntity {
     /**
      * status postaci
      */
-    public HashSet<model.Item> itemsInGame;
-    public HashSet<model.Equip> equipInGame;
-    public HashSet<model.Item> itemsInBag;
-    public HashSet<model.Equip> equipInBag;
+    public HashMap<Integer, model.Item> itemsInGame;
+    public HashMap<Integer, model.Equip> equipInGame;
+    public HashMap<Integer, model.Item> itemsInBag;
+    public HashMap<Integer, model.Equip> equipInBag;
     public ArrayList<model.Skill> skills;
     public ArrayList<model.Quest> quest;
     
@@ -62,8 +63,8 @@ public class GameStatus extends core.LoadEntity {
         
         //czysty bohater
         this.hero = new Hero();
-        this.itemsInGame = new HashSet<>();
-        this.equipInGame = new HashSet<>();
+        this.itemsInGame = new HashMap<>();
+        this.equipInGame = new HashMap<>();
         this.quest = new ArrayList<>();
         this.skills = new ArrayList<>();
 
@@ -77,6 +78,7 @@ public class GameStatus extends core.LoadEntity {
         updateEntityFieldList(map);
         updatePortalMapList2(portalMapList);
         loadAllItemsInGame(itemsInGame);
+        loadAllEquipInGame(equipInGame);
     }
     
 }

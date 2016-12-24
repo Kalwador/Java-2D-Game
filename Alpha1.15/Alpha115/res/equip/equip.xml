@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dane>
+    <Weapon>
+        <id>101</id>
+        <name>Rusty Dagger</name>
+        <description>Basic dagger.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>10</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>102</id>
+        <name>Iron Dagger</name>
+        <description>Better than Rusty Dagger.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>15</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>103</id>
+        <name>Mythril Dagger</name>
+        <description>Best dagger in the game.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>10</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>201</id>
+        <name>Rusty Sword</name>
+        <description>Popular. Basic sword.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>20</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>202</id>
+        <name>Silver sword</name>
+        <description>Pretty good sword.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>30</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>203</id>
+        <name>Ghostblade</name>
+        <description>Unique. Difficult to find.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>45</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>301</id>
+        <name>Dwarven Greatsword</name>
+        <description>Basic two handed sword.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>30</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>302</id>
+        <name>Orcish Greatsword</name>
+        <description>Pretty good two handed sword</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>35</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>303</id>
+        <name>Ancient Greatsword</name>
+        <description>Unique. Difficult to find.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>50</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>401</id>
+        <name>Lumberjack’s Axe</name>
+        <description>Popular. Basic Axe.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>15</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>402</id>
+        <name>Battle Axe</name>
+        <description>Pretty good axe.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>25</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>403</id>
+        <name>Dwarven Axe</name>
+        <description>Unique. Best axe.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>35</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>501</id>
+        <name>Huntsman Arc</name>
+        <description>Popular. Basic arc.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>15</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>502</id>
+        <name>Long Arc</name>
+        <description>Pretty good arc.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>20</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>503</id>
+        <name>Elven Arc</name>
+        <description>Unique. Difficult to find.</description>
+		<type>Two handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>30</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>601</id>
+        <name>Apprentice Stick</name>
+        <description>For beginners wizards.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>20</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>602</id>
+        <name>Eremite Stick</name>
+        <description>For advanced wizards.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>350</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>603</id>
+        <name>Archemage Stick</name>
+        <description>Unique. Difficult to find.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>40</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>701</id>
+        <name>Wooden Shield</name>
+        <description>Basic shield.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>10</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>702</id>
+        <name>Iron Shield</name>
+        <description>Better defense.</description>
+		<type> One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>15</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>703</id>
+        <name>Long Shield</name>
+        <description>Unique. Difficult to find.</description>
+		<type>One handed weapon</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>25</def>
+		<speed>0</speed>
+    </Weapon>
+	<Weapon>
+        <id>801</id>
+        <name>Iron arrow</name>
+        <description>Arrow for axes.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>5</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Weapon>
+	<Armor>
+        <id>1101</id>
+        <name>Leather Helmet</name>
+        <description>Basic armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>5</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1102</id>
+        <name>Iron Helmet</name>
+        <description>Better defense but not the best.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>10</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1103</id>
+        <name>Scaled Helmet</name>
+        <description>Unique. Difficult to find.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>15</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1201</id>
+        <name>Shells Necklace</name>
+        <description>Bonus for attack.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>5</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1202</id>
+        <name>Amber Necklace</name>
+        <description>Bonus for attack.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>10</dmg>
+	    <def>0</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1203</id>
+        <name>Gems Necklace</name>
+        <description>Unique. Bonus for attack and speed. Difficult to find.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>2</nOF>
+		<dmg>10</dmg>
+	    <def>0</def>
+		<speed>5</speed>
+    </Armor>
+	<Armor>
+        <id>1301</id>
+        <name>Leather Armor</name>
+        <description>Basic armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>15</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1302</id>
+        <name>Hauberk</name>
+        <description>Pretty good armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>20</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1303</id>
+        <name>Plate Armor</name>
+        <description>Unique. Difficult to find.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>30</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1401</id>
+        <name>Leather Belt</name>
+        <description>Bonus for speed.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>0</def>
+		<speed>5</speed>
+    </Armor>
+	<Armor>
+        <id>1402</id>
+        <name>Golden Belt</name>
+        <description>Bonus for defense.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>5</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1403</id>
+        <name>Belt full of Gems</name>
+        <description>Unique. Bonus for speed and defence. Difficult to find.</description>
+		<type>null</type>
+		<amount>0</amount>
+		<nOF>2</nOF>
+		<dmg>0</dmg>
+	    <def>5</def>
+		<speed>5</speed>
+    </Armor>
+	<Armor>
+        <id>1501</id>
+        <name>Leather Trousers</name>
+        <description>Basic armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>10</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1502</id>
+        <name>Iron Trousers</name>
+        <description>Pretty good armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>15</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1503</id>
+        <name>Assassin’s Trousers</name>
+        <description>Unique. Difficult to find.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>20</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1601</id>
+        <name>Leather Boots</name>
+        <description>Basic armor.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>5</def>
+		<speed>0</speed>
+    </Armor>
+	<Armor>
+        <id>1602</id>
+        <name>Traper Boots</name>
+        <description>Pretty good armor and bonus to speed.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>10</def>
+		<speed>5</speed>
+    </Armor>
+	<Armor>
+        <id>1603</id>
+        <name>Iron Boots</name>
+        <description>Unique. Bonus for speed Difficult to find.</description>
+		<type>Armor</type>
+		<amount>0</amount>
+		<nOF>1</nOF>
+		<dmg>0</dmg>
+	    <def>15</def>
+		<speed>10</speed>
+    </Armor>
+</dane>
