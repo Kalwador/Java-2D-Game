@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dane>
+    <Potion>
+        <id>100</id>
+        <name>Small Potion of Life</name>
+        <description>Adds a little amount of life.</description>
+		<value>0</value>
+		<nOF>1</nOF>
+		<hp>50</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Potion>
+        <id>101</id>
+        <name>Medium Potion of Life</name>
+        <description>Adds a medium amount of life.</description>
+		<value>0</value>
+		<nOF>1</nOF>
+		<hp>100</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+	<Potion>
+        <id>102</id>
+        <name>Big Potion of Life</name>
+        <description>Adds a big amount of life.</description>
+		<value>0</value>
+		<nOF>1</nOF>
+		<hp>200</hp>
+	    <mp>0</mp>
+		<kt>0</kt>
+		<id_klucza>0</id_klucza>
+    </Potion>
+</dane>

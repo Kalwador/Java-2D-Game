@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/screenBlur/AbstractBufferedImageOp.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/NewGameState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/CharacterState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/OptionsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/core/LoadEntity.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/actor/Keys.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/screenBlur/PixelUtils.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/gameUtils/fakeDataSeeder.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Npc.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/QuestsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/hud/Console.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/MenuState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/hud/Frame.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/BagState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/SkillsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Hero.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/MapState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/core/Main.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Quest.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Loot.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Portal.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/actor/Portals.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/core/GameStatus.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/CreditsState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Skill.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/PauseState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/core/Sprite.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/hud/Hud.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/actor/Collisions.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Item.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/hud/Buttons.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/model/Enemy.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/actor/Event.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/LoadGameState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/actor/Movement.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/states/PlayState.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/screenBlur/Gauss.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/gameUtils/Fonts.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/screenBlur/ScreenClass.java</file>
+            <file>file:/C:/Users/kalvador/Documents/Alpha20/src/core/Camera.java</file>
+        </group>
+    </open-files>
+</project-private>
