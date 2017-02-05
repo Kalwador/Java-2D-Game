@@ -64,16 +64,19 @@ public class SkillsState extends BasicGameState {
         // wyświetlanie dla zakładki wojownik
         if (actualSubWindow == 0) {
             //tutaj będzie więcej w przeszłości
+            g.drawImage(new Image("graphic/menu/warrior_bg.png"), 0, 0);
             Fonts.print18().drawString(464, 342, "Test wyświetlania dla zakładki wojownik", co);
         }
         // wyświetlanie dla zakładki łowca
         if (actualSubWindow == 1) {
              //tutaj będzie więcej w przeszłości
+             g.drawImage(new Image("graphic/menu/hunter_bg.png"), 0, 0);
              Fonts.print18().drawString(464, 342, "Test wyświetlania dla zakładki łowca", co);
         }
         // wyświetlanie dla zakładki mag
         if (actualSubWindow == 2) {
             //tutaj będzie więcej w przeszłości
+            g.drawImage(new Image("graphic/menu/wizzard_bg.png"), 0, 0);
             Fonts.print18().drawString(464, 342, "Test wyświetlania dla zakładki mag", co);
         }
 
@@ -84,7 +87,11 @@ public class SkillsState extends BasicGameState {
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
-        mouse = "x= " + xpos + " y=" + ypos;
+               
+//        int xposa = input.getMouseX();
+//        int yposa = input.getMouseY();
+              
+        mouse = "x= " + xpos + " y=" + ypos;// + " xa= " + xposa + " ya=" + yposa;
         onScreenLoc = "x= " + xpos + " y=" + Math.abs(720 - ypos);
 
         //powrót do gry

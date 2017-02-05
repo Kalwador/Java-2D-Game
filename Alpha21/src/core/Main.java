@@ -3,6 +3,7 @@ package core;
 import gameUtils.Fonts;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -68,6 +69,8 @@ public class Main extends StateBasedGame {
         try {
             AppGameContainer window = new AppGameContainer(new Main());
             window.setDisplayMode(WIDTH, HEIGHT, false);
+            System.out.println(window.getHeight());
+            System.out.println(window.getWidth());
             window.setTargetFrameRate(100);
             window.setShowFPS(false);
             window.setVSync(true);

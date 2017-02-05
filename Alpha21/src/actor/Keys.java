@@ -20,6 +20,10 @@ public class Keys {
     //obsługa klawiszy funkcyjnych
     public static void functionalKeyHandler(GameContainer gc, StateBasedGame sbg, Input input, int xpos, int ypos) {
 
+        //to w przyszłości do poprawienia
+        xpos = input.getMouseX();
+        ypos = input.getMouseY();
+
         if (input.isKeyPressed(Input.KEY_ESCAPE)) {
             switch (sbg.getCurrentStateID()) {
                 case 0: {
@@ -27,9 +31,7 @@ public class Keys {
                     break;
                 }
                 case 1: {
-                    Mouse.setCursorPosition(0, 720);
-                    screenBlur.ScreenClass.makeScreen();
-                    Mouse.setCursorPosition(xpos, ypos);
+                    screenBlur.ScreenClass.makeScreen(xpos, ypos);
                     sbg.enterState(9);
                     break;
                 }
@@ -44,9 +46,7 @@ public class Keys {
             if (sbg.getCurrentStateID() == 3) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
                 sbg.enterState(3);
             }
         }
@@ -55,9 +55,7 @@ public class Keys {
             if (sbg.getCurrentStateID() == 4) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
                 sbg.enterState(4);
             }
         }
@@ -66,9 +64,7 @@ public class Keys {
             if (sbg.getCurrentStateID() == 5) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
                 sbg.enterState(5);
             }
         }
@@ -78,9 +74,7 @@ public class Keys {
             if (sbg.getCurrentStateID() == 6) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
                 sbg.enterState(6);
             }
         }
@@ -94,24 +88,20 @@ public class Keys {
         }
         //okno zapisu gry
         if (input.isKeyPressed(Input.KEY_Z)) {
-            if (sbg.getCurrentStateID() == 11) {
+            if (sbg.getCurrentStateID() == 12) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
-                sbg.enterState(11);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
+                sbg.enterState(12);
             }
         }
         //okno pauzy
         if (input.isKeyPressed(Input.KEY_P)) {
-            if (sbg.getCurrentStateID() == 13) {
+            if (sbg.getCurrentStateID() == 9) {
                 sbg.enterState(1);
             } else {
-                Mouse.setCursorPosition(0, 720);
-                screenBlur.ScreenClass.makeScreen();
-                Mouse.setCursorPosition(xpos, ypos);
-                sbg.enterState(13);
+                screenBlur.ScreenClass.makeScreen(xpos, ypos);
+                sbg.enterState(9);
             }
         }
         //konsola

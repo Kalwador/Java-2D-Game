@@ -18,15 +18,22 @@ public class ScreenClass {
     //nr aktualnie tworzonego screena
     public static int nrScreena = 0;
 
-    //metoda do robienia screenów gry
-    public static void makeScreen() {
+    /**
+     * Metoda do robienia screenów gry.
+     * 
+     * @param bWspX slickowa wspX myszki
+     * @param bWspY slickowa wspY myszki
+     */
+    public static void makeScreen(int bWspX, int bWspY) {
         try {
 
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             //System.out.println(screenRect.height + " " + screenRect.width + " " + screenRect.x + " " + screenRect.y);
 
-            double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
-            double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
+            double mouseX = MouseInfo.getPointerInfo().getLocation().getX()-bWspX;
+            double mouseY = MouseInfo.getPointerInfo().getLocation().getY()-bWspY;
+            
+            System.out.println("mouseX = " + mouseX+" mouseY = " + mouseY);
 
             Rectangle GAMEscreenRect = new Rectangle((int) mouseX, (int) mouseY, 1280, 720);
 

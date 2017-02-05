@@ -126,7 +126,7 @@ public class PauseState extends BasicGameState {
         if ((xpos > 570 && xpos < 720) && (ypos > 434 && ypos < 477)) {
             if (input.isMouseButtonDown(0)) {
                 if (actualSubWindow == 0) {
-                    sbg.enterState(10);
+                    sbg.enterState(12);
                 } else {
 
                 }

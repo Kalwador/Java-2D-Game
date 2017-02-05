@@ -18,6 +18,7 @@ public class BagState extends BasicGameState {
 
     boolean czyPlecak = true; //zmienna decydująca o sterowaniu oknem Plecak lub Broń
     boolean bagCursorActivate = false;
+    boolean bagEqCursorActivate = false;
 
     String mouse;
     gameUtils.Fonts fonts;
@@ -27,6 +28,18 @@ public class BagState extends BasicGameState {
     private int selectedItem;
     private int selectedItemX;
     private int selectedItemY;
+
+    private int selectedEquip;
+    private int selectedEquipX;
+    private int selectedEquipY;
+
+    Color cw = Color.white;
+    Color co = Color.orange;
+    Color c[] = {Color.orange, Color.white};
+
+    private int localCoinAmount;
+    //Kolory tekstu na przyciskach
+    Color ctab[] = {cw, cw, cw, cw};
 
     //---------- GRUPA PLECAKA --------------------
     ItemToDisplay[][] ittd = new ItemToDisplay[6][8];
@@ -74,10 +87,17 @@ public class BagState extends BasicGameState {
 //        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
 //        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
 //------------------------------------------------W
-        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
-        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
+
+        Item i3 = new Item(3, "Miecz","Miecz konstukcji stalowej, zapewnia duże obrażenia przeciwnikom.",1,1,0,0,0,0);
+        Item i4 = new Item(4, "Zbroja","Zbroja wykonana w zakładzie rzemieślniczym, duża odporność.",1,1,0,0,0,0);
+        
+        itemsW.add(new ItemLocal(i3, "graphic/itemsWeap/miniatures/metalsword.png"));
+        itemsW.add(new ItemLocal(i4, "graphic/itemsWeap/miniatures/metalchestplate.png"));        
+    
+//        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
+//        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
+//        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
+//        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
 //------------------------------------------------
         int k = 0;
         //Generowanie współrzędnych dla wyświetlania miniatur przedmiotów
@@ -110,6 +130,8 @@ public class BagState extends BasicGameState {
             posYmqssILOCW += 47.0f;
             posXmqssILOCW = 683;
         }
+
+        localCoinAmount = 6969;
     }
 
     @Override
@@ -122,8 +144,12 @@ public class BagState extends BasicGameState {
         //Okna plecaka i broni
         Image menuW = new Image("graphic/menu/BagEquipScene2.png");
         g.drawImage(menuW, 0, 0);
+
+        g.drawImage(new Image("graphic/menu/CoinBagButtons.png"), 0, 0);
+
         Fonts.print18().drawString(100, 10, mouse);
         Fonts.print18().drawString(100, 70, String.valueOf(selectedItem));
+        Fonts.print18().drawString(900, 70, String.valueOf(selectedEquip));
 //------------------------------------------------
         int k = 0;
         //Rysowanie miniatur przedmiotów
@@ -165,8 +191,8 @@ public class BagState extends BasicGameState {
 //////            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
 //////        }
 //------------------------------------------------
-        Fonts.print18().drawString(760, 585, "Powrót do gry");
-        g.drawRoundRect(750, 575, 190, 30, 6);
+        //Fonts.print18().drawString(760, 585, "Powrót do gry");
+        //g.drawRoundRect(750, 575, 190, 30, 6);
 
         //Wysiwetlanie kwadratów wyboru
         g.drawRect(r.getX(), r.getY(), r.getHeight(), r.getWidth());
@@ -182,13 +208,28 @@ public class BagState extends BasicGameState {
         Fonts.print18().drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
         Fonts.print18().drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
         //------------------------------------------------
-        Fonts.print18().drawString(310, 575, "C O N C E P T  BAG & SKILLS");
+        //Fonts.print18().drawString(310, 575, "C O N C E P T  BAG & SKILLS");
 
         //@Gajwer
         if (bagCursorActivate) {
             RednerItemDescription(g);
             bagCursorActivate = false;
         }
+        if (bagEqCursorActivate) {
+            RednerEquipDescription(g);
+            bagEqCursorActivate = false;
+        }
+
+        //Monety
+        Fonts.print25().drawString(379, 576, String.valueOf(localCoinAmount), Color.yellow);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(493, 556, "  załóż", ctab[0]);
+        Fonts.print18().drawString(493, 595, "wyrzuć", ctab[1]);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(788, 556, "  załóż", ctab[2]);
+        Fonts.print18().drawString(788, 595, "wyrzuć", ctab[3]);
     }
 
     @Override
@@ -201,9 +242,7 @@ public class BagState extends BasicGameState {
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
         //powrót do gry
-        if (((xpos > 750 && xpos < 939) && (ypos > 115 && ypos < 145))
-                || //powrot do gry
-                ((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636))
+        if (((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636))
                 || // X w lewym oknie
                 ((xpos > 965 && xpos < 996) && (ypos > 606 && ypos < 636))// X w prawym oknie
                 ) {
@@ -213,6 +252,46 @@ public class BagState extends BasicGameState {
         }
         if (input.isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(1);
+        }
+
+        for (int j = 0; j < ctab.length; j++) {
+            ctab[j] = Color.white;
+        }
+
+        //Przycisk załóż item
+        if ((xpos > 471 && xpos < 598) && (ypos > 138 && ypos < 170)) {
+            ctab[0] = co;
+            if (input.isMouseButtonDown(0)) {
+                ctab[0] = Color.gray;
+                //zalozItem();
+            }
+        }
+        
+        //Przycisk wyrzuć item
+        if ((xpos > 471 && xpos < 598) && (ypos > 97 && ypos < 134)) {
+            ctab[1] = co;
+            if (input.isMouseButtonDown(0)) {
+                ctab[1] = Color.gray;
+                //wyrzucItem();
+            }
+        }
+        
+        //Przycisk załóż equip
+        if ((xpos > 766 && xpos < 893) && (ypos > 138 && ypos < 170)) {
+            ctab[2] = co;
+            if (input.isMouseButtonDown(0)) {
+                ctab[2] = Color.gray;
+                //zalozEq();
+            }
+        }
+        
+        //Przycisk wyrzuć equip
+        if ((xpos > 766 && xpos < 893) && (ypos > 97 && ypos < 134)) {
+            ctab[3] = co;
+            if (input.isMouseButtonDown(0)) {
+                ctab[3] = Color.gray;
+                //wyrzucEq();
+            }
         }
 
         //Kliknięcie w okno plecak
@@ -234,12 +313,12 @@ public class BagState extends BasicGameState {
                 bagCursorActivate = true;
             }
         }
-        //Deaktywacja karteczki dla bag - Metoda wyłączona
-//        if ((xpos > 598 && xpos < 305) && (ypos > 551 && ypos < 178)) {
-//            if (input.isMouseButtonDown(0) || true) {
-//                bagCursorDeactivate = true;
-//            }       
-//        }
+        //Uaktywnienie karteczki dla item 
+        if ((xpos > 650 && xpos < 1005) && (ypos > 178 && ypos < 551)) {
+            if (input.isMouseButtonDown(0) || true) {
+                bagEqCursorActivate = true;
+            }       
+        }
 
         if (czyPlecak) {
             // Sterowanie kwadratem wyboru p w plecaku
@@ -332,6 +411,37 @@ public class BagState extends BasicGameState {
                 }
             }
         }
+        
+        int ieS = 305;
+        int ieE = 556;
+        int jeS = 221;
+        int jeE = 551;
+        int ieL = 50;
+        int jeL = 48;
+        int ieW = 43;
+        int ieH = 44;
+        int equipPositionInBag = 0;
+        if (!czyPlecak) {
+            /*for (int j = iS; j < iE; j += iL) {
+                for (int k = jS; k < jE; k += jL) {
+                    if((xpos >= j && xpos <= j + iW)&&(ypos >= k && ypos <= k + iH)){
+                        System.out.println("test" + licznik);
+                        licznik++;
+                    }
+                }
+            }*/
+
+            for (int j = 551; j >= 220; j -= 47) {
+                for (int k = 684; k <= 933; k += 50) {
+                    if (((xpos >= k) && (xpos <= k + ieW)) && ((ypos <= j) && (ypos >= j - ieH))) {
+                        selectedEquip = equipPositionInBag;
+                        selectedEquipX = k + 43;
+                        selectedEquipY = Math.abs(720 - j) + 22;
+                    }
+                    equipPositionInBag++;
+                }
+            }
+        }
     }
 
     public void RednerItemDescription(Graphics g) throws SlickException {
@@ -364,6 +474,41 @@ public class BagState extends BasicGameState {
                 Fonts.print18().drawString(selectedItemX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
             }
 
+        }
+//        else if(bagCursorDeactivate){ //Wyłączono
+//            g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), -666, -666);
+//        }
+    }
+    
+    public void RednerEquipDescription(Graphics g) throws SlickException {
+        if (bagEqCursorActivate && selectedEquip != 0 && itemsW.size() > selectedEquip) {
+            g.drawImage(new Image("graphic/items/descriptions/malaKartkaWieksza.png"), selectedEquipX, selectedEquipY);
+
+            String n = itemsW.get(selectedEquip).outsideItem.getDescription();
+            int size = n.length() / 3 + 1;
+
+            String descArray[] = new String[3];
+            descArray[0] = n.substring(0, size);
+            descArray[1] = n.substring(size, 2 * size);
+            descArray[2] = n.substring(2 * size, n.length());
+
+            Fonts.print28().drawString(selectedEquipX + 40, selectedEquipY + 15, itemsW.get(selectedEquip).outsideItem.getName(), Color.black);//"Nazwa przedmiotu"
+            Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 45, descArray[0], Color.black); //Pierwsza linijka opisu
+            Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 63, descArray[1], Color.black); //Druga linijka opisu
+            Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 81, descArray[2], Color.black); //Trzecia linijka opisu
+
+            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 1) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
+            }
+            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 2) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
+            }
+            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 3) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
+            }
+            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 4) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
+            }
         }
 //        else if(bagCursorDeactivate){ //Wyłączono
 //            g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), -666, -666);
