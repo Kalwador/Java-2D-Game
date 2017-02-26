@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1280" columns="8">
+  <image source="../tiles/tileset.PNG" width="256" height="5120"/>
+ </tileset>
+ <tileset firstgid="1281" name="tmw-concrete_walls-0113a" tilewidth="32" tileheight="32" tilecount="384" columns="16">
+  <image source="../tiles/tmw-concrete_walls-0113a.png" width="512" height="768"/>
+ </tileset>
+ <tileset firstgid="1665" name="Medieval1" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../tiles/Medieval1.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="1921" name="HF2_Statues_2" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../tiles/HF2_Statues_2.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2177" name="HF2_Outside__1" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../tiles/HF2_Outside__1.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2433" name="collisions" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../tiles/collisions.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="2438" name="$Human_HF1_Soldier_1" tilewidth="90" tileheight="90" tilecount="12" columns="3">
+  <image source="../NPCsprite/$Human_HF1_Soldier_1.png" width="270" height="360"/>
+ </tileset>
+ <tileset firstgid="2450" name="$Human_HF1_Male_13" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+  <image source="../NPCsprite/$Human_HF1_Male_13.png" width="210" height="280"/>
+ </tileset>
+ <layer name="bg" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+1ZQQrDMAxrYU/pdho7Zfv/09bCDMYkIXSSE4cedLWjWrKddF2WZSXhteP2w5OYh40ZeaQBzoPgcRvgPCgeUWtieXj55A3GJ8MjgXNYDrmcEaC1mqt/JIhWNY9txx2Eh8mHim3j5ngg9Wu1qj3OiOulK1a+XjwOWG0geSC9UdOxAJXH9it0b7c6PhO/Zb5F6LvCvTbfvP3B9p2XP1jxLY8R/dESfzZdoft5CWxdoft5ySOovaSkKya0R9h7CRO1/sjigewltl9tJhdLr+z7ILOnz9Z3Z+NxaDjKXpLzB2MvydVZ8qH9kQr5EJDYlgdLwyweW4EHawdivfvU5iBjB/J890HPEPFhhHttqw+j89B6veZHP39c+9W4uP4b+PtD3/V6/zf4BylzfqmxnoUe7z5oWA6sneeMP1q+p8Rhv5GU9oTW95mWndATZ3mMBtvPe58HwSNqLbx5fAEg0+ugECcAAA==
+  </data>
+ </layer>
+ <layer name="ob1" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9VaSWsUQRRul0x3jq5314M314M3V9BbEhX0lkQFvSVRQf+BRgVXjBvEqOAKruAKjgu4YyaZu2YyoHhxBRkPfo1pUvlSb6q6u3rQDz4673X31Pum36t6XZl8neflM+JHMMLnDMcJ2Zshfyk6fmc8Vo8ylisc9j3vCHjUH+k/APsgeMjX3ydhS73nba2vfk1cHV2B+ZqziPMceJ7i7YZ9Buwx6OikMXZCwy7HOmxwE3HeAm9TvNdgXwdvxHweNmAd/bm/x0JupB0d+yz8TxDnU/AZxfsIdh587A9fHx3LwudHdpHs6CjpGBw6P5AbaUfHkoW/D3H2g0XS8Q52L1jwh68v0Xj8+dL5kkFHVliF/F5tyPEkqAzVkq0Om/pWwbW6Hho2pNBhGl+qD85PKW+lOjLBti64Pvi8pEPKe1Peqve9R/5/AAeoPkqwB8Gyb18X0ji1qI8viPMr+I10fIf9A/zpYN7lvE2r45Mmb8fANxYcp5wL83s8WAfmYtaaDaT64Hzl/Ky2fkxAnBPBSRTvZNhTwKmBuf54vZCul3RI64S0nuiun4Y4p4MzSMdM2LPA2YG5/mzrRtKhgnMwa9j0gxKyXgffxvgubPpBCbb9ldRXSedDHNNoiHxR/pfpyP6icCwb8kqqB6mvks7XGqa8su2LKsp3Pxd/zwPnK75wftb5XcGkI0lftARxLgWXBbLfNk+l/C4Y8soFGhBnI9gUyH4pP/ko5feAQUeBdEt1XK1/bEacLWAr6ZD8SaHmPOswrT82/WMb4mwHOyheyZ8Uas7X6j2KwX2O1JdL827RkFe1Bs/TUl9uQhIduh43Qprewha6MVw/D+4t4r4Ph6gY7tH1L6yD+2XuGwpkF8kf2gsQx0JwEcWj+rm/4HWCP1fa/5F0RJDyU5231XlP9S9HnCvAlaRD8qv3c73w/CnFlyavpLV+DeJcC64L7PxxIPXPWcxXGzHWJnBzYOeXYKoTFVJ98Dwu9de6Pmkbxt8O7qA4VD/Xh9Q/8XrBfklHBNt5nPsd7ntMsO2f+HrG/74vGiFLHep6Kc0JrvYApH5XylvTey/nrQRpvbDdfw1tde6S+l3Te221vN7te94esJP2DffC3gfu90ffb/t/A75e0uECXYjzOHiCdJyEfQo8nXJfVNfrVNPB87dtr3QBcV4EL1G8l2FfAa8KOuLsEYVQ+0XT+6Bp/0eXt3cQ513wHsV7H/YD8KE/eh0wvYfr+i61XzS9D8atk9B+jjhfgC9JxyvYr8E3/ug6NK0jPJ7L+kiyJ5QVsugTXcK2Jl3NVw3IlcYEbEowd+mer6Sj2rurDs2IpyUBWx39JsDV83CtI+73+K/qiIPuod/7zPHTM42OtGNHOhb76dkGtidgh4OxQx1/APatTowQJwAA
+  </data>
+ </layer>
+ <layer name="ob2" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PwQmAMBAFUS+ytagVGKuVNOrWkOQwLvPgXz9M37ffe7OhF+mowA4WO1jsYLGDxQ4WO1jsYLGDxQ4WO1jsYLGDxQ4WO1jsYLGDxQ4WO1jsYLGDxQ4WO1gqdRyx5uuM8c268uNe1NFifLOe/PgAum9BSRAnAAA=
+  </data>
+ </layer>
+ <layer name="ob3" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAODfAC7KO00QJwAA
+  </data>
+ </layer>
+ <layer name="eff" width="50" height="50" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAODfAC7KO00QJwAA
+  </data>
+ </layer>
+ <layer name="coll" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WUQ7AEBBE+9tju3m/JI0QxezGvppE0KbG012k+7qSYcmy9PAonhzRdTj2Uo0j91fqVszW3q3WdI6IInMo/3fPW+VD5ogoMgdl36VwRBSZg7LvenEoRY4rT29FndtUDq/zQykyh5co+fGeQ60/Mq8dOBQic1DuJaXP6vOvaq1D73luU+NKOe4fzkHv/Oit3Wye974fycOTH3uJfH5QOCKKzEGJKwpHRFlzlPcQK6/D0R5rpqi8FTocOm+FduAglAfuzdNBECcAAA==
+  </data>
+ </layer>
+ <layer name="portal" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PMQ0AAAjAMF5so5wDDRyQNpmAVcaqyum6Lx8AAAAAAAAAAABfNS+u+CsQJwAA
+  </data>
+ </layer>
+ <layer name="npc" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3aoQ0AMAgAQWznxpF0gw6LYYMmqDvzS3yeAAAAAAAAAACAdXe+lTctHwvwqQFQoZx8ECcAAA==
+  </data>
+ </layer>
+ <layer name="item" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQ0AAAwDoL31PeHV0QT4HAAAAAAAAAAAAMwrPk2W8xAnAAA=
+  </data>
+ </layer>
+</map>
