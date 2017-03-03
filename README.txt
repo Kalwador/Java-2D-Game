@@ -1,5 +1,5 @@
 ﻿# LegendaryAdventure 
-# Version Alpha 1.0 
+# Version Alpha 3.5 
 
 Lista: 
 1. Szymon Kulikowski
