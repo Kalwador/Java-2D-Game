@@ -107,9 +107,7 @@ public class MenuState extends BasicGameState {
         //licznik++;
         //Testowanie screnów i włączenie plecaka
         if (input.isKeyPressed(Input.KEY_1)) {
-            Mouse.setCursorPosition(0, 720);
-            screenBlur.ScreenClass.makeScreen();
-            Mouse.setCursorPosition(xpos, ypos);
+        screenBlur.ScreenClass.makeScreen(xpos, ypos);
             sbg.enterState(4);
         }
     }

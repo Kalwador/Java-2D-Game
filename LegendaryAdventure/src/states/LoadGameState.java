@@ -51,6 +51,81 @@ public class LoadGameState extends BasicGameState {
     }
 
     @Override
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+
+        Input input = gc.getInput();
+        int xpos = Mouse.getX();
+        int ypos = Mouse.getY();
+        mouse = "x= " + xpos + " y=" + ypos;
+        onScreenLoc = "x= " + xpos + " y=" + Math.abs(720 - ypos);
+
+        if (input.isKeyPressed(Input.KEY_ESCAPE)) {
+            sbg.enterState(1);
+        }
+
+        //Odświeżenie kolorów przycisków
+        for (int j = 0; j < cButtons.length; j++) {
+            cButtons[j] = Color.white;
+        }
+        for (int j = 0; j < cSaves.length; j++) {
+            cSaves[j] = Color.white;
+        }
+
+        //wczytaj
+        if ((xpos > 262 && xpos < 471) && (ypos > 460 && ypos < 517)) {
+            if (input.isMouseButtonDown(0)) {
+                if (!stdTab[actualBSposition - 1].getMiniaturePath().equals("brak")) {
+                    gameUtils.TXTsave.loadSave(actualBSposition);
+                    states.PlayState.needToMapUpdate = true;
+                    sbg.enterState(1);
+                }
+            }
+            cButtons[0] = co;
+            if (input.isMouseButtonDown(0)) {
+                cButtons[0] = Color.gray;
+            }
+        }
+
+        //usun
+        if ((xpos > 262 && xpos < 471) && (ypos > 344 && ypos < 402)) {
+            if (input.isMouseButtonDown(0)) {
+                gameUtils.TXTsave.deleteSave(actualBSposition);
+                updateSlots();
+                sbg.enterState(11);
+            }
+            cButtons[1] = co;
+            if (input.isMouseButtonDown(0)) {
+                cButtons[1] = Color.gray;
+            }
+        }
+
+        //cofnij
+        if ((xpos > 262 && xpos < 471) && (ypos > 231 && ypos < 289)) {
+            if (input.isMouseButtonDown(0)) {
+                sbg.enterState(0);
+            }
+            cButtons[2] = co;
+            if (input.isMouseButtonDown(0)) {
+                cButtons[2] = Color.gray;
+            }
+        }
+
+        //Przewijanie prostokata do góry - klawisz, przycisk góra
+        if (input.isKeyPressed(Input.KEY_UP)) {
+            if (actualBSposition > 1) {
+                actualBSposition--;
+            }
+        }
+
+        //Przewijanie prostokata do dołu - klawisz, przycisk dół
+        if (input.isKeyPressed(Input.KEY_DOWN)) {
+            if (actualBSposition < 3) {
+                actualBSposition++;
+            }
+        }
+    }
+
+    @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(backGround, 0, 0);
         g.drawImage(borderGold, 0, 0); //złote ramki
@@ -110,81 +185,6 @@ public class LoadGameState extends BasicGameState {
             case 3:
                 g.drawImage(checkBorderSilver, 623, 399);
                 break;
-        }
-    }
-
-    @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-
-        Input input = gc.getInput();
-        int xpos = Mouse.getX();
-        int ypos = Mouse.getY();
-        mouse = "x= " + xpos + " y=" + ypos;
-        onScreenLoc = "x= " + xpos + " y=" + Math.abs(720 - ypos);
-
-        if (input.isKeyPressed(Input.KEY_ESCAPE)) {
-            sbg.enterState(1);
-        }
-
-        //Odświeżenie kolorów przycisków
-        for (int j = 0; j < cButtons.length; j++) {
-            cButtons[j] = Color.white;
-        }
-        for (int j = 0; j < cSaves.length; j++) {
-            cSaves[j] = Color.white;
-        }
-
-        //wczytaj
-        if ((xpos > 262 && xpos < 471) && (ypos > 460 && ypos < 517)) {
-            if (input.isMouseButtonDown(0)) {
-                if (!stdTab[actualBSposition-1].getMiniaturePath().equals("brak")) {
-                    gameUtils.TXTsave.loadSave(actualBSposition);
-                    states.PlayState.needToMapUpdate = true;
-                    sbg.enterState(1);
-                }
-            }
-            cButtons[0] = co;
-            if (input.isMouseButtonDown(0)) {
-                cButtons[0] = Color.gray;
-            }
-        }
-
-        //usun
-        if ((xpos > 262 && xpos < 471) && (ypos > 344 && ypos < 402)) {
-            if (input.isMouseButtonDown(0)) {
-                gameUtils.TXTsave.deleteSave(actualBSposition);
-                updateSlots();
-                sbg.enterState(11);
-            }
-            cButtons[1] = co;
-            if (input.isMouseButtonDown(0)) {
-                cButtons[1] = Color.gray;
-            }
-        }
-
-        //cofnij
-        if ((xpos > 262 && xpos < 471) && (ypos > 231 && ypos < 289)) {
-            if (input.isMouseButtonDown(0)) {
-                sbg.enterState(0);
-            }
-            cButtons[2] = co;
-            if (input.isMouseButtonDown(0)) {
-                cButtons[2] = Color.gray;
-            }
-        }
-
-        //Przewijanie prostokata do góry - klawisz, przycisk góra
-        if (input.isKeyPressed(Input.KEY_UP)) {
-            if (actualBSposition > 1) {
-                actualBSposition--;
-            }
-        }
-
-        //Przewijanie prostokata do dołu - klawisz, przycisk dół
-        if (input.isKeyPressed(Input.KEY_DOWN)) {
-            if (actualBSposition < 3) {
-                actualBSposition++;
-            }
         }
     }
 

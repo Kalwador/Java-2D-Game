@@ -24,6 +24,7 @@ public class GameStatus extends core.LoadEntity {
     /**
      * Dane o bohaterze, jego statystyki, wygląd, rasa itd
      */
+    public static int spriteNumber;
     public Sprite sprite;
     public static model.Hero hero;
     /**
@@ -59,7 +60,8 @@ public class GameStatus extends core.LoadEntity {
         this.levelID = 101;
         mapPath = "graphic/map/" + Integer.toString(levelID) + ".tmx";
         map = new TiledMap(mapPath);
-
+        
+        spriteNumber = 1;
         this.sprite = new Sprite();
 
         this.x = (91 * 32) + 1;

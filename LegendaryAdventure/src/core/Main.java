@@ -7,7 +7,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Main extends StateBasedGame {
 
-    public static final String GAMENAME = "Legendary Adventure - Alpha 3.0";
+    public static final String GAMENAME = "Legendary Adventure - Alpha 3.5";
     
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
@@ -26,6 +26,7 @@ public class Main extends StateBasedGame {
     public static final int LOADGAME = 11;
     public static final int SAVEGAME = 12;
     public static final int FIGHT = 13;
+    public static final int CREATE = 14;
 
     public Main() {
         super(GAMENAME);
@@ -43,6 +44,7 @@ public class Main extends StateBasedGame {
         this.addState(new states.LoadGameState(LOADGAME));
         this.addState(new states.SaveGameState(SAVEGAME));
         this.addState(new states.FightState(FIGHT));
+        this.addState(new states.CreateCharacterState(CREATE));
     }
 
     @Override
@@ -62,6 +64,7 @@ public class Main extends StateBasedGame {
         this.getState(LOADGAME).init(gc, this);
         this.getState(SAVEGAME).init(gc, this);
         this.getState(FIGHT).init(gc, this);
+        this.getState(CREATE).init(gc, this);
     }
 
     public static void main(String[] args) {

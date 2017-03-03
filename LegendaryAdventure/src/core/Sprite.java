@@ -29,7 +29,7 @@ public class Sprite {
 
         //lokalizacja avataru
 //        imgSprite = new Image("graphic/heroSprite/heroTest.png");
-        imgSprite = new Image("graphic/heroSprite/warior1.png");
+        imgSprite = new Image("graphic/heroSprite/avatar"+GameStatus.spriteNumber+".png");
         
         //ilość klatek na szerokość
         int widthSubImageLength = 6; 

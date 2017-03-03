@@ -3,40 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/hud/Console.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/PlayState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/gameUtils/Fonts.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/dataBase/SQLconnection.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/CharacterState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/actor/Collisions.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/model/Item.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/hud/Hud.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/gameUtils/TXTsave.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/core/LoadEntity.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/actor/Portals.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/BagState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/OptionsState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/hud/Frame.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/core/Camera.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/NewGameState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/model/SaveToDisplay.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/SaveGameState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/model/Equip.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/LoadGameState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/QuestsState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/actor/Event.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/actor/Keys.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/gameUtils/LocationName.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/core/GameStatus.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/PauseState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/model/Skill.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/MenuState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/SkillsState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/states/MapState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/model/Hero.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/actor/Movement.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/core/Main.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/Alpha3/src/dataBase/SQLsave.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/SkillsState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CreditsState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Collisions.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/gameUtils/TXTsave.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/GameStatus.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Event.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/dataBase/SQLsave.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/LoadGameState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/FightState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/dataBase/SQLconnection.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Keys.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Camera.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/LoadEntity.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/MenuState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Movement.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CreateCharacterState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/SaveGameState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/BagState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Sprite.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/gameUtils/Fonts.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Main.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/PlayState.java</file>
+            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CharacterState.java</file>
         </group>
     </open-files>
 </project-private>
