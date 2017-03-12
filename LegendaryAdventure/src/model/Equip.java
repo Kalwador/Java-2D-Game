@@ -2,15 +2,15 @@ package model;
 
 public class Equip {
 
-    int id;
-    String name; //  name of equip
-    String description; //description of equip
-    String type; //type of equip
-    int amount; //value 
-    int nOF; //the number of features - ilość cech przedmiotu
-    int dmg; //damage
-    int def; //defence
-    int speed;
+    private int id;
+    private String name; //  name of equip
+    private String description; //description of equip
+    private String type; //type of equip
+    private int amount; //value 
+    private int nOF; //the number of features - ilość cech przedmiotu
+    private int dmg; //damage
+    private int def; //defence
+    private int speed;
 
     public Equip() {
         this.amount = 0;

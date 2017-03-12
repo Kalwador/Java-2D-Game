@@ -9,9 +9,8 @@ import states.PlayState;
 public class Npc {
     //id npc
     int index;
-    
-    //pozycja npc na mapie
-    int x,y;
+    int x;
+    int y;
     
     //Tablica dialogów
     String[] dialog = new String[10];

@@ -1,6 +1,8 @@
 package states;
 
 import gameUtils.Fonts;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -53,7 +55,7 @@ public class OptionsState extends BasicGameState {
         Fonts.print25().drawString(565, 260, "Opcja 1", ctab[0]);
         Fonts.print25().drawString(565, 345, "Opcja 2", ctab[1]);
         Fonts.print25().drawString(565, 430, "Opcja 3", ctab[2]);
-        Fonts.print25().drawString(565, 515, "Opcja 4", ctab[3]);
+        Fonts.print25().drawString(565, 515, ("SPEED :" + model.Hero.movementSpeed), ctab[3]);
         Fonts.print25().drawString(575, 600, "Powrót", ctab[4]);
     }
 
@@ -105,10 +107,15 @@ public class OptionsState extends BasicGameState {
                 ctab[2] = Color.gray;
             }
         }
-        ///opcja 4 
+        ///Prędkość poruszania
         if ((xpos > 520 && xpos < 777) && (ypos > 156 && ypos < 229)) {
             if (input.isMouseButtonDown(0)) {
-                //działanie - opcja 4 
+                if(model.Hero.movementSpeed < 7){
+                    model.Hero.movementSpeed += 1;
+                }
+                else{
+                    model.Hero.movementSpeed = 1.0;
+                }
             }
             ctab[3] = Color.orange;
             if (input.isMouseButtonDown(0)) {
@@ -118,7 +125,6 @@ public class OptionsState extends BasicGameState {
         //powrót do menu
         if ((xpos > 520 && xpos < 777) && (ypos > 69 && ypos < 144)) {
             if (input.isMouseButtonDown(0)) {
-                Mouse.setCursorPosition(xpos, ypos-86);
                 sbg.enterState(0); 
             }
             ctab[4] = Color.orange;

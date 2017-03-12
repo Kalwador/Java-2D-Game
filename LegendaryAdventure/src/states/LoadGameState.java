@@ -30,7 +30,7 @@ public class LoadGameState extends BasicGameState {
     Color cSaves[] = {co, cw, cw}; //Kolory savów
     Color cButtons[] = {cw, cw, cw}; //Kolory tekstu na przyciskach
 
-    static model.SaveToDisplay stdTab[] = new model.SaveToDisplay[3];
+    static model.Save stdTab[] = new model.Save[3];
 
     int actualBSposition = 1; //Pozycja prostokąta wyboru save'a
     int counter = 0;
@@ -43,9 +43,6 @@ public class LoadGameState extends BasicGameState {
 
         mouse = "";
         onScreenLoc = " ";
-
-        //Wytworzenie własnej czcionki
-        fonts = new gameUtils.Fonts();
 
         updateSlots();
     }
@@ -71,7 +68,7 @@ public class LoadGameState extends BasicGameState {
             cSaves[j] = Color.white;
         }
 
-        //wczytaj
+        //LOAD BUTTON
         if ((xpos > 262 && xpos < 471) && (ypos > 460 && ypos < 517)) {
             if (input.isMouseButtonDown(0)) {
                 if (!stdTab[actualBSposition - 1].getMiniaturePath().equals("brak")) {
@@ -86,7 +83,7 @@ public class LoadGameState extends BasicGameState {
             }
         }
 
-        //usun
+        //DELETE BUTTON
         if ((xpos > 262 && xpos < 471) && (ypos > 344 && ypos < 402)) {
             if (input.isMouseButtonDown(0)) {
                 gameUtils.TXTsave.deleteSave(actualBSposition);
@@ -99,7 +96,7 @@ public class LoadGameState extends BasicGameState {
             }
         }
 
-        //cofnij
+        //BACK BUTTON
         if ((xpos > 262 && xpos < 471) && (ypos > 231 && ypos < 289)) {
             if (input.isMouseButtonDown(0)) {
                 sbg.enterState(0);
@@ -110,6 +107,24 @@ public class LoadGameState extends BasicGameState {
             }
         }
 
+        //Prostokąt 1
+        if ((xpos > 625 && xpos < 1130) && (ypos > 442 && ypos < 545)) {
+            if (input.isMouseButtonDown(0)) {
+                actualBSposition = 1;
+            }
+        }
+        //Prostokąt 2
+        if ((xpos > 625 && xpos < 1130) && (ypos > 327 && ypos < 433)) {
+            if (input.isMouseButtonDown(0)) {
+                actualBSposition = 2;
+            }
+        }
+        //Prostokąt 3
+        if ((xpos > 625 && xpos < 1130) && (ypos > 215 && ypos < 320)) {
+            if (input.isMouseButtonDown(0)) {
+                actualBSposition = 3;
+            }
+        }
         //Przewijanie prostokata do góry - klawisz, przycisk góra
         if (input.isKeyPressed(Input.KEY_UP)) {
             if (actualBSposition > 1) {
@@ -128,15 +143,13 @@ public class LoadGameState extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(backGround, 0, 0);
-        g.drawImage(borderGold, 0, 0); //złote ramki
+        
+        //złote ramki
+        g.drawImage(borderGold, 0, 0); 
 
-        Fonts.print18().drawString(10, 10, "wsp. myszy: " + mouse);
-        Fonts.print18().drawString(10, 30, onScreenLoc);
-        Fonts.print18().drawString(10, 50, Integer.toString(actualBSposition));
-
-        Fonts.print28().drawString(300, 218, "Wczytaj", cButtons[0]);
-        Fonts.print28().drawString(329, 336, "Usuń", cButtons[1]);
-        Fonts.print28().drawString(329, 452, "Back", cButtons[2]);
+        Fonts.print28().drawString(325, 218, "LOAD", cButtons[0]);
+        Fonts.print28().drawString(310, 335, "DELETE", cButtons[1]);
+        Fonts.print28().drawString(325, 448, "BACK", cButtons[2]);
 
         //Ustalenie kolorów nr savów
         switch (actualBSposition) {

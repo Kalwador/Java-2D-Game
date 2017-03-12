@@ -2,6 +2,7 @@ package hud;
 
 import core.Camera;
 import core.GameStatus;
+import gameUtils.Fonts;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -38,5 +39,7 @@ public class Hud {
         if(console.isOn){console.render(gc, g, camera, gs);}
         
         //render skili z szybkiego paska
+        
+        if(core.GameStatus.hero.levelPoints > 0) Fonts.print18().drawString(988, 666, Integer.toString(GameStatus.hero.levelPoints));
     }
 }

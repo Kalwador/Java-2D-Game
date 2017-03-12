@@ -14,7 +14,6 @@ import org.newdawn.slick.state.StateBasedGame;
  * Poruszanie, kolizje, portale. 
  * 
  * Nie obsłguje hudu.
- * 
  */
 public class Event {
 
@@ -36,7 +35,7 @@ public class Event {
         int oldY = gs.y;
 
         //obsługa klawiszy funkcyjnych
-        Keys.functionalKeyHandler(gc, sbg, input, gs.sprite.heroWidth, gs.sprite.heroHeight);
+        Keys.functionalKeyHandler(gc, sbg, input, GameStatus.sprite.heroWidth, GameStatus.sprite.heroHeight);
         
         //poruszenie się w wybranym kierunku
         movement.go(input, gs, delta, gs.sprite);
@@ -44,8 +43,8 @@ public class Event {
         //update prostokąta na graczu
         core.LoadEntity.recPlayer = new Rectangle(gs.x, gs.y, gs.sprite.heroWidth, gs.sprite.heroHeight - 5);
         
-        int playerCenterX = gs.x + (gs.sprite.heroWidth / 2) - 7;
-        int playerCenterY = gs.y + (gs.sprite.heroHeight / 2);
+        int playerCenterX = gs.x + (GameStatus.sprite.heroWidth / 2) - 7;
+        int playerCenterY = gs.y + (GameStatus.sprite.heroHeight / 2);
         
         //sprawdzanie wejścia w portal
         portals.isEnter(gs, playerCenterX, playerCenterY);

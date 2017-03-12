@@ -43,19 +43,19 @@ public class Hero {
         tempHeroMana = 10;
         maxHeroMana = 10;
 
-        heroAttack = 2.0;
-        heroDeffence = 2.0;
+        heroAttack = 1.0;
+        heroDeffence = 1.0;
 
         //przy stworzeniu klas te wartości zostaną zróżnicowane zależnie od wybranej klasy
-        strenght = 5;
-        agility = 5;
-        inteligence = 5;
+        strenght = 1;
+        agility = 1;
+        inteligence = 1;
 
         // sugested speed 1.3 
         movementSpeed = 1.0;
         attackSpeed = 1.0;
 
-        levelPoints = 3;
+        levelPoints = 10;
     }
 
     /**
@@ -76,7 +76,7 @@ public class Hero {
      * @param levelPoints
      */
 
-    public Hero(String heroName, int heroLevel, int tempHeroExperience, int maxHeroExperience, int tempHeroHealth, int maxHeroHealth, int tempHeroMana, int maxHeroMana, double heroDeffence, double heroAttack, int strenght, int agility, int inteligence, int levelPoints) {
+    public Hero(String heroName, int heroLevel, int tempHeroExperience, int maxHeroExperience, int tempHeroHealth, int maxHeroHealth, int tempHeroMana, int maxHeroMana,double heroAttack, double heroDeffence, int strenght, int agility, int inteligence, int levelPoints) {
         this.heroName = heroName;
         this.heroLevel = heroLevel;
         this.tempHeroExperience = tempHeroExperience;

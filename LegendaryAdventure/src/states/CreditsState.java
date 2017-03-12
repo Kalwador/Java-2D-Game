@@ -13,9 +13,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class CreditsState extends BasicGameState {
 
-//    String mouse;
-//    String onScreenLoc;
-    
     Image menuF;
     Image buttonBB;
     
@@ -24,9 +21,6 @@ public class CreditsState extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-//        onScreenLoc = " ";
-//        mouse = "";
-
         menuF = new Image("graphic/menu/backgroundMainMenu.jpg");
         buttonBB = new Image("graphic/menu/buttonMM.png");  
     }
@@ -41,19 +35,15 @@ public class CreditsState extends BasicGameState {
 
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
-//
-//        mouse = "x= " + xpos + " y=" + ypos;
-//        onScreenLoc = "x= " + xpos + " y=" + Math.abs(720 - ypos);
 
         c = Color.white;
         for (int j = 0; j < ctab.length; j++) {
             ctab[j] = c;
         }
         
-        //powrót do menu
+        //BACK BUTTON
         if ((xpos > 520 && xpos < 777) && (ypos > 69 && ypos < 144)) {
             if (input.isMouseButtonDown(0)) {
-                Mouse.setCursorPosition(xpos, ypos-86);
                 sbg.enterState(0); 
             }
             ctab[0] = Color.orange;
@@ -68,9 +58,6 @@ public class CreditsState extends BasicGameState {
         
         //background
         g.drawImage(menuF, 0, 0);
-        
-//        Fonts.print18().drawString(10, 10, "współ. myszy: " + mouse);
-//        Fonts.print18().drawString(10, 30, onScreenLoc);
         
         //buton back
         g.drawImage(buttonBB, 493, 600);

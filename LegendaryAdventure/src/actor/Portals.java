@@ -22,6 +22,7 @@ public class Portals {
 //            W razie problemów z portalami odkomentować
 //            System.out.println("x=" + gs.x + " y=" + gs.y + ", xS=" + gs.portalMapList.get(i).xStart + " xE=" + gs.portalMapList.get(i).xEnd
 //                    + " yS=" + gs.portalMapList.get(i).yStart + " yE=" + gs.portalMapList.get(i).yEnd + "\n");
+
             if (((gs.x >= gs.portalMapList.get(i).xStart) && (gs.x <= gs.portalMapList.get(i).xEnd))
                     && ((gs.y >= gs.portalMapList.get(i).yStart) && (gs.y <= gs.portalMapList.get(i).yEnd))) {
                 gs.levelID = gs.portalMapList.get(i).levelID;

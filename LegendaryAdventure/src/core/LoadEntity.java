@@ -55,7 +55,6 @@ public class LoadEntity {
 
     /**
      * Metoda znajdująca pola kolizyjne
-     *
      * @param map Aktualna mapa
      */
     public void updateCollisionFields(TiledMap map) {
@@ -85,7 +84,6 @@ public class LoadEntity {
 
     /**
      * Metoda aktualizująca portale na mapie poprzez parsowanie pliku xml,
-     *
      * @param portal kolekcja przechowująca dane o portalach na aktualnej mapie
      * @throws FileNotFoundException
      * @throws XMLStreamException
@@ -95,17 +93,13 @@ public class LoadEntity {
         String path = "res/portal/" + core.GameStatus.levelID + ".xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
             XMLInputFactory iFactory = XMLInputFactory.newInstance();
             InputStream xmlFile = new FileInputStream(filePath);
             XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
             // dopoki masz nastepny element ...
             newPortal = new Portal();
             while (parser.hasNext()) {
-
-                // jesli jest to ... , wowczas ...
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Portal")) {
                             newPortal = new Portal();
@@ -132,7 +126,6 @@ public class LoadEntity {
                             newPortal.setyNew(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
 
                         if (parser.getLocalName().equals("Portal")) {
@@ -155,18 +148,12 @@ public class LoadEntity {
         String path = "res/items/items.xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
         XMLInputFactory iFactory = XMLInputFactory.newInstance();
         InputStream xmlFile = new FileInputStream(filePath);
         XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
-            // dopoki masz nastepny element ...
             newItem = new model.Item() {};
             while (parser.hasNext()) {
-                 
-                // jesli jest to ... , wowczas ...
-                
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Potion")) {
                             newItem = new model.Item();
@@ -207,7 +194,6 @@ public class LoadEntity {
                             newItem.setId_klucza(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
                         
                         if (parser.getLocalName().equals("Potion")) {
@@ -236,18 +222,12 @@ public class LoadEntity {
         String path = "res/equip/equip.xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
         XMLInputFactory iFactory = XMLInputFactory.newInstance();
         InputStream xmlFile = new FileInputStream(filePath);
         XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
-            // dopoki masz nastepny element ...
             newEquip = new model.Equip();
             while (parser.hasNext()) {
-                 
-                // jesli jest to ... , wowczas ...
-                
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Weapon")) {
                             newEquip = new model.Equip();
@@ -285,7 +265,6 @@ public class LoadEntity {
                             newEquip.setDef(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
                         
                         if (parser.getLocalName().equals("Weapon")) {

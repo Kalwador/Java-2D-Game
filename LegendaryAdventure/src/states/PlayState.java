@@ -23,12 +23,12 @@ public class PlayState extends BasicGameState {
     /**
      * Kamera obsługująca pole widzenia na ekranie
      */
-    Camera camera;
+    private Camera camera;
 
     /**
      * Meta dane gry
      */
-    GameStatus gs;
+    static GameStatus gs;
 
     /**
      * Zdarzenia w oknie gry
@@ -45,7 +45,7 @@ public class PlayState extends BasicGameState {
         gs = new GameStatus();
         camera = new Camera(gc, gs.map);
         hud = new Hud();
-        event = new actor.Event(gs.sprite);
+        event = new actor.Event(GameStatus.sprite);
     }
 
     @Override
@@ -117,17 +117,6 @@ public class PlayState extends BasicGameState {
             //update miniMapy w rogu
             hud.frame.miniMapPath = "graphic/miniMap/" + String.valueOf(GameStatus.levelID) + ".png";
             hud.frame.miniMap = new Image(hud.frame.miniMapPath);
-
-            //--------------------------------------------------------------
-            //---------------------KOD W PRACY------------------------------
-//            Optional nullableMap = Optional.ofNullable(new Image(hud.frame.miniMapPath));
-//            if(nullableMap.isPresent()){
-//                hud.frame.miniMap = new Image(path);
-//            }
-//            else{
-//                hud.frame.miniMap = new Image("graphic/miniMap/noMiniMap.png");
-//            }
-            //--------------------------------------------------------------
         } catch (SlickException e) {
             System.out.println("B R A K    minimapy dla tej mapy");
             e.printStackTrace();

@@ -25,7 +25,7 @@ public class GameStatus extends core.LoadEntity {
      * Dane o bohaterze, jego statystyki, wygląd, rasa itd
      */
     public static int spriteNumber;
-    public Sprite sprite;
+    public static Sprite sprite;
     public static model.Hero hero;
     /**
      * status postaci
@@ -57,18 +57,21 @@ public class GameStatus extends core.LoadEntity {
         musicOn = true;
         
         //ustawianie pozycji startu gry
-        this.levelID = 101;
+        this.levelID = 100;
         mapPath = "graphic/map/" + Integer.toString(levelID) + ".tmx";
         map = new TiledMap(mapPath);
         
         spriteNumber = 1;
+        
         this.sprite = new Sprite();
 
-        this.x = (91 * 32) + 1;
-        this.y = (84 * 32) + 1;
-
+        this.x = 238;
+        this.y = 200;
+        
         //czysty bohater
         this.hero = new Hero();
+        this.itemsInBag = new HashMap<>();
+        this.equipInBag = new HashMap<>();
         this.itemsInGame = new HashMap<>();
         this.equipInGame = new HashMap<>();
         this.quest = new ArrayList<>();
@@ -87,43 +90,5 @@ public class GameStatus extends core.LoadEntity {
         updatePortalMapList(portalMapList);
         loadAllItemsInGame(itemsInGame);
         loadAllEquipInGame(equipInGame);
-
-    }
-
-    /**
-     * wykania się tylko przy utworzeniu nowej gry
-     */
-    public void NewGame() {
-        //ustawianie pozycji startu gry
-        this.levelID = 101;
-        mapPath = "graphic/map/" + Integer.toString(levelID) + ".tmx";
-        try {
-
-            map = new TiledMap(mapPath);
-            this.sprite = new Sprite();
-
-            this.x = (91 * 32) + 1;
-            this.y = (84 * 32) + 1;
-
-            //czysty bohater
-            this.hero = new Hero();
-            this.itemsInBag = new HashMap<>();
-            this.equipInBag = new HashMap<>();
-            this.quest = new ArrayList<>();
-            this.skills = new ArrayList<>();
-
-            //na pierwszej mapie nie ma mobów czy npc - więc kolekcje puste
-            this.npc = new ArrayList<model.Npc>();
-            this.enemy = new ArrayList<model.Enemy>();
-            this.loot = new ArrayList<model.Item>();
-            this.portalMapList = new ArrayList<model.Portal>();
-
-            //wczytanie danych o mapie
-            updateEntityFieldList(map);
-            updatePortalMapList(portalMapList);
-        loadAllItemsInGame(itemsInGame);
-        } catch (SlickException e) {
-            e.printStackTrace();
-        }
     }
 }
