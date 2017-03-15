@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dane>
+    <Portal>
+        <xStart>993</xStart>
+        <xEnd>1365</xEnd>
+        <yStart>3050</yStart>
+		<yEnd>3110</yEnd>
+		<levelID>105</levelID>
+		<xNew>2200</xNew>
+	    <yNew>265</yNew>
+    </Portal>
+</dane>

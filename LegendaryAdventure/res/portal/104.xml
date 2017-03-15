@@ -15,7 +15,16 @@
         <yStart>96</yStart>
 		<yEnd>160</yEnd>
 		<levelID>105</levelID>
-		<xNew>2000</xNew>
-	    <yNew>2000</yNew>
+		<xNew>1411</xNew>
+	    <yNew>2922</yNew>
+    </Portal>
+	<Portal>
+        <xStart>866</xStart>
+        <xEnd>1180</xEnd>
+        <yStart>1779</yStart>
+		<yEnd>2100</yEnd>
+		<levelID>107</levelID>
+		<xNew>800</xNew>
+	    <yNew>160</yNew>
     </Portal>
 </dane>
