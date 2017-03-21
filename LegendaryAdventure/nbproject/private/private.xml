@@ -3,29 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/SkillsState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CreditsState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Collisions.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/gameUtils/TXTsave.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/GameStatus.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Event.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/dataBase/SQLsave.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/LoadGameState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/FightState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/dataBase/SQLconnection.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Keys.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Camera.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/LoadEntity.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/MenuState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/actor/Movement.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CreateCharacterState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/SaveGameState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/BagState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Sprite.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/gameUtils/Fonts.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/core/Main.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/PlayState.java</file>
-            <file>file:/C:/Users/Kalvador/Documents/LegendaryAdventure/src/states/CharacterState.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/gameUtils/LocationName.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/actor/Keys.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/core/GameStatus.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Skill.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Buttons.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Enemy.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Usage.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/states/FightState.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Hud.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Hero.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/LadujSkille.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Frame.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,15 +1,20 @@
 package hud;
 
+import java.util.HashMap;
+import model.Skill;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import model.LadujSkille;
 
 public class Buttons {
+public LadujSkille laduj = new LadujSkille();
+HashMap<Integer,Skill> hudSkill = new HashMap<Integer,Skill>();
 
     public void clickButton(StateBasedGame sbg, Input input, int xPos, int yPos) throws SlickException {
-        
+     
         int xpos = input.getMouseX();
         int ypos = input.getMouseY();
 
@@ -37,5 +42,13 @@ public class Buttons {
                 sbg.enterState(6);
             }
         }
+        
+        
+        
+        
+        
+        
+        
+                
     }
 }

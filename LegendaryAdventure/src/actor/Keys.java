@@ -85,6 +85,14 @@ public class Keys {
                 sbg.enterState(7);
             }
         }
+        //okno walki
+        if (input.isKeyPressed(Input.KEY_Y)) {
+            if (sbg.getCurrentStateID() == 13) {
+                sbg.enterState(1);
+            } else {
+                sbg.enterState(13);
+            }
+        }
         //okno zapisu gry
         if (input.isKeyPressed(Input.KEY_Z)) {
             if (sbg.getCurrentStateID() == 12) {

@@ -1,20 +1,25 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.newdawn.slick.SlickException;
+import model.LadujSkille;
 
 public class Hero {
 
+    private LadujSkille laduj = new LadujSkille();
+    
     public String heroName;
 
     public int heroLevel;
     public int tempHeroExperience;
     public int maxHeroExperience;  //odpowiedni wzór wzrostu tej wartości przy levelowaniu to: 'maxHeroExperience += Math.log(maxHeroExperience);'
 
-    public int tempHeroHealth;
-    public int maxHeroHealth;
+    public static int tempHeroHealth;
+    public static int maxHeroHealth;
 
-    public int tempHeroMana;
-    public int maxHeroMana;
+    public static int tempHeroMana;
+    public static int maxHeroMana;
 
     public double heroAttack;
     public double heroDeffence;
@@ -38,10 +43,10 @@ public class Hero {
         maxHeroExperience = 100;
 
         tempHeroHealth = 10;
-        maxHeroHealth = 10;
+        maxHeroHealth = 100;
 
-        tempHeroMana = 10;
-        maxHeroMana = 10;
+        tempHeroMana = 50;
+        maxHeroMana = 50;
 
         heroAttack = 2.0;
         heroDeffence = 2.0;
@@ -56,6 +61,7 @@ public class Hero {
         attackSpeed = 1.0;
 
         levelPoints = 3;
+
     }
 
     /**
@@ -91,6 +97,9 @@ public class Hero {
         this.agility = agility;
         this.inteligence = inteligence;
         this.levelPoints = levelPoints;
+        HashMap<Integer,Skill> hudSkill = new HashMap<Integer,Skill>();
+        hudSkill.put(1, laduj.getSkill(1));
+        System.out.println(hudSkill);
     }
 
     public static int getMaxHeroExp(int lvl) {
@@ -100,4 +109,16 @@ public class Hero {
         }
         return maxHeroExperience;
     }
+
+    public int getTempHeroMana() {
+        return tempHeroMana;
+    }
+
+    public int getMaxHeroMana() {
+        return maxHeroMana;
+    }
+    
+    
+    
+    
 }

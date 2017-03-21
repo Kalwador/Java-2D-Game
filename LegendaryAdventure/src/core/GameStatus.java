@@ -125,5 +125,6 @@ public class GameStatus extends core.LoadEntity {
         } catch (SlickException e) {
             e.printStackTrace();
         }
+        
     }
 }

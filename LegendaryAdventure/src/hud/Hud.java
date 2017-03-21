@@ -2,11 +2,14 @@ package hud;
 
 import core.Camera;
 import core.GameStatus;
+import java.util.HashMap;
+import model.Skill;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+
 
 public class Hud {
     
@@ -20,6 +23,7 @@ public class Hud {
         this.frame = new Frame();
         this.console = new Console();
         font = new gameUtils.Fonts();
+                
     }
     
     public void update(GameContainer gc, StateBasedGame sbg, GameStatus gs, Input input, int xPos, int yPos) throws SlickException {
@@ -38,5 +42,8 @@ public class Hud {
         if(console.isOn){console.render(gc, g, camera, gs);}
         
         //render skili z szybkiego paska
+
+       // System.out.println(hudSkill);
+        
     }
 }
