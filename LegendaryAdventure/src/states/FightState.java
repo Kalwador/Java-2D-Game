@@ -27,6 +27,7 @@ public class FightState extends BasicGameState {
     public static boolean tura = false;
     public static int licznik;
     public int tempLicznik;
+    public static int[] cooldown = {0, 0, 0, 0, 0, 0};
 
     Image fightCanvas;
     /**
@@ -52,9 +53,8 @@ public class FightState extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         laduj.ladujSkille();
-        licznik=0;
-        tempLicznik=-1;
-        Enemy.tempEnemyHealth=0;
+        licznik = 0;
+        Enemy.tempEnemyHealth = 0;
         gs = new GameStatus();
         hud = new Hud();
         event = new actor.Event(gs.sprite);
@@ -91,54 +91,80 @@ public class FightState extends BasicGameState {
 
         //--WALKA--
         //if (input.isKeyPressed(Input.KEY_1)||(input.isKeyPressed(Input.KEY_2))||(input.isKeyPressed(Input.KEY_3))||(input.isKeyPressed(Input.KEY_4))||(input.isKeyPressed(Input.KEY_5))||(input.isKeyPressed(Input.KEY_6))){
-        
-            if (input.isKeyPressed(Input.KEY_1)) {
-                fight(0);
-            }
-            if (input.isKeyPressed(Input.KEY_2)) {
-                fight(1);
-            }
-            if (input.isKeyPressed(Input.KEY_3)) {
-                fight(2);
-            }
-            if (input.isKeyPressed(Input.KEY_4)) {
-                fight(3);
-            }
-            if (input.isKeyPressed(Input.KEY_5)) {
-                fight(4);
-            }
-            if (input.isKeyPressed(Input.KEY_6)) {
-                fight(5);
-            }
-            if(Enemy.tempEnemyHealth<=-20||Hero.tempHeroHealth<=0){
+        if (input.isKeyPressed(Input.KEY_1)) {
+            fight(1);
+        }
+        if (input.isKeyPressed(Input.KEY_2)) {
+            fight(2);
+        }
+        if (input.isKeyPressed(Input.KEY_3)) {
+            fight(3);
+        }
+        if (input.isKeyPressed(Input.KEY_4)) {
+            fight(4);
+        }
+        if (input.isKeyPressed(Input.KEY_5)) {
+            fight(5);
+        }
+        if (input.isKeyPressed(Input.KEY_6)) {
+            fight(6);
+        }
+        if (Enemy.tempEnemyHealth <= -100 || Hero.tempHeroHealth <= 0) { //!zdrowie enemy kiedy ma sie konczyc walka
             sbg.enterState(1);
-            }
-        
-        
+        }
+
     }
 
     public FightState(int state) {
     }
 
-    public void fight(int keyNr) {
+    public void fight(int keyNr) { //hey nr -1
         String tar = model.LadujSkille.getSkill(keyNr).getTarget();
-       
-        if(tempLicznik<=licznik){
-            tempLicznik = licznik + model.LadujSkille.getSkill(keyNr).getStun();
-        }
-        usage.use(tar, keyNr);
-        System.out.println("Tura numer " + licznik);
-        System.out.println("Temp licznik " + tempLicznik);
-        if (tempLicznik == licznik) {
-            if (Usage.tura == false) {
-                Usage.mobUse(10, 50);
-                Usage.tura = false;
-                System.out.println("____________");
-                System.out.println("Zwykly atak wroga");
+        keyNr -= 1;
+
+        if (cooldown[keyNr] <= 0) {
+
+            if (tempLicznik <= licznik) {
+                tempLicznik = licznik + model.LadujSkille.getSkill(keyNr).getStun();
             }
+            usage.use(tar, keyNr);
+            System.out.println("Tura numer " + licznik);
+            System.out.println("Temp licznik " + tempLicznik);
+            if (tempLicznik == licznik) {
+                if (Usage.tura == false) {
+                    Usage.mobUse(10, 50);
+                    Usage.tura = false;
+                    System.out.println("____________");
+                    System.out.println("Zwykly atak wroga");
+                }
+            }
+            licznik++;
+            cooldown[keyNr] = model.LadujSkille.getSkill(keyNr).getCooldown();
+            System.out.println("Przypisano cooldown " + cooldown[keyNr]);
+        } else {
+            System.out.println("Umiejetnosc jest odnawiana jeszcze przez " + cooldown[keyNr] + "tur");
+            //cooldown[keyNr]++;
+            cooldown[0]++;
+            cooldown[1]++;
+            cooldown[2]++;
+            cooldown[3]++;
+            cooldown[4]++;
+            cooldown[5]++;
         }
-        licznik++;
-        
+        //cooldown[keyNr]--;
+        cooldown[0]--;
+        cooldown[1]--;
+        cooldown[2]--;
+        cooldown[3]--;
+        cooldown[4]--;
+        cooldown[5]--;
+        System.out.println("Cooldown wynosi aktualnie " + cooldown[keyNr]);
+        System.out.println(cooldown[0]);
+        System.out.println(cooldown[1]);
+        System.out.println(cooldown[2]);
+        System.out.println(cooldown[3]);
+        System.out.println(cooldown[4]);
+        System.out.println(cooldown[5]);
     }
 
     @Override

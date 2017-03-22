@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/gameUtils/LocationName.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/actor/Keys.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/core/GameStatus.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Skill.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Buttons.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Enemy.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Usage.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/states/FightState.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Hud.java</file>
+            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Usage.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Hero.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/LadujSkille.java</file>
             <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Frame.java</file>
