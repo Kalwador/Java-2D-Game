@@ -5,25 +5,21 @@ import core.GameStatus;
 import core.Sprite;
 import gameUtils.LocationName;
 import hud.Hud;
-import javafx.event.Event;
-import model.Enemy;
-import model.Hero;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import model.Usage;
-import model.LadujSkille;
+import gameUtils.UseSkill;
+import gameUtils.LoadSkills;
 
 public class FightState extends BasicGameState {
 
-    public static LadujSkille laduj = new LadujSkille();
-    public static Usage usage;
+    public static LoadSkills skills = new LoadSkills();
+    public static UseSkill usage;
     public static boolean tura = false;
     public static int licznik;
     public int tempLicznik;
@@ -52,9 +48,9 @@ public class FightState extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        laduj.ladujSkille();
+        skills.ladujSkille();
         licznik = 0;
-        Enemy.tempEnemyHealth = 0;
+        //core.GameStatus.enemy.tempEnemyHealth = 0;
         gs = new GameStatus();
         hud = new Hud();
         event = new actor.Event(gs.sprite);
@@ -109,7 +105,7 @@ public class FightState extends BasicGameState {
         if (input.isKeyPressed(Input.KEY_6)) {
             fight(6);
         }
-        if (Enemy.tempEnemyHealth <= -100 || Hero.tempHeroHealth <= 0) { //!zdrowie enemy kiedy ma sie konczyc walka
+        if (core.GameStatus.enemy.tempEnemyHealth <= -100 || core.GameStatus.hero.tempHeroHealth <= 0) { //!zdrowie enemy kiedy ma sie konczyc walka
             sbg.enterState(1);
         }
 
@@ -119,27 +115,27 @@ public class FightState extends BasicGameState {
     }
 
     public void fight(int keyNr) { //hey nr -1
-        String tar = model.LadujSkille.getSkill(keyNr).getTarget();
+        String tar = gameUtils.LoadSkills.getSkill(keyNr).getTarget();
         keyNr -= 1;
 
         if (cooldown[keyNr] <= 0) {
 
             if (tempLicznik <= licznik) {
-                tempLicznik = licznik + model.LadujSkille.getSkill(keyNr).getStun();
+                tempLicznik = licznik + gameUtils.LoadSkills.getSkill(keyNr).getStun();
             }
             usage.use(tar, keyNr);
             System.out.println("Tura numer " + licznik);
             System.out.println("Temp licznik " + tempLicznik);
             if (tempLicznik == licznik) {
-                if (Usage.tura == false) {
-                    Usage.mobUse(10, 50);
-                    Usage.tura = false;
+                if (UseSkill.tura == false) {
+                    UseSkill.mobUse(10, 50);
+                    UseSkill.tura = false;
                     System.out.println("____________");
                     System.out.println("Zwykly atak wroga");
                 }
             }
             licznik++;
-            cooldown[keyNr] = model.LadujSkille.getSkill(keyNr).getCooldown();
+            cooldown[keyNr] = gameUtils.LoadSkills.getSkill(keyNr).getCooldown();
             System.out.println("Przypisano cooldown " + cooldown[keyNr]);
         } else {
             System.out.println("Umiejetnosc jest odnawiana jeszcze przez " + cooldown[keyNr] + "tur");
@@ -171,5 +167,4 @@ public class FightState extends BasicGameState {
     public int getID() {
         return 13;
     }
-
 }

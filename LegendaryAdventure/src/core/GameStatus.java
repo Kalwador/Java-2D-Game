@@ -27,6 +27,7 @@ public class GameStatus extends core.LoadEntity {
     public static int spriteNumber;
     public Sprite sprite;
     public static model.Hero hero;
+    public static model.Enemy enemy;
     /**
      * status postaci
      */
@@ -42,7 +43,7 @@ public class GameStatus extends core.LoadEntity {
      * Cząsteczki/Entities na mapie
      */
     public ArrayList<model.Npc> npc;
-    public ArrayList<model.Enemy> enemy;
+    public ArrayList<model.Enemy> enemyInGame;
     public ArrayList<model.Item> loot;
     public ArrayList<model.Portal> portalMapList;
     /**
@@ -75,10 +76,15 @@ public class GameStatus extends core.LoadEntity {
         this.skills = new ArrayList<>();
         
         this.money = 0;
-
+        
+        /**
+         * abstract enemy
+         */
+        this.enemy = new model.Enemy();
+                
         //na pierwszej mapie nie ma mobów czy npc - więc kolekcje puste
         this.npc = new ArrayList<model.Npc>();
-        this.enemy = new ArrayList<model.Enemy>();
+        this.enemyInGame = new ArrayList<model.Enemy>();
         this.loot = new ArrayList<model.Item>();
         this.portalMapList = new ArrayList<model.Portal>();
 
@@ -114,7 +120,7 @@ public class GameStatus extends core.LoadEntity {
 
             //na pierwszej mapie nie ma mobów czy npc - więc kolekcje puste
             this.npc = new ArrayList<model.Npc>();
-            this.enemy = new ArrayList<model.Enemy>();
+            this.enemyInGame = new ArrayList<model.Enemy>();
             this.loot = new ArrayList<model.Item>();
             this.portalMapList = new ArrayList<model.Portal>();
 

@@ -7,10 +7,10 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import model.LadujSkille;
+import gameUtils.LoadSkills;
 
 public class Buttons {
-public LadujSkille laduj = new LadujSkille();
+public LoadSkills laduj = new LoadSkills();
 HashMap<Integer,Skill> hudSkill = new HashMap<Integer,Skill>();
 
     public void clickButton(StateBasedGame sbg, Input input, int xPos, int yPos) throws SlickException {

@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import org.newdawn.slick.SlickException;
 
 public class Enemy {
@@ -59,30 +57,8 @@ public class Enemy {
         attackSpeed = 1.0;
 
         levelPoints = 3;
-
     }
 
-    /**
-     *
-     * @param heroName
-     * @param heroLevel
-     * @param tempHeroExperience
-     * @param maxHeroExperience
-     * @param tempHeroHealth
-     * @param maxHeroHealth
-     * @param tempHeroMana
-     * @param maxHeroMana
-     * @param heroAttack
-     * @param heroDeffence
-     * @param strenght
-     * @param agility
-     * @param inteligence
-     * @param levelPoints
-     */
-
-    
-    
-    
     public Enemy(String enemyName, int enemyLevel, int tempEnemyExperience, int maxEnemyExperience, double tempEnemyHealth, double maxEnemyHealth, int tempEnemyMana, int maxEnemyMana, double enemyAttack, double enemyDeffence, int strenght, int agility, int inteligence, int levelPoints) {
         this.enemyName = enemyName;
         this.enemyLevel = enemyLevel;

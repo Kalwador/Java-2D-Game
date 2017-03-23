@@ -3,11 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.newdawn.slick.SlickException;
-import model.LadujSkille;
+import gameUtils.LoadSkills;
 
 public class Hero {
 
-    private LadujSkille laduj = new LadujSkille();
+    private LoadSkills laduj = new LoadSkills();
     
     public String heroName;
 
@@ -117,8 +117,4 @@ public class Hero {
     public int getMaxHeroMana() {
         return maxHeroMana;
     }
-    
-    
-    
-    
 }

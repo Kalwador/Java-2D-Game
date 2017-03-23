@@ -3,13 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Skill.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Enemy.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/states/FightState.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Usage.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/Hero.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/model/LadujSkille.java</file>
-            <file>file:/C:/Users/Szymon/Documents/gra/Java-2D-Game/LegendaryAdventure/src/hud/Frame.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/core/GameStatus.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/core/LoadEntity.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/states/FightState.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/actor/Portals.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/actor/Collisions.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/model/Npc.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/model/Enemy.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/model/Skill_przed.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/core/Camera.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/states/PlayState.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/states/LoadGameState.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/fakeDataSeeder.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/core/Main.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/UseSkill.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/LoadSkills.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/model/Hero.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/TXTsave.java</file>
+            <file>file:/D:/projectLegendaryAdventure/Projekt-Gry-2D/LegendaryAdventure/src/states/BagState.java</file>
         </group>
     </open-files>
 </project-private>
