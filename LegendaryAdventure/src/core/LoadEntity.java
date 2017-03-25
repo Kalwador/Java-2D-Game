@@ -30,7 +30,7 @@ public class LoadEntity {
     // w trakcie prac, 
     // ostateczną formę przybieże po obsłuzeniu itemów npc i mobów
     public void updateEntityFieldList(TiledMap map) {
-        for (int i = 5; i < 6; i++) {
+        for (int i = 5; i < 9; i++) {
 //            if (i == 6) {
 //                continue; // nie sprawdza warstwy portali
 //            }
@@ -47,7 +47,7 @@ public class LoadEntity {
             if (i == 5) {
                 updateCollisionFields(map);
             }
-//            if(i == 7) {updateNpc(map);}
+            if(i == 8) {updateNpcFields(map);}
 //            if(i == 8) {updateLoot(map);}
         }
         
