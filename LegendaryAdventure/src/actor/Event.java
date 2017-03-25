@@ -20,12 +20,14 @@ public class Event {
     private Movement movement;
     private Collisions collisions;
     private Portals portals;
+//    private Dialogs dialogs;
 
     //wykona się przy 'NOWA GRA'
     public Event(Sprite sprite) throws SlickException {
         this.movement = new Movement();
         this.collisions = new Collisions();
         this.portals = new Portals();
+//        this.dialogs.= new dialogs();
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta, GameStatus gs, Input input, int xPos, int yPos) throws SlickException {
@@ -51,5 +53,6 @@ public class Event {
        
         //kolizje
         collisions.isBlocked(gs, oldX, oldY);
+//        dialogs.openDialog();
     }
 }
