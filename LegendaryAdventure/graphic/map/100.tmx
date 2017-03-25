@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="15" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="collisions" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="15" height="15" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="collisions" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="../tiles/collisions.png" width="160" height="32"/>
   <tile id="0">
    <properties>
@@ -23,22 +23,22 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="6" name="doors" tilewidth="32" tileheight="32">
+ <tileset firstgid="6" name="doors" tilewidth="32" tileheight="32" tilecount="192" columns="12">
   <image source="../tiles/Door cr Mack recolor and edit GrandmaDeb_zpsv3mxtwul.png" width="384" height="512"/>
  </tileset>
- <tileset firstgid="198" name="furnitures_01" tilewidth="32" tileheight="32">
+ <tileset firstgid="198" name="furnitures_01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../tiles/HF1_Indoors_1.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="454" name="furnitures_02" tilewidth="32" tileheight="32">
+ <tileset firstgid="454" name="furnitures_02" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../tiles/HF1_Indoors_2.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="710" name="furnitures_03" tilewidth="32" tileheight="32">
+ <tileset firstgid="710" name="furnitures_03" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../tiles/HF1_Indoors_3.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="966" name="walls" tilewidth="32" tileheight="32">
+ <tileset firstgid="966" name="walls" tilewidth="32" tileheight="32" tilecount="117" columns="9">
   <image source="../tiles/tilesetHouse.png" width="288" height="416"/>
  </tileset>
- <tileset firstgid="1083" name="fire19pv-1" tilewidth="200" tileheight="200">
+ <tileset firstgid="1083" name="fire19pv-1" tilewidth="200" tileheight="200" tilecount="16" columns="4">
   <image source="../tiles/fire19pv-1.png" width="800" height="800"/>
  </tileset>
  <layer name="bg" width="15" height="15">
@@ -71,19 +71,34 @@
    H4sIAAAAAAAAC2NkYGBgpACTAygxB109pXqJ9RuxYvjMJQUwItGUhjO5gNgwwRUGxJhFi3Q1UHrJxQCSNTNshAMAAA==
   </data>
  </layer>
- <layer name="portal" width="15" height="15" visible="0">
+ <layer name="portal" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NiGAWjABMwDZDekQgA1uAUe4QDAAA=
   </data>
  </layer>
- <layer name="npc" width="15" height="15" visible="0">
+ <layer name="npc" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
+  </data>
+ </layer>
+ <layer name="npcarea" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NmGAWjYBQMJAAAcFW1jIQDAAA=
   </data>
  </layer>
+ <layer name="mobs" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
+  </data>
+ </layer>
+ <layer name="mobsarea" width="15" height="15" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NhGAWjYBQMJAAAPCGxCYQDAAA=
+  </data>
+ </layer>
  <layer name="item" width="15" height="15" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NhGHmAZaAdMApGARIAAGnaoEiEAwAA
+   H4sIAAAAAAAAC2NlGAWjYBQMJAAASIawPoQDAAA=
   </data>
  </layer>
 </map>
