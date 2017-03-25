@@ -7,11 +7,12 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class GameStatus extends core.LoadEntity {
+
     /**
      * Czy muzyka włączona
      */
     public static boolean musicOn;
-    
+
     /**
      * levelID ID obszaru na którym znajduje się obecnie gracz
      */
@@ -41,7 +42,7 @@ public class GameStatus extends core.LoadEntity {
     /**
      * Cząsteczki/Entities na mapie
      */
-    public ArrayList<model.Npc> npc;
+    public HashMap<Integer, model.Npc> npc;
     public ArrayList<model.Enemy> enemy;
     public ArrayList<model.Item> loot;
     public ArrayList<model.Portal> portalMapList;
@@ -55,19 +56,19 @@ public class GameStatus extends core.LoadEntity {
     //wykania się tylko przy utworzeniu nowej gry
     public GameStatus() throws SlickException {
         musicOn = true;
-        
+
         //ustawianie pozycji startu gry
         this.levelID = 100;
         mapPath = "graphic/map/" + Integer.toString(levelID) + ".tmx";
         map = new TiledMap(mapPath);
-        
+
         spriteNumber = 1;
-        
+
         this.sprite = new Sprite();
 
         this.x = 238;
         this.y = 200;
-        
+
         //czysty bohater
         this.hero = new Hero();
         this.itemsInBag = new HashMap<>();
@@ -76,11 +77,11 @@ public class GameStatus extends core.LoadEntity {
         this.equipInGame = new HashMap<>();
         this.quest = new ArrayList<>();
         this.skills = new ArrayList<>();
-        
+
         this.money = 0;
 
         //na pierwszej mapie nie ma mobów czy npc - więc kolekcje puste
-        this.npc = new ArrayList<model.Npc>();
+        this.npc = gameUtils.NpcData.dataSeeder();
         this.enemy = new ArrayList<model.Enemy>();
         this.loot = new ArrayList<model.Item>();
         this.portalMapList = new ArrayList<model.Portal>();

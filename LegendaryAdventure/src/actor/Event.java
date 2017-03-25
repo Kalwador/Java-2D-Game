@@ -18,14 +18,14 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Event {
 
     private Movement movement;
-    private Collisions collisions;
+    private CollisionsFields collisionFields;
     private Portals portals;
 //    private Dialogs dialogs;
 
     //wykona się przy 'NOWA GRA'
     public Event(Sprite sprite) throws SlickException {
         this.movement = new Movement();
-        this.collisions = new Collisions();
+        this.collisionFields = new CollisionsFields();
         this.portals = new Portals();
 //        this.dialogs.= new dialogs();
     }
@@ -52,7 +52,13 @@ public class Event {
         portals.isEnter(gs, playerCenterX, playerCenterY);
        
         //kolizje
-        collisions.isBlocked(gs, oldX, oldY);
-//        dialogs.openDialog();
+        collisionFields.isCollision(gs, oldX, oldY);
+        
+        //npc
+        if(collisionFields.isNpc(gs)) hud.NpcDialog.displayDialog = true;
+        else hud.NpcDialog.displayDialog = false;
+        
+        //moby
+        //odpowiednia akcja dla mobów
     }
 }

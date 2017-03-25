@@ -3,7 +3,8 @@ package states;
 import actor.*;
 import core.*;
 import hud.Hud;
-import java.util.Optional;
+import hud.NpcDialog;
+import static hud.NpcDialog.npc;
 import model.Npc;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
@@ -17,9 +18,9 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class PlayState extends BasicGameState {
 
-    public static boolean displayDialog=false;
+    
 
-    private Image img;
+
     /**
      * Czy potrzeba przeładować mapę
      */
@@ -43,6 +44,11 @@ public class PlayState extends BasicGameState {
      * Paski boczne i ich obsługa
      */
     private Hud hud;
+    
+    /**
+     * Kartka z pozdrowieniem od NPC
+     */
+    private NpcDialog npcDialog;
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -50,7 +56,8 @@ public class PlayState extends BasicGameState {
         camera = new Camera(gc, gs.map);
         hud = new Hud();
         event = new actor.Event(GameStatus.sprite);
-        img= new Image("graphic/menu/malaKartka.png");
+        npc = new Npc();
+        npcDialog = new NpcDialog();
     }
 
     @Override
@@ -99,35 +106,10 @@ public class PlayState extends BasicGameState {
         //render avatar, który siedzi w obiekcie event
         gs.sprite.avatar.draw(gs.x, gs.y);
         
-        if(displayDialog){
-            openDialog(gs);
+        if(NpcDialog.displayDialog){
+            npcDialog.openDialog(gs);
         }
     }
-    
-    public void openDialog(GameStatus gs) throws SlickException{
-      
-        for (int i = 0; i < Npc.npc.size(); i++) {
-            
-            if (gs.x == Npc.npc.get(i).getX() && gs.y == Npc.npc.get(i).getY()) { 
-                
-               
-                    
-                    img.draw(30,30);
-                    
-                
-            } 
-        }    
-//        int iter = 0;
-//        
-//        while (LoadEntity.npc.size() > iter) {
-//            if (LoadEntity.recPlayer.intersects(LoadEntity.npc.get(iter))) {
-//                    img.draw(30,30);               
-//            }
-//            iter++;
-//        }
-        displayDialog=true;
-    }
-    
 
     /**
      * Metoda wywoła się przy przejściu przez portal
