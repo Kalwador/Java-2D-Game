@@ -91,24 +91,9 @@
    H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
   </data>
  </layer>
- <layer name="coll" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2YWY7DIBAFc4G5Qe5/ztFoFClOWBoM9KOpkvhx2PwKG5znz+PxDFpW4n2v6kUN7zzwcMU7l1RG+NAoK+ekircDfHzj7QEf33i7wMcVbxf4uOLtAh/f4EOLaPezO6PX8s51FMDH+ExbaZmrd0b40MoIH1oZneDjE3xogQ8t8KEFPrTAhxb48MWav0JG0X30ulDOER8x63iAD3zsUscLfGj5SIEPLfChBT70wIceahnhQyuj0338oZQRPrQyOt2HWkb40MoIH1oZRfZhGV8to9N9vNdTyCiyDytKGeFDKyM1Hx5ed1k3HuBDC493Hj7y9Pi46y3XfuaaKL0HessMvH2U9sS7zPYbhZx/67XecXrnmeszCrOf/dyzN3qMKCj4aNkbcteisPo89xqzNgfLOSPX386sdvEaszSHnjNNFEb6aDkXtPRXa4OP+2O21k+1OeF8tWrMUf2c4GP2PVr2i9Se3bu/7ISHjx5U5jR7DXits7tnKi/wcRb48EUlA3z8o5LB6T5az5cK8zkJ7wzwcYUc5vOeZS1ffMznPc9Svrwn1pPKV21PPxmrC3ysAx9zyWWYyziKD9W5tvoo/a56j1GoZYyLfmZmhg87q9YwLuyMzKq2p8B4cplb9njoo2Wfzl3PnbngimWf6NlL8NGH5btgxt6Ojzorz6K199vprP5W4x1WxstH6hmJSCpbpf8scj6isqMPxT5ngg8t8HEms74xoR3rs4eP+5S+Gazf97mzBbRTyzmXb6kePvpp/Y/D4gEfaUbn1OJC5ZxXW1ur5zAqv9H9zaQ0l893gaXtnTFHlhFjeWD10dKud0y14gE+9vGxsh2lfX14z2dm+QWmr9vnQJwAAA==
-  </data>
- </layer>
- <layer name="portal" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3dsQ3AIBAEQTdACfTfpiNyIrMyM9JXsNFFP8fzW3N8d+zRAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4kd+rLXp0+E3cokeLHi16tOjRokeLHi16tOjRokeLHj16tOgBAADnre1qwzbc1OMF0BxKPkCcAAA=
-  </data>
- </layer>
  <layer name="npc" width="100" height="100">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3bMQ0AIAwEwDrABSMGMMCCfzvMbCxAIHcKPmn+t0YAAAAAAAAAAAAAAAAAAAAAAAAAAADwu5xuJwBYV2wWAAAAAAAAAAAAAAAAAMAx1W8nTJpOPKO7FZsNvhKYbECcAAA=
-  </data>
- </layer>
- <layer name="npcarea" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3bsQkAIBRDQRf4K7j/mBYiWFgKBrmDTPDq9GoAAAAAAAAAAAAAAAAAAAAAAAAAAADX9ZrjvdVCjwx7D13e0yOTHln0AAAAAAAAAAAAAAAAAH7gK5VFjyx6AMDZAPwFjF5AnAAA
   </data>
  </layer>
  <layer name="mobs" width="100" height="100">
@@ -116,14 +101,24 @@
    H4sIAAAAAAAAC+3aywkAIQwFQDuwNlFQ2P772KtHEfwgMxW8Y5KXEAAAAAAAAO5X4+kEAAAAAAAAAAAAAAC8oPhPBwAAAAAAACYkXSMAAAAAwDafmywAACyRzdoAAECn2REAAGDID33Z20tAnAAA
   </data>
  </layer>
+ <layer name="portal" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dsQ3AIBAEQTdACfTfpiNyIrMyM9JXsNFFP8fzW3N8d+zRAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4kd+rLXp0+E3cokeLHi16tOjRokeLHi16tOjRokeLHj16tOgBAADnre1qwzbc1OMF0BxKPkCcAAA=
+  </data>
+ </layer>
+ <layer name="coll" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2YWY7DIBAFc4G5Qe5/ztFoFClOWBoM9KOpkvhx2PwKG5znz+PxDFpW4n2v6kUN7zzwcMU7l1RG+NAoK+ekircDfHzj7QEf33i7wMcVbxf4uOLtAh/f4EOLaPezO6PX8s51FMDH+ExbaZmrd0b40MoIH1oZneDjE3xogQ8t8KEFPrTAhxb48MWav0JG0X30ulDOER8x63iAD3zsUscLfGj5SIEPLfChBT70wIceahnhQyuj0338oZQRPrQyOt2HWkb40MoIH1oZRfZhGV8to9N9vNdTyCiyDytKGeFDKyM1Hx5ed1k3HuBDC493Hj7y9Pi46y3XfuaaKL0HessMvH2U9sS7zPYbhZx/67XecXrnmeszCrOf/dyzN3qMKCj4aNkbcteisPo89xqzNgfLOSPX386sdvEaszSHnjNNFEb6aDkXtPRXa4OP+2O21k+1OeF8tWrMUf2c4GP2PVr2i9Se3bu/7ISHjx5U5jR7DXits7tnKi/wcRb48EUlA3z8o5LB6T5az5cK8zkJ7wzwcYUc5vOeZS1ffMznPc9Svrwn1pPKV21PPxmrC3ysAx9zyWWYyziKD9W5tvoo/a56j1GoZYyLfmZmhg87q9YwLuyMzKq2p8B4cplb9njoo2Wfzl3PnbngimWf6NlL8NGH5btgxt6Ojzorz6K199vprP5W4x1WxstH6hmJSCpbpf8scj6isqMPxT5ngg8t8HEms74xoR3rs4eP+5S+Gazf97mzBbRTyzmXb6kePvpp/Y/D4gEfaUbn1OJC5ZxXW1ur5zAqv9H9zaQ0l893gaXtnTFHlhFjeWD10dKud0y14gE+9vGxsh2lfX14z2dm+QWmr9vnQJwAAA==
+  </data>
+ </layer>
+ <layer name="npcarea" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3bsQkAIBRDQRf4K7j/mBYiWFgKBrmDTPDq9GoAAAAAAAAAAAAAAAAAAAAAAAAAAADX9ZrjvdVCjwx7D13e0yOTHln0AAAAAAAAAAAAAAAAAH7gK5VFjyx6AMDZAPwFjF5AnAAA
+  </data>
+ </layer>
  <layer name="mobsarea" width="100" height="100" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3awQkCMRCGURtYLMGe7L8Y8bCoOSo4n+t7ENhz/p3MQHLZTgAAAADAH7tsr4tZzxnIY548WuTRon8AAAAAAAAAAAAAK+8LW7y/bZFHi/MKAAAAAACAX+Beq8W9b4v6+D773bLnIJOGewbX8+ObWXoEvE/ttOz9RR4N6oMjWecl//Wsdf/lMWutCXnMc14BAJ8wS7SYtVvcN7Y4qwCOyTzaYh5tkUeLPFr0DwCAthuh51l1QJwAAA==
-  </data>
- </layer>
- <layer name="item" width="100" height="100" visible="0">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQEAAAwCoBWww/qn9DEG8DkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAKf2hUrUCcAAA=
   </data>
  </layer>
 </map>

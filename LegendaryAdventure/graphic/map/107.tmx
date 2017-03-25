@@ -55,24 +55,9 @@
    H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAODfAC7KO00QJwAA
   </data>
  </layer>
- <layer name="coll" width="50" height="50">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2W0Q6FIAxDffWz/fP7ZLKQuSF2QJvbhGAwUo5jjOs8jquw3ar0mNFmcnheu8uuU5WDVR6HZRztn+Lqvfvaq3MwSpkDGe/MG+WjzMEoZQ6Vc1eFAy0Fj6e4VPm0Y4g+8kD7zOSoiEmUi0zagQN9LjJz2LlW1Q+klDlmia2eZ8r2Q+8cqzkQUuZA1/PIG+UTxQM13qvoXhON38+75f2I7LqRDKvqh1e7quvg7PzI/t1onmffv8lD1nxopcyhUj9UOBilzKGyr1Q4GFXN0d5D0F6Vc0c+DBzemnvbF0/rzcrReiP051jrvVv7AQvQ1KYQJwAA
-  </data>
- </layer>
- <layer name="portal" width="50" height="50">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3PMQ0AAAjAMF5so5wDDRyQNpmAVcaqyum6Lx8AAAAAAAAAAABfNS+u+CsQJwAA
-  </data>
- </layer>
  <layer name="npc" width="50" height="50">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3OsQ0AIAgAQVpWN3EDhqWQGTQxd823HwEAAAAAAAAAAPftPK3pyncvwB8avwaYARAnAAA=
-  </data>
- </layer>
- <layer name="npcarea" width="50" height="50">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3PsQ0AMAjAMFbu5vGOXbsBlS3lgFQGAAAAAAAAAMCTyttmPmb55QPodwCn5tDUECcAAA==
   </data>
  </layer>
  <layer name="mobs" width="50" height="50">
@@ -80,14 +65,24 @@
    H4sIAAAAAAAAC+3XuwkAIBBEQVP7z/10agkKgp4yU8ELd1MCZmq+XbCuPNQKAADRvfQF2ONLAQCRdVsFAIBPNNuWAwYeW7eeECcAAA==
   </data>
  </layer>
+ <layer name="portal" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PMQ0AAAjAMF5so5wDDRyQNpmAVcaqyum6Lx8AAAAAAAAAAABfNS+u+CsQJwAA
+  </data>
+ </layer>
+ <layer name="coll" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2W0Q6FIAxDffWz/fP7ZLKQuSF2QJvbhGAwUo5jjOs8jquw3ar0mNFmcnheu8uuU5WDVR6HZRztn+Lqvfvaq3MwSpkDGe/MG+WjzMEoZQ6Vc1eFAy0Fj6e4VPm0Y4g+8kD7zOSoiEmUi0zagQN9LjJz2LlW1Q+klDlmia2eZ8r2Q+8cqzkQUuZA1/PIG+UTxQM13qvoXhON38+75f2I7LqRDKvqh1e7quvg7PzI/t1onmffv8lD1nxopcyhUj9UOBilzKGyr1Q4GFXN0d5D0F6Vc0c+DBzemnvbF0/rzcrReiP051jrvVv7AQvQ1KYQJwAA
+  </data>
+ </layer>
+ <layer name="npcarea" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PsQ0AMAjAMFbu5vGOXbsBlS3lgFQGAAAAAAAAAMCTyttmPmb55QPodwCn5tDUECcAAA==
+  </data>
+ </layer>
  <layer name="mobsarea" width="50" height="50">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3XwQqAIBCE4a6+tw8uBUGY6EVtZ/o/CPK2w7paOR2XnN5PVL06R+tInrWR43ujHA7zAQAA5nK4d+valXP01ipa/ZiZZeeeXdmTnXt25b+Aw+ydnHKon+kA4MDhPHb8xlbvR+tdjcNsAADwJy739l0/OWJwyuEwH4itACo49Z0QJwAA
-  </data>
- </layer>
- <layer name="item" width="50" height="50" visible="0">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQ0AAAwDoL0VPt/V0QT4HAAAAAAAAAAAAMwrWpieERAnAAA=
   </data>
  </layer>
 </map>
