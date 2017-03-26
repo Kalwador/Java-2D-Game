@@ -6,16 +6,16 @@
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/hud/Console.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/Camera.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/GameStatus.java</file>
-            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/TXTsave.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/LoadEntity.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/LocationUtils.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/states/PlayState.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/actor/Keys.java</file>
+            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/Main.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/Fonts.java</file>
-            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/actor/Dialogs.java</file>
-            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/hud/Frame.java</file>
+            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/SoundService.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/actor/CollisionsFields.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/actor/Event.java</file>
+            <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/core/Sprite.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/hud/NpcDialog.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/model/Npc.java</file>
             <file>file:/D:/GitHub/Projekt-Gry-2D/LegendaryAdventure/src/gameUtils/NpcData.java</file>

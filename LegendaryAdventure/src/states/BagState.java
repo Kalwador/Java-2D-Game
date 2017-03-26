@@ -26,7 +26,7 @@ public class BagState extends BasicGameState {
 
     String mouse;
 
-    private int selectedItem;
+    private int selectedItem = 0;
     private int selectedItemX;
     private int selectedItemY;
 
@@ -39,6 +39,8 @@ public class BagState extends BasicGameState {
     Color c[] = {Color.orange, Color.white};
 
     Image BagMainFrame;
+    Image darkFrameR;
+    Image darkFrameL;
     Image coins;
 
     //Kolory tekstu na przyciskach
@@ -75,6 +77,8 @@ public class BagState extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         coins = new Image("graphic/menu/CoinBagButtons.png");
         BagMainFrame = new Image("graphic/menu/BagEquipScene2.png");
+        darkFrameR = new Image("graphic/menu/BagEquipScene2-dark-right.png");
+        darkFrameL = new Image("graphic/menu/BagEquipScene2-dark-left.png");
         mouse = "";
         updateItemList();
     }
@@ -122,8 +126,6 @@ public class BagState extends BasicGameState {
         g.drawRect(r.getX(), r.getY(), r.getHeight(), r.getWidth());
         g.drawRect(rW.getX(), rW.getY(), rW.getHeight(), rW.getWidth());
 
-        Fonts.print18().drawString(420, 100, "Plecak");
-        Fonts.print18().drawString(770, 100, "Wyposażenie");
         //------------------------------------------------
         Fonts.print18().drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(squareItemSelectionXPosition));
         Fonts.print18().drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(squareItemSelectionYPosition));
@@ -132,6 +134,26 @@ public class BagState extends BasicGameState {
         Fonts.print18().drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(squareEquipSelectionXPosition));
         Fonts.print18().drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(squareEquipSelectionYPosition));
         //------------------------------------------------
+
+        //Monety
+        Fonts.print25().drawString(379, 576, String.valueOf(core.GameStatus.money), Color.yellow);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(504, 557, "EQUIP", ArrayOfColors[0]);
+        Fonts.print18().drawString(510, 596, "DROP", ArrayOfColors[1]);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(800, 557, "EQUIP", ArrayOfColors[2]);
+        Fonts.print18().drawString(801, 596, "DROP", ArrayOfColors[3]);
+
+        if (czyPlecak) {
+            g.drawImage(darkFrameR, 0, 0);
+        } else {
+            g.drawImage(darkFrameL, 0, 0);
+        }
+
+        Fonts.print18().drawString(420, 100, "Plecak");
+        Fonts.print18().drawString(770, 100, "Wyposażenie");
 
         //@Gajwer
         if (bagCursorActivate) {
@@ -142,17 +164,6 @@ public class BagState extends BasicGameState {
             RednerEquipDescription(g);
             bagEqCursorActivate = false;
         }
-
-        //Monety
-        Fonts.print25().drawString(379, 576, String.valueOf(core.GameStatus.money), Color.yellow);
-
-        //Przyciski itemów
-        Fonts.print18().drawString(493, 556, "EQUIP", ArrayOfColors[0]);
-        Fonts.print18().drawString(493, 595, " DROP", ArrayOfColors[1]);
-
-        //Przyciski itemów
-        Fonts.print18().drawString(788, 556, "EQUIP", ArrayOfColors[2]);
-        Fonts.print18().drawString(788, 595, " DROP", ArrayOfColors[3]);
     }
 
     @Override
@@ -163,10 +174,10 @@ public class BagState extends BasicGameState {
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
-        
+
         //update listy itemow w oczekiwaniu na zalozenie badz usuniecie
         updateItemList();
-        
+
         //powrót do gry
         if (((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636))
                 || // X w lewym oknie
@@ -184,7 +195,7 @@ public class BagState extends BasicGameState {
         }
 
         //Przycisk załóż item
-        if ((xpos > 471 && xpos < 598) && (ypos > 138 && ypos < 170)) {
+        if (czyPlecak && (xpos > 471 && xpos < 598) && (ypos > 138 && ypos < 170)) {
             ArrayOfColors[0] = colorOrange;
             if (input.isMouseButtonDown(0)) {
                 ArrayOfColors[0] = Color.gray;
@@ -193,7 +204,7 @@ public class BagState extends BasicGameState {
         }
 
         //Przycisk wyrzuć item
-        if ((xpos > 471 && xpos < 598) && (ypos > 97 && ypos < 134)) {
+        if (czyPlecak && (xpos > 471 && xpos < 598) && (ypos > 97 && ypos < 134)) {
             ArrayOfColors[1] = colorOrange;
             if (input.isMouseButtonDown(0)) {
                 ArrayOfColors[1] = Color.gray;
@@ -202,7 +213,7 @@ public class BagState extends BasicGameState {
         }
 
         //Przycisk załóż equip
-        if ((xpos > 766 && xpos < 893) && (ypos > 138 && ypos < 170)) {
+        if (!czyPlecak && (xpos > 766 && xpos < 893) && (ypos > 138 && ypos < 170)) {
             ArrayOfColors[2] = colorOrange;
             if (input.isMouseButtonDown(0)) {
                 ArrayOfColors[2] = Color.gray;
@@ -211,7 +222,7 @@ public class BagState extends BasicGameState {
         }
 
         //Przycisk wyrzuć equip
-        if ((xpos > 766 && xpos < 893) && (ypos > 97 && ypos < 134)) {
+        if (!czyPlecak && (xpos > 766 && xpos < 893) && (ypos > 97 && ypos < 134)) {
             ArrayOfColors[3] = colorOrange;
             if (input.isMouseButtonDown(0)) {
                 ArrayOfColors[3] = Color.gray;
@@ -329,12 +340,14 @@ public class BagState extends BasicGameState {
                 }
             }
         }
+
     }
 
     public void RednerItemDescription(Graphics g) throws SlickException {
-        if (bagCursorActivate && selectedItem != -1 && core.GameStatus.itemsInBag.size() > selectedItem) {
+        if (bagCursorActivate && core.GameStatus.itemsInBag != null && selectedItem != -1 && core.GameStatus.itemsInBag.size() > selectedItem) {
             g.drawImage(new Image("graphic/menu/malaKartkaWieksza.png"), selectedItemX, selectedItemY);
 
+            selectedItem++;
             String n = core.GameStatus.itemsInBag.get(selectedItem).getDescription();
             int size = n.length() / 3 + 1;
 
@@ -365,9 +378,10 @@ public class BagState extends BasicGameState {
     }
 
     public void RednerEquipDescription(Graphics g) throws SlickException {
-        if (bagEqCursorActivate && selectedEquip != 0 && core.GameStatus.equipInBag.size() > selectedEquip) {
+        if (bagEqCursorActivate && core.GameStatus.itemsInBag != null && selectedEquip != 0 && core.GameStatus.equipInBag.size() > selectedEquip) {
             g.drawImage(new Image("graphic/menu/malaKartkaWieksza.png"), selectedEquipX, selectedEquipY);
 
+            selectedItem++;
             String n = core.GameStatus.equipInBag.get(selectedEquip).getDescription();
             int size = n.length() / 3 + 1;
 
@@ -382,16 +396,16 @@ public class BagState extends BasicGameState {
             Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 81, descArray[2], Color.black); //Trzecia linijka opisu
 
             if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 1) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
             }
             if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 2) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
             }
             if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 3) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
             }
             if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 4) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
             }
         }
     }

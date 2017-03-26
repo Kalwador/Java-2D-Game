@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Npc {
 
     public String name;
@@ -16,7 +14,7 @@ public class Npc {
 
     public Npc() {
         this.name = "";
-        this.quotes = new String[]{" "," "};
+        this.quotes = new String[]{" ", " "};
         this.x = 0;
         this.y = 0;
         this.levelID = 0;
@@ -71,77 +69,9 @@ public class Npc {
         this.levelID = levelID;
     }
 
-    public static ArrayList<Npc> npc = new ArrayList<Npc>() {
-        {
-            //103
-            add(new Npc(103, 62, 61, "Uriziel", new String[]{"Witaj "
-                + "Co Cię tutaj sporwadza wędrowcze?"}));
-            add(new Npc(103, 16, 42, "Obywatel", new String[]{"Uważaj! "
-                + "Kolejny szaleniec w mieście!"}));
-            add(new Npc(103, 6, 42, "Strażnik Bramy", new String[]{"Przestań tak pędzić! "
-                + "Tylko nie pakuj się w kłopoty!"}));
-            //104  
-            add(new Npc(104, 18, 13, "Kowal", new String[]{"Hej Ty! "
-                + "Czego potrzebujesz potrzebujesz?"}));
-            add(new Npc(104, 48, 11, "Strażnik", new String[]{"Przestań tak pędzić! "
-                + "Tylko nie pakuj się w kłopoty!"}));
-            add(new Npc(104, 58, 37, "Strażnik", new String[]{
-                "Jeszcze Ciebie tutaj brakowało."}));
-            add(new Npc(104, 59, 35, "Strażnik", new String[]{"Przestań tak pędzić! "
-                + "Tylko nie pakuj się w kłopoty!"}));
-            add(new Npc(104, 49, 49, "Strażnik", new String[]{"Przestań tak pędzić! "
-                + "Tylko nie pakuj się w kłopoty!"}));
-            add(new Npc(104, 64, 33, "Chłopiec", new String[]{"Kiedyś będę strażnikiem"
-                + "I będę nosić taką zbroję jak oni!"}));
-            add(new Npc(104, 36, 46, "Obywatelka", new String[]{"Odejdź zwyrodnialcze! "
-                + "Zaraz zawołam straż!"}));
-            add(new Npc(104, 7, 15, "Obywatelka", new String[]{"Nie masz tu czego szukać "
-                + "Odejdź!"}));
-            add(new Npc(104, 19, 51, "Kupiec", new String[]{"Wyrolowali mnie!"
-                + "Ukradli mi moich klientów!"}));
-            add(new Npc(104, 45, 48, "Kupiec", new String[]{"Podejdź, spróbuj mojego "
-                + "chleba!"}));
-            add(new Npc(104, 58, 48, "Kupiec", new String[]{"Wołowina, wieprzowina, drób "
-                + "niech poczuje to Twój dziub!"}));
-            add(new Npc(104, 61, 58, "Kupiec", new String[]{"Witaj wędrowcze! Na pewno"
-                + " jesteś spragniony. Spróbuj tego!"}));
-            //105
-            add(new Npc(105, 38, 56, "Farmer", new String[]{"Witaj! Przydadzą się każde"
-                + " ręce do roboty!"}));
-            add(new Npc(105, 40, 59, "Farmerka", new String[]{"Jeśli szukasz pracy "
-                + "porozmawiaj z moim mężem."}));
-            add(new Npc(105, 43, 93, "Wędrowiec", new String[]{"Uważaj, w pobliżu "
-                + "widziałem jakieś stwory!"}));
-            //106
-            add(new Npc(106, 34, 86, "Właściciel ziemski", new String[]{"Pomocy! "
-                + "Bandyci porwali moich pracowników!"}));
-            add(new Npc(106, 68, 81, "Właścicielka ziemska", new String[]{"Tutaj gdzieś "
-                + "czai się smok! Ja nie zwariowałam!"}));
-            add(new Npc(106, 41, 48, "Bandyta", new String[]{"Jeśli nie odejdziesz "
-                + "to będziesz następny!"}));
-            add(new Npc(106, 39, 15, "Bandyta", new String[]{"Czego tutaj szukasz? "
-                + "Lepiej odejdź zanim stracę cierpliwość!"}));
-            add(new Npc(106, 67, 12, "Dowódca bandytów", new String[]{"Wciąż żyjesz? "
-                + "Zadziwiające."}));
-            //107
-            add(new Npc(107, 25, 41, "Nekromanta", new String[]{"Dobrze, że tutaj jesteś. "
-                + "Musimy pozbyć się tych potworów!"}));
-            //108
-            add(new Npc(108, 43, 84, "Właściciel ziemski", new String[]{"Hej Ty! "
-                + "Bierz ten wóz i do roboty!"}));
-            add(new Npc(108, 58, 82, "Właścicielka ziemska", new String[]{"Te wiadro jest "
-                + "zbyt ciężkie."}));
-            add(new Npc(108, 69, 84, "Właściciel ziemski", new String[]{"Wszędzie sama "
-                + "konkurencja!"}));
-            add(new Npc(108, 21, 54, "Właścicielka ziemska", new String[]{"Hej! Dobrze "
-                + "Cię widzieć. Może potrzebujesz pracy?"}));
-            add(new Npc(108, 19, 48, "Właściciel ziemski", new String[]{"Dzień dobry.  "
-                + "Ach tak, praca."}));
-            add(new Npc(108, 50, 34, "Właściciel ziemski", new String[]{"Uważaj gdzie  "
-                + "leziesz! Gdzieś na zachodzie czają się wilki!"}));
-            add(new Npc(108, 64, 36, "Właściciel ziemski", new String[]{"Weź wybij te "
-                + "wilki. Jeśli ja się tym nie zajmę to dalej będą napadać!"}));
-        }
-    };
+    @Override
+    public String toString() {
+        return "Npc{" + "name=" + name + ", quotes=" + quotes + ", x=" + x + ", y=" + y + ", levelID=" + levelID + '}';
+    }
 
 }

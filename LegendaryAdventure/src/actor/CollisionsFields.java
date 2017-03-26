@@ -35,14 +35,15 @@ public class CollisionsFields {
      */
     public boolean isNpc(GameStatus gs) {
         int iter = 0;
-
-        while (LoadEntity.npc.size() > iter) {
-            if (LoadEntity.recPlayer.intersects(LoadEntity.npc.get(iter))) {
-                hud.NpcDialog.npc = gs.npc.get(GameStatus.x + GameStatus.y + GameStatus.levelID);
-                return true;
-            }
-            iter++;
-        }
+//        while (LoadEntity.npc.size() > iter) {
+//            if (LoadEntity.recPlayer.intersects(LoadEntity.npc.get(iter))) {
+//                System.out.println((GameStatus.x / 32) + (GameStatus.y / 32) + GameStatus.levelID);
+//                hud.NpcDialog.npc = gs.npc.get((GameStatus.x / 32) + (GameStatus.y / 32) + GameStatus.levelID);
+//                hud.NpcDialog.npc.toString();
+//                return true;
+//            }
+//            iter++;
+//        }
         return false;
     }
 
