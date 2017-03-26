@@ -18,9 +18,6 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class PlayState extends BasicGameState {
 
-    
-
-
     /**
      * Czy potrzeba przeładować mapę
      */
@@ -44,7 +41,7 @@ public class PlayState extends BasicGameState {
      * Paski boczne i ich obsługa
      */
     private Hud hud;
-    
+
     /**
      * Kartka z pozdrowieniem od NPC
      */
@@ -73,12 +70,12 @@ public class PlayState extends BasicGameState {
          * update hud
          */
         hud.update(gc, sbg, gs, input, xPos, yPos);
-        
+
         /**
          * Obsługa wszystkich wydarzeń w oknie gry
          */
         event.update(gc, sbg, delta, gs, input, xPos, yPos);
-        
+
         if (needToMapUpdate) {
             updateGameStatus(gc);
         }
@@ -96,6 +93,8 @@ public class PlayState extends BasicGameState {
         camera.drawMap(2); //obiekty2
         camera.drawMap(3); //obiekty3
         camera.drawMap(4); //efekty
+        camera.drawMap(5); //npc
+        camera.drawMap(6); //mobs
         camera.drawMap(gs.map.getLayerIndex("npc")); //efekty
 
         //render mainFrame
@@ -105,10 +104,10 @@ public class PlayState extends BasicGameState {
 
         //render avatar, który siedzi w obiekcie event
         gs.sprite.avatar.draw(gs.x, gs.y);
-        
-        if(NpcDialog.displayDialog){
-            npcDialog.openDialog(gs);
-        }
+
+//        if (NpcDialog.displayDialog) {
+//            npcDialog.openDialog(gs);
+//        }
     }
 
     /**
@@ -124,9 +123,6 @@ public class PlayState extends BasicGameState {
             //update entity fields: 
             gs.updateEntityFieldList(gs.map);
 
-            //update npc 
-            //update enemy
-            //update loot
             //update listy portali na mapie
             gs.updatePortalMapList(gs.portalMapList);
 

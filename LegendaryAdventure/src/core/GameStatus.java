@@ -43,8 +43,7 @@ public class GameStatus extends core.LoadEntity {
      * Cząsteczki/Entities na mapie
      */
     public HashMap<Integer, model.Npc> npc;
-    public ArrayList<model.Enemy> enemy;
-    public ArrayList<model.Item> loot;
+    public HashMap<Integer, model.Enemy> enemy;
     public ArrayList<model.Portal> portalMapList;
     /**
      *
@@ -53,7 +52,6 @@ public class GameStatus extends core.LoadEntity {
     public static HashMap<Integer, model.Equip> equipInGame;
     public static HashMap<Integer, model.Skill> skillsInGame;
 
-    //wykania się tylko przy utworzeniu nowej gry
     public GameStatus() throws SlickException {
         musicOn = true;
 
@@ -82,8 +80,7 @@ public class GameStatus extends core.LoadEntity {
 
         //na pierwszej mapie nie ma mobów czy npc - więc kolekcje puste
         this.npc = gameUtils.NpcData.dataSeeder();
-        this.enemy = new ArrayList<model.Enemy>();
-        this.loot = new ArrayList<model.Item>();
+        this.enemy = gameUtils.EnemyData.enemyData();
         this.portalMapList = new ArrayList<model.Portal>();
 
         //wczytanie danych o mapie

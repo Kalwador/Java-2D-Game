@@ -39,12 +39,9 @@ public class NpcDialog {
      * @throws SlickException
      */
     public void openDialog(GameStatus gs) throws SlickException {
-        System.out.println("test1");
         card.draw(30, 30);
-        System.out.println("test2");
         int i = 30;
-            for (String quote : npc.quotes) {
-            System.out.println("test"+i);
+        for (String quote : npc.quotes) {
             gameUtils.Fonts.print18().drawString(30, i, quote);
             i += 30;
         }
