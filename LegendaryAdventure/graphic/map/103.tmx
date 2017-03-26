@@ -85,24 +85,9 @@
    H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
   </data>
  </layer>
- <layer name="coll" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2XS27DMAwFs+39L5FjFlkERYrYJiVSfDJnAK5iffjGjuXnz+PxpCjKXC9WrHFFdQ4KtSoXfMT6sGb2/zov1XlUlyUTT2b4iPcxk+e38Zb1jpxYfpvtv9qBN59ZItezzmXN++p3T4a7+IhkdO9ZPqzrqPuofk4jfFjXwEcc+LgPO/noAD60wIcWFT5wew4+tMCHFrw/9MCHFvjQAh9a4EMPfGiBDy3woQU+tMCHFvjQoqsPtf5W5O+db2VG+PDvacWaKsz4sF7bzUfUulk+1MjeLz58qO539jyFj1g6nm+rGMk0w0e1V5V7S81HVR7V68+Q+X+FDz/RPnbMYCWe77azay0573pPrmSlD1V2+v+ynn936OWInXy84HtEC4+Pbq4q+sXHMd18dHJrBR9aVL7P8fGJ9bw7OzfYwIcWmT5G99EZfGih5qM7UT6i3jWg4QP+UPi/su6vC/jQQf35OCJqj2rnSHzE9OnN+mhMdx9RRPhQ+f64AyOZ4UMbfGiBDy06+lDuLdqHcq9vlPfY0Ycy+NDC6uPuOSv3hw8t7n6++oZyvx19vFHsewcfWftT7BsfY/N6cvOs09nHDJ19KIKPfCpyiPw+vxv4AHzogQ8t8KFFhg/v2F3cZ9+nWe8P73i15/Eoi1197ExmFldzzvo4G3N1j0U+h5H31NU8ljW/rW25bqaXq3Gj+57NbXR+z3ydKsvHyH1Lnfup3gtFURRFURRFURRFrahfli7VZECcAAA=
-  </data>
- </layer>
- <layer name="portal" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3aoQ0AIAADQSz7T8GWSCyG8OIu6QRvu+YAAAAAAAAAAAAAAIDv1jzjPz1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj0AAAAAAAAAAAAA4C2f3RY9WvRo0aNFjxY9WvRo0QMAAAAAAAAAgFsbIXUTJkCcAAA=
-  </data>
- </layer>
  <layer name="npc" width="100" height="100">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3ZoQ0AIAwEQCz7rwKGDVgAySwIFAkKAwl3E3zSVnwaAgAAAAAAAAAAAAAAvC/F2wkAAACmop88p5oJLJqb4EPZ3gMAAAAAAMCx7t8GAAAAAAAAAAAAAAAAAACwNQA1hKelQJwAAA==
-  </data>
- </layer>
- <layer name="npcarea" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3ZsQ0AIRAEMVL67+KrJCYjeTRItnQN7IQ3BgAAAAAAAAAAAAAAAAAAwDu+uR//OdlZj3v0aNGjxc4tegAAAAAA+BPU6NGiR4seLXoAAAAAAAAAAAAAAAAAAEDLAtrcBJhAnAAA
   </data>
  </layer>
  <layer name="mobs" width="100" height="100">
@@ -110,14 +95,24 @@
    H4sIAAAAAAAAC+3asQ3AIAwEQGr2gEREkdh/uqxgiggs3U3g4puXvxSA3GbdfQEAAABRTYcDAAAAAAAAAAASuW2eCOqyAgAAAAAAAGz0+lkCAAAAAAAAAAAAAPCjZ3G3PuzcWXTJDAAAAABwsA8fWSQmQJwAAA==
   </data>
  </layer>
+ <layer name="portal" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3aoQ0AIAADQSz7T8GWSCyG8OIu6QRvu+YAAAAAAAAAAAAAAIDv1jzjPz1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj0AAAAAAAAAAAAA4C2f3RY9WvRo0aNFjxY9WvRo0QMAAAAAAAAAgFsbIXUTJkCcAAA=
+  </data>
+ </layer>
+ <layer name="coll" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2XS27DMAwFs+39L5FjFlkERYrYJiVSfDJnAK5iffjGjuXnz+PxpCjKXC9WrHFFdQ4KtSoXfMT6sGb2/zov1XlUlyUTT2b4iPcxk+e38Zb1jpxYfpvtv9qBN59ZItezzmXN++p3T4a7+IhkdO9ZPqzrqPuofk4jfFjXwEcc+LgPO/noAD60wIcWFT5wew4+tMCHFrw/9MCHFvjQAh9a4EMPfGiBDy3woQU+tMCHFvjQoqsPtf5W5O+db2VG+PDvacWaKsz4sF7bzUfUulk+1MjeLz58qO539jyFj1g6nm+rGMk0w0e1V5V7S81HVR7V68+Q+X+FDz/RPnbMYCWe77azay0573pPrmSlD1V2+v+ynn936OWInXy84HtEC4+Pbq4q+sXHMd18dHJrBR9aVL7P8fGJ9bw7OzfYwIcWmT5G99EZfGih5qM7UT6i3jWg4QP+UPi/su6vC/jQQf35OCJqj2rnSHzE9OnN+mhMdx9RRPhQ+f64AyOZ4UMbfGiBDy06+lDuLdqHcq9vlPfY0Ycy+NDC6uPuOSv3hw8t7n6++oZyvx19vFHsewcfWftT7BsfY/N6cvOs09nHDJ19KIKPfCpyiPw+vxv4AHzogQ8t8KFFhg/v2F3cZ9+nWe8P73i15/Eoi1197ExmFldzzvo4G3N1j0U+h5H31NU8ljW/rW25bqaXq3Gj+57NbXR+z3ydKsvHyH1Lnfup3gtFURRFURRFURRFrahfli7VZECcAAA=
+  </data>
+ </layer>
+ <layer name="npcarea" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3ZsQ0AIRAEMVL67+KrJCYjeTRItnQN7IQ3BgAAAAAAAAAAAAAAAAAAwDu+uR//OdlZj3v0aNGjxc4tegAAAAAA+BPU6NGiR4seLXoAAAAAAAAAAAAAAAAAAEDLAtrcBJhAnAAA
+  </data>
+ </layer>
  <layer name="mobsarea" width="100" height="100" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3aMQqFMBAFwN96/2N4SbEQvhbiFpK3ZgZSCBYrL26K7Lr8gIJ1OS/Gkse3yTfLfwbyGE8eWfQrEtiHWfTpLPLIol8BAAAAAAAAADszBFlSZ2yu+ySptjcl53H3/FXyyJLaE2btVwAAAAAAMAN3AFlS7+9mJY8s8sji/AAAAAAAAAAAAADopzr/2WVetOts61Hr07qr74/Sdfa7WneX7+xS51X1v+7SB7rUCQAAAADMaQP+LyiSQJwAAA==
-  </data>
- </layer>
- <layer name="item" width="100" height="100" visible="0">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQEAAAwCoL32r7GQPsYAPgcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwBcRqXd0CcAAA=
   </data>
  </layer>
 </map>

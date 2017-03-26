@@ -66,24 +66,9 @@
    H4sIAAAAAAAAC2NgGJzAjYWBwZoFuxyyuBsWNbj04bOLFP3o8tjcQA4g1d3DFdjhCAdywtmVimbhA9jcjG63Aw47AVYhogmEAwAA
   </data>
  </layer>
- <layer name="coll" width="15" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NkYGBgpACTAygxB109pXqJ9RuxYvjMJQUwItGUhjO5gNgwwRUGxJhFi3Q1UHrJxQCSNTNshAMAAA==
-  </data>
- </layer>
- <layer name="portal" width="15" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NiGAWjABMwDZDekQgA1uAUe4QDAAA=
-  </data>
- </layer>
  <layer name="npc" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
-  </data>
- </layer>
- <layer name="npcarea" width="15" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NmGAWjYBQMJAAAcFW1jIQDAAA=
   </data>
  </layer>
  <layer name="mobs" width="15" height="15">
@@ -91,14 +76,24 @@
    H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
   </data>
  </layer>
- <layer name="mobsarea" width="15" height="15" visible="0">
+ <layer name="portal" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NhGAWjYBQMJAAAPCGxCYQDAAA=
+   H4sIAAAAAAAAC2NiGAWjABMwDZDekQgA1uAUe4QDAAA=
   </data>
  </layer>
- <layer name="item" width="15" height="15" visible="0">
+ <layer name="coll" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NlGAWjYBQMJAAASIawPoQDAAA=
+   H4sIAAAAAAAAC2NkYGBgpACTAygxB109pXqJ9RuxYvjMJQUwItGUhjO5gNgwwRUGxJhFi3Q1UHrJxQCSNTNshAMAAA==
+  </data>
+ </layer>
+ <layer name="npcarea" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NmGAWjYBQMJAAAcFW1jIQDAAA=
+  </data>
+ </layer>
+ <layer name="mobsarea" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NhGAWjYBQMJAAAPCGxCYQDAAA=
   </data>
  </layer>
 </map>
