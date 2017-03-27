@@ -116,7 +116,7 @@
  </layer>
  <layer name="npcarea" width="100" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3awQ2AIBBFQTug/y4pwaPXFUS/OpNw5LIvISHZ3jYAAAAAAAAAAAAAAABYrrfj8LzRHjquocc36JFFDwAAgHn+Vln0yKJHFj2At/FuZdEjix5Z9AAAAAAAAAAAAAD+wM5kFj2uNzPTM3e1q7lrTnrU6AEAAAAAAFTsRn3TvkCcAAA=
+   H4sIAAAAAAAAC+3bsQ3AIAxFwWzA/lsyQkpaBwL5iu4klzR+lQt6uwAAAAAAAAAAAAAAAGC73sbwvdkeOu6hxz/okUUPAACAdW6rLHpk0SOLHgAAAAAAAAAAAAAAAMzyNyWLHu9b2emTt9rVnNqTHjV6AAAAAAAAFTcvxw29QJwAAA==
   </data>
  </layer>
  <layer name="mobsarea" width="100" height="100">

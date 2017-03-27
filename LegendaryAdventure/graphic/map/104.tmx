@@ -115,14 +115,14 @@
    H4sIAAAAAAAAC+3aQRHAIAwAQSTgB/++KqD34Ant7kwM3DPJmuNKa/b8nS5Nl6ZL0wUAAAAAAPbZozddmi5Nlzd3uqZL06Xp0nRpejRdmi5Nl6ZL06Xp0nQBAAAAAAAA+JaTf9geIupmg5BMAAA=
   </data>
  </layer>
- <layer name="coll" width="70" height="70">
+ <layer name="coll" width="70" height="70" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2X2Y3DMAxEU8LWk/4Ly9cCgkGZ14iHzQH04cQhh0/Uke/f5/NtOHbK9pU9hstwGS7DZbgMlwpjuAwXK5f1+VQe6dzcxbmbT26eLaI4eXqP43LntzKXXWwPF2muawyJpwyh+mX9DukrUxom1/efLMk6uz535uL13qlftOfzCe/duUR4qKKTXKQxnsZFes54PVRjxgndV9E8qvPO6okKXCLXSpc1KGVykos2R9S6RnHRngfr+5qaOI/V9larl/U3VrYUF6Qy1j+aC9IX5W2Xy5OfiqvlsosTqQguT5C3ps5cOnreCX02RYnbO717a9f+tHDpVqNFSC4IdhH3NU1sxDrqzIW7K2WvIxQXrV8Elyo6vaZR2vXWHWtEvuqy7M+IfFGS7q/ZquLjX9FedvU/gQu6tgp7avacUAwQ9yQvV+o8WWNTubR5tb+11nXq3rHG0nDRPCO4aOuPvKdZ51MT28OFm5eO6twvJ4Xk4tkXq6mC/4rshgutN3HR1BrFJZu91kdVLtq7291+z30mjVNBEm+eerj3NXPwJkl4addkJVm9v7UfOA0XWsOF1nChNVxoDRdaw4XWcKE1XGhp/j+dGFV8VBvDpR+XHzY+OC6QTAAA
   </data>
  </layer>
  <layer name="npcarea" width="70" height="70">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3WUQqDMBBF0S7BBbn/dfUzpTzBtJBkzDngp8x4CcTzeAEAwHTn0R6aVbvM3mvk/J5Zs7uMpEu207f2qNKlyp6j6ZLpAgAwhv+uTJdMF57Gmc50yXTJdu+y+/df0SXTJdMFgDs+7wt3RqNL1tPll35Vm//T5c57Vbv0qNJl9Exdasy/supe32af61VV2XM0XTJdMl0AAACAGd7YyjiNkEwAAA==
+   H4sIAAAAAAAAC+3YQQqEMAxAUY/ggbz/uWbZQSKYGWga+h64lKQfoeB1HgAAUO46x8OwapfqvWbOz8yq7jKTLrGdzpqhCwAAAECefyoxXWK6xHbvsvv5n+gS0yWmCwBvfN8X7oxBl1imyy/9ujb/p8ub97p2yejSZfZMXXrMf7LqXnfV3/Wquuw5my4xXWK6AAAAABU+0qPZ/ZBMAAA=
   </data>
  </layer>
  <layer name="mobsarea" width="70" height="70">
