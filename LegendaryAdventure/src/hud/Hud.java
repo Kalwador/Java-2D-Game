@@ -2,6 +2,9 @@ package hud;
 
 import core.Camera;
 import core.GameStatus;
+import gameUtils.Fonts;
+import model.Hero;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -11,6 +14,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Hud {
     
     public Frame frame;
+    private Hero hero = new Hero();
     private Console console;
     private Buttons buttons;
     private gameUtils.Fonts font;
@@ -33,7 +37,7 @@ public class Hud {
         
         //render ramki
         frame.render(g);
-        
+        Fonts.print18().drawString(1125, 590, hero.heroName,Color.black);
         //render konsoli jeśli aktywna
         if(console.isOn){console.render(gc, g, camera, gs);}
         

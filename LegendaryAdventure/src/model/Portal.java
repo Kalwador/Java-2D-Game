@@ -22,6 +22,7 @@ public class Portal {
     //y pozycja w którym znajdzie się postać po rzejściu na nowej mapie
     public int yNew;
 
+
     public Portal() {
     }
 
