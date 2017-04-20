@@ -10,11 +10,11 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import states.CreateState;
 
 public class Hud {
     
     public Frame frame;
-    private Hero hero = new Hero();
     private Console console;
     private Buttons buttons;
     private gameUtils.Fonts font;
@@ -23,7 +23,7 @@ public class Hud {
         this.buttons = new Buttons();
         this.frame = new Frame();
         this.console = new Console();
-        font = new gameUtils.Fonts();
+        this.font = new gameUtils.Fonts();
     }
     
     public void update(GameContainer gc, StateBasedGame sbg, GameStatus gs, Input input, int xPos, int yPos) throws SlickException {
@@ -33,11 +33,11 @@ public class Hud {
     }
     
     public void render(GameContainer gc, Graphics g, Camera camera, GameStatus gs) throws SlickException{
-       
+        
         
         //render ramki
         frame.render(g);
-        Fonts.print18().drawString(1125, 590, hero.heroName,Color.black);
+        Fonts.print18().drawString(1125, 590, GameStatus.hero.heroName ,Color.black);
         //render konsoli jeśli aktywna
         if(console.isOn){console.render(gc, g, camera, gs);}
         

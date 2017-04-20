@@ -24,16 +24,16 @@ public class LoadEntity {
     boolean[][] exist;
     public static ArrayList<Rectangle> collisions;
     public static ArrayList<Rectangle> npc;
+    public static ArrayList<Rectangle> mobs;
     public static Rectangle recPlayer, recField;
 
-    
-    // w trakcie prac, 
-    // ostateczną formę przybieże po obsłuzeniu itemów npc i mobów
+    /**
+     * Aktualizuje pola aktywne na mapie
+     * Kolizje, NpcArea,MobsArea
+     * @param map mapa
+     */
     public void updateEntityFieldList(TiledMap map) {
-        for (int i = 5; i < 6; i++) {
-//            if (i == 6) {
-//                continue; // nie sprawdza warstwy portali
-//            }
+        for (int i = 8; i < 11; i++) {
             exist = new boolean[map.getWidth()][map.getHeight()];
             testField = map.getTileId(0, 0, i);
             for (int j = 0; j < map.getWidth(); j++) {
@@ -44,18 +44,21 @@ public class LoadEntity {
                     }
                 }
             }
-            if (i == 5) {
+            if (i == 8) {
                 updateCollisionFields(map);
             }
-//            if(i == 7) {updateNpc(map);}
-//            if(i == 8) {updateLoot(map);}
+            if (i == 9) {
+                updateNpcFields(map);
+            }
+            if (i == 10) {
+                updateMobsFields(map);
+            }
         }
-        
+
     }
 
     /**
      * Metoda znajdująca pola kolizyjne
-     *
      * @param map Aktualna mapa
      */
     public void updateCollisionFields(TiledMap map) {
@@ -82,6 +85,18 @@ public class LoadEntity {
             }
         }
     }
+    
+    public void updateMobsFields(TiledMap map) {
+        mobs = new ArrayList<>();
+        for (int i = 0; i < map.getWidth(); i++) {
+            for (int j = 0; j < map.getHeight(); j++) {
+                if (exist[i][j] == true) {
+                    recField = new Rectangle(i * 32, j * 32, 32, 32);
+                    mobs.add(recField);
+                }
+            }
+        }
+    }
 
     /**
      * Metoda aktualizująca portale na mapie poprzez parsowanie pliku xml,
@@ -95,17 +110,13 @@ public class LoadEntity {
         String path = "res/portal/" + core.GameStatus.levelID + ".xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
             XMLInputFactory iFactory = XMLInputFactory.newInstance();
             InputStream xmlFile = new FileInputStream(filePath);
             XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
             // dopoki masz nastepny element ...
             newPortal = new Portal();
             while (parser.hasNext()) {
-
-                // jesli jest to ... , wowczas ...
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Portal")) {
                             newPortal = new Portal();
@@ -132,7 +143,6 @@ public class LoadEntity {
                             newPortal.setyNew(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
 
                         if (parser.getLocalName().equals("Portal")) {
@@ -155,27 +165,22 @@ public class LoadEntity {
         String path = "res/items/items.xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
-        XMLInputFactory iFactory = XMLInputFactory.newInstance();
-        InputStream xmlFile = new FileInputStream(filePath);
-        XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
-            // dopoki masz nastepny element ...
-            newItem = new model.Item() {};
+            XMLInputFactory iFactory = XMLInputFactory.newInstance();
+            InputStream xmlFile = new FileInputStream(filePath);
+            XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
+            newItem = new model.Item() {
+            };
             while (parser.hasNext()) {
-                 
-                // jesli jest to ... , wowczas ...
-                
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Potion")) {
                             newItem = new model.Item();
                         }
-                        
+
                         if (parser.getLocalName().equals("Food")) {
                             newItem = new model.Item();
                         }
-                        
+
                         if (parser.getLocalName().equals("Herb")) {
                             newItem = new model.Item();
                         }
@@ -183,10 +188,10 @@ public class LoadEntity {
                             newItem.setId(Integer.parseInt(parser.getElementText()));
                         }
                         if (parser.getLocalName().equals("name")) {
-                            newItem.setName(""+parser.getElementText()+"");
+                            newItem.setName("" + parser.getElementText() + "");
                         }
                         if (parser.getLocalName().equals("description")) {
-                            newItem.setDescription(""+parser.getElementText()+"");
+                            newItem.setDescription("" + parser.getElementText() + "");
                         }
                         if (parser.getLocalName().equals("amount")) {
                             newItem.setAmount(Integer.parseInt(parser.getElementText()));
@@ -207,9 +212,8 @@ public class LoadEntity {
                             newItem.setId_klucza(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
-                        
+
                         if (parser.getLocalName().equals("Potion")) {
                             itemsInGame.put(newItem.getId(), newItem);
                         }
@@ -230,43 +234,37 @@ public class LoadEntity {
             System.out.println("Bledny format liczby - loadItems");
         }
     }
-    
-        public void loadAllEquipInGame(HashMap<Integer, model.Equip> equipInGame) {
+
+    public void loadAllEquipInGame(HashMap<Integer, model.Equip> equipInGame) {
         model.Equip newEquip;
         String path = "res/equip/equip.xml";
         File filePath = new File(path);
         try {
-            // tworzenie parsera
-        XMLInputFactory iFactory = XMLInputFactory.newInstance();
-        InputStream xmlFile = new FileInputStream(filePath);
-        XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
-            // dopoki masz nastepny element ...
+            XMLInputFactory iFactory = XMLInputFactory.newInstance();
+            InputStream xmlFile = new FileInputStream(filePath);
+            XMLStreamReader parser = iFactory.createXMLStreamReader(xmlFile);
             newEquip = new model.Equip();
             while (parser.hasNext()) {
-                 
-                // jesli jest to ... , wowczas ...
-                
                 switch (parser.next()) {
-// START ELEMENT // 
                     case XMLStreamConstants.START_ELEMENT:
                         if (parser.getLocalName().equals("Weapon")) {
                             newEquip = new model.Equip();
                         }
-                        
+
                         if (parser.getLocalName().equals("Armor")) {
-                             newEquip = new model.Equip();
+                            newEquip = new model.Equip();
                         }
                         if (parser.getLocalName().equals("id")) {
                             newEquip.setId(Integer.parseInt(parser.getElementText()));
                         }
                         if (parser.getLocalName().equals("name")) {
-                            newEquip.setName(""+parser.getElementText()+"");
+                            newEquip.setName("" + parser.getElementText() + "");
                         }
                         if (parser.getLocalName().equals("description")) {
-                            newEquip.setDescription(""+parser.getElementText()+"");
+                            newEquip.setDescription("" + parser.getElementText() + "");
                         }
                         if (parser.getLocalName().equals("type")) {
-                            newEquip.setType(""+parser.getElementText()+"");
+                            newEquip.setType("" + parser.getElementText() + "");
                         }
                         if (parser.getLocalName().equals("amount")) {
                             newEquip.setAmount(Integer.parseInt(parser.getElementText()));
@@ -274,7 +272,7 @@ public class LoadEntity {
                         if (parser.getLocalName().equals("nOF")) {
                             newEquip.setnOF(Integer.parseInt(parser.getElementText()));
                         }
-                        
+
                         if (parser.getLocalName().equals("dmg")) {
                             newEquip.setDmg(Integer.parseInt(parser.getElementText()));
                         }
@@ -285,9 +283,8 @@ public class LoadEntity {
                             newEquip.setDef(Integer.parseInt(parser.getElementText()));
                         }
                         break;
-// END ELEMENT //
                     case XMLStreamConstants.END_ELEMENT:
-                        
+
                         if (parser.getLocalName().equals("Weapon")) {
                             equipInGame.put(newEquip.getId(), newEquip);
                         }

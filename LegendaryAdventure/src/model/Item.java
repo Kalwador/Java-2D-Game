@@ -1,15 +1,15 @@
 package model;
 
 public class Item {
-    public int id;
-    String name; // nazwa przedmiotu
-    String description; //opis przedmiotu
-    public int amount; //ilość sztuk
-    int nOF; //the number of features - ilość cech przedmiotu
-    int hp; //health points
-    int mp; //mana points
-    int kt; //kamien teleportacyjny
-    int id_klucza;//id_klucza
+    private int id;
+    private String name; // nazwa przedmiotu
+    private String description; //opis przedmiotu
+    private int amount; //ilość sztuk
+    private int nOF; //the number of features - ilość cech przedmiotu
+    private int hp; //health points
+    private int mp; //mana points
+    private int kt; //kamien teleportacyjny
+    private int id_klucza;//id_klucza
 
     public Item(){
         this.amount = 0;

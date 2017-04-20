@@ -3,7 +3,9 @@ package states;
 import actor.*;
 import core.*;
 import hud.Hud;
-import java.util.Optional;
+import hud.NpcDialog;
+import static hud.NpcDialog.npc;
+import model.Npc;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -23,12 +25,12 @@ public class PlayState extends BasicGameState {
     /**
      * Kamera obsługująca pole widzenia na ekranie
      */
-    Camera camera;
+    private Camera camera;
 
     /**
      * Meta dane gry
      */
-    GameStatus gs;
+    static GameStatus gs;
 
     /**
      * Zdarzenia w oknie gry
@@ -40,12 +42,19 @@ public class PlayState extends BasicGameState {
      */
     private Hud hud;
 
+    /**
+     * Kartka z pozdrowieniem od NPC
+     */
+    private NpcDialog npcDialog;
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         gs = new GameStatus();
         camera = new Camera(gc, gs.map);
         hud = new Hud();
-        event = new actor.Event(gs.sprite);
+        event = new actor.Event(GameStatus.sprite);
+        npc = new Npc();
+        npcDialog = new NpcDialog();
     }
 
     @Override
@@ -61,12 +70,12 @@ public class PlayState extends BasicGameState {
          * update hud
          */
         hud.update(gc, sbg, gs, input, xPos, yPos);
-        
+
         /**
          * Obsługa wszystkich wydarzeń w oknie gry
          */
         event.update(gc, sbg, delta, gs, input, xPos, yPos);
-        
+
         if (needToMapUpdate) {
             updateGameStatus(gc);
         }
@@ -84,6 +93,8 @@ public class PlayState extends BasicGameState {
         camera.drawMap(2); //obiekty2
         camera.drawMap(3); //obiekty3
         camera.drawMap(4); //efekty
+        camera.drawMap(5); //npc
+        camera.drawMap(6); //mobs
         camera.drawMap(gs.map.getLayerIndex("npc")); //efekty
 
         //render mainFrame
@@ -93,6 +104,10 @@ public class PlayState extends BasicGameState {
 
         //render avatar, który siedzi w obiekcie event
         gs.sprite.avatar.draw(gs.x, gs.y);
+
+//        if (NpcDialog.displayDialog) {
+//            npcDialog.openDialog(gs);
+//        }
     }
 
     /**
@@ -108,26 +123,12 @@ public class PlayState extends BasicGameState {
             //update entity fields: 
             gs.updateEntityFieldList(gs.map);
 
-            //update npc 
-            //update enemy
-            //update loot
             //update listy portali na mapie
             gs.updatePortalMapList(gs.portalMapList);
 
             //update miniMapy w rogu
             hud.frame.miniMapPath = "graphic/miniMap/" + String.valueOf(GameStatus.levelID) + ".png";
             hud.frame.miniMap = new Image(hud.frame.miniMapPath);
-
-            //--------------------------------------------------------------
-            //---------------------KOD W PRACY------------------------------
-//            Optional nullableMap = Optional.ofNullable(new Image(hud.frame.miniMapPath));
-//            if(nullableMap.isPresent()){
-//                hud.frame.miniMap = new Image(path);
-//            }
-//            else{
-//                hud.frame.miniMap = new Image("graphic/miniMap/noMiniMap.png");
-//            }
-            //--------------------------------------------------------------
         } catch (SlickException e) {
             System.out.println("B R A K    minimapy dla tej mapy");
             e.printStackTrace();

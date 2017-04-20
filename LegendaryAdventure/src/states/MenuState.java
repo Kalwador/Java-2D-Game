@@ -1,6 +1,7 @@
 package states;
 
 import gameUtils.Fonts;
+import model.Hero;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -18,7 +19,7 @@ public class MenuState extends BasicGameState {
     //int licznik = 0;
     String mouse;
     Color c = Color.white; //Domyślny kolor napisów
-    Color ctab[] = {c,c,c,c,c}; //Tablica kolorów tekstu na przyciskach
+    Color ctab[] = {c, c, c, c, c}; //Tablica kolorów tekstu na przyciskach
 
     public static Music music;
     public static Sound sound;
@@ -27,13 +28,16 @@ public class MenuState extends BasicGameState {
      */
     gameUtils.Fonts font;
 
+    int exitCounter;
+            
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        gc.setMouseCursor(new Image("graphic/hud/gloveCoursor.png"), 0, 0);
+        gc.setMouseCursor(new Image("graphic/hud/gloveCoursor2.png"), 0, 0);
         /**
          * MEGA WAZNE NIE USUWAC, NIE MODYFIKOWAC OBIEKTU font2
          */
-        font = new Fonts();       
+        exitCounter = 0;
+        font = new Fonts();
         mouse = "";
 //        music = new Music("music/m1.ogg");
 //        music.setVolume(1);
@@ -42,7 +46,7 @@ public class MenuState extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
@@ -50,7 +54,7 @@ public class MenuState extends BasicGameState {
         mouse = "x= " + xpos + " y=" + ypos;
         c = Color.white;
         for (int j = 0; j < ctab.length; j++) {
-            ctab[j] = c;  
+            ctab[j] = c;
         }
 
         //wczytaj grę - play state 
@@ -67,7 +71,8 @@ public class MenuState extends BasicGameState {
         //nowa gra - narazie brak
         if ((xpos > 520 && xpos < 777) && (ypos > 326 && ypos < 399)) {
             if (input.isMouseButtonDown(0)) {
-                sbg.enterState(1);
+                core.GameStatus.hero = new Hero();
+                sbg.enterState(14);
             }
             ctab[1] = Color.orange;
             if (input.isMouseButtonDown(0)) {
@@ -94,21 +99,21 @@ public class MenuState extends BasicGameState {
                 ctab[3] = Color.gray;
             }
         }
+        
         //wyjście
         if ((xpos > 520 && xpos < 777) && (ypos > 69 && ypos < 144)) {
             if (input.isMouseButtonDown(0)) {
-                System.exit(0);
+                exitCounter++;
+                if (exitCounter == 7) {
+                    System.exit(0);
+                }
             }
             ctab[4] = Color.orange;
             if (input.isMouseButtonDown(0)) {
                 ctab[4] = Color.gray;
             }
-        }
-        //licznik++;
-        //Testowanie screnów i włączenie plecaka
-        if (input.isKeyPressed(Input.KEY_1)) {
-        screenBlur.ScreenClass.makeScreen(xpos, ypos);
-            sbg.enterState(4);
+        } else {
+            exitCounter = 0;
         }
     }
 
@@ -125,11 +130,11 @@ public class MenuState extends BasicGameState {
         }
 
         Fonts.print78().drawString(90, 100, "LEGENDARY ADVENTURES", Color.white);
-        Fonts.print25().drawString(550, 260, "  Wczytaj grę", ctab[0]);
-        Fonts.print25().drawString(550, 345, "    Nowa gra", ctab[1]);
-        Fonts.print25().drawString(550, 430, "       Opcje", ctab[2]);
-        Fonts.print25().drawString(550, 515, "     Twórcy", ctab[3]);
-        Fonts.print25().drawString(550, 600, "      Wyjście", ctab[4]);
+        Fonts.print25().drawString(568, 260, "LOAD GAME", ctab[0]);
+        Fonts.print25().drawString(574, 345, "NEW GAME", ctab[1]);
+        Fonts.print25().drawString(585, 430, "OPTIONS", ctab[2]);
+        Fonts.print25().drawString(590, 515, "CREDITS", ctab[3]);
+        Fonts.print25().drawString(611, 600, "EXIT", ctab[4]);
 
         g.drawString(mouse, 10, 10);
     }

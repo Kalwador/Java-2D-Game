@@ -2,6 +2,10 @@ package states;
 
 import gameUtils.Fonts;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
+import model.Equip;
 import model.Item;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
@@ -21,11 +25,8 @@ public class BagState extends BasicGameState {
     boolean bagEqCursorActivate = false;
 
     String mouse;
-    gameUtils.Fonts fonts;
-    String actualScr;
 
-    // @Gajwer 
-    private int selectedItem;
+    private int selectedItem = 0;
     private int selectedItemX;
     private int selectedItemY;
 
@@ -33,179 +34,126 @@ public class BagState extends BasicGameState {
     private int selectedEquipX;
     private int selectedEquipY;
 
-    Color cw = Color.white;
-    Color co = Color.orange;
+    Color colorWhite = Color.white;
+    Color colorOrange = Color.orange;
     Color c[] = {Color.orange, Color.white};
 
-    private int localCoinAmount;
+    Image BagMainFrame;
+    Image darkFrameR;
+    Image darkFrameL;
+    Image coins;
+
     //Kolory tekstu na przyciskach
-    Color ctab[] = {cw, cw, cw, cw};
+    Color[] ArrayOfColors = {colorWhite, colorWhite, colorWhite, colorWhite};
 
-    //---------- GRUPA PLECAKA --------------------
-    ItemToDisplay[][] ittd = new ItemToDisplay[6][8];
+// wysokość/szerokość miniatury/kwadratu wyboru
+    int miniatureDimensions = 43;
 
-    int corXsqis = 0; //pozycja X kwadratu wyboru przemiotu (0-5)
-    int corYsqis = 0; //pozycja Y kwadratu wyboru przemiotu (0-7)
+//---------- GRUPA PLECAKA --------------------
+    static ItemToDisplay[][] itemToDisplay = new ItemToDisplay[6][8];
 
-    float posXmqssI = 305; // współrzędna X pozycji miniatury/kwadratu wyboru
-    float posYmqssI = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru
-    int hewiSq = 43; // wysokość/szerokość miniatury/kwadratu wyboru
+    int squareItemSelectionXPosition = 0; //pozycja X kwadratu wyboru przemiotu (0-5)
+    int squareItemSelectionYPosition = 0; //pozycja Y kwadratu wyboru przemiotu (0-7)
 
-    Rectangle r = new Rectangle(posXmqssI, posYmqssI, hewiSq, hewiSq);//(305, 170, 43, 43);
+    static float posXmqssI = 305; // współrzędna X pozycji miniatury/kwadratu wyboru
+    static float posYmqssI = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru
 
-    ArrayList<ItemLocal> itemsLoc = new ArrayList<>(); //kolekcja przedmiotów z plecaka lokalnego
+    Rectangle r = new Rectangle(posXmqssI, posYmqssI, miniatureDimensions, miniatureDimensions);
 
-    //------------- GRUPA BRONI -------------------
-    ItemToDisplay[][] ittdW = new ItemToDisplay[6][8];
+//    ArrayList<ItemLocal> itemsLoc = new ArrayList<>(); //kolekcja przedmiotów z plecaka lokalnego
+//------------- GRUPA BRONI -------------------
+    static EquipToDisplay[][] equipToDisplay = new EquipToDisplay[6][8];
 
-    int corXsqisW = 0; //pozycja X kwadratu wyboru broni (0-5)
-    int corYsqisW = 0; //pozycja Y kwadratu wyboru broni (0-7)
+    int squareEquipSelectionXPosition = 0; //pozycja X kwadratu wyboru broni (0-5)
+    int squareEquipSelectionYPosition = 0; //pozycja Y kwadratu wyboru broni (0-7)
 
-    float posXmqssIW = 683; // współrzędna X pozycji miniatury/kwadratu wyboru broni
-    float posYmqssIW = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru broni
-    int hewiSqW = 43; // wysokość/szerokość miniatury/kwadratu wyboru broni
+    static float posXmqssIW = 683; // współrzędna X pozycji miniatury/kwadratu wyboru broni
+    static float posYmqssIW = 169; // współrzędna Y pozycji miniatury/kwadratu wyboru broni
 
-    Rectangle rW = new Rectangle(posXmqssIW, posYmqssIW, hewiSqW, hewiSqW);//(683, 169, 43, 43);
+    Rectangle rW = new Rectangle(posXmqssIW, posYmqssIW, miniatureDimensions, miniatureDimensions);
 
-    ArrayList<ItemLocal> itemsW = new ArrayList<>(); //kolekcja broni
-    //------------------------------------------------
-
+//    ArrayList<ItemLocal> itemsW = new ArrayList<>(); //kolekcja broni
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        coins = new Image("graphic/menu/CoinBagButtons.png");
+        BagMainFrame = new Image("graphic/menu/BagEquipScene2.png");
+        darkFrameR = new Image("graphic/menu/BagEquipScene2-dark-right.png");
+        darkFrameL = new Image("graphic/menu/BagEquipScene2-dark-left.png");
         mouse = "";
-        //Wytworzenie własnej czcionki
-        fonts = new gameUtils.Fonts();
-
-        Item i1 = new Item(1, "Luneta", "Luneta znaleziona w porcie pirackim. Pozwala wypatrzeć wilki z ogległości 50m", 1, 1, 0, 0, 0, 0);
-        Item i2 = new Item(2, "Neseser", "Neseser jest ciężki. Skrywa jakiś tajemniczy przemiot... Do jego otwarcia potrzebujesz wytrychu lub klucza.", 1, 3, 0, 0, 0, 0);
-
-        itemsLoc.add(new ItemLocal(i1, "graphic/items/miniatures/advance_lens.png"));
-        itemsLoc.add(new ItemLocal(i2, "graphic/items/miniatures/tajemniczy_neseser.png"));
-
-//        itemsLoc.add(new ItemLocal("Luneta", "graphic/items/miniatures/advance_lens.png", "graphic/items/descriptions/mkLunetaPirata.png"));
-//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
-//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
-//        itemsLoc.add(new ItemLocal("Neseser", "graphic/items/miniatures/tajemniczy_neseser.png", "graphic/items/descriptions/mkNeseser.png"));
-//------------------------------------------------W
-        Item i3 = new Item(3, "Miecz", "Miecz konstukcji stalowej, zapewnia duże obrażenia przeciwnikom.", 1, 1, 0, 0, 0, 0);
-        Item i4 = new Item(4, "Zbroja", "Zbroja wykonana w zakładzie rzemieślniczym, duża odporność.", 1, 1, 0, 0, 0, 0);
-
-        itemsW.add(new ItemLocal(i3, "graphic/itemsWeap/miniatures/metalsword.png"));
-        itemsW.add(new ItemLocal(i4, "graphic/itemsWeap/miniatures/metalchestplate.png"));
-
-//        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-//        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
-//        itemsW.add(new ItemLocal("Miecz", "graphic/itemsWeap/miniatures/metalsword.png", "graphic/itemsWeap/descriptions/mkMetalSword.png"));
-//        itemsW.add(new ItemLocal("Zbroja", "graphic/itemsWeap/miniatures/metalchestplate.png", "graphic/itemsWeap/descriptions/mkMetalChest.png"));
-//------------------------------------------------
-        int k = 0;
-        //Generowanie współrzędnych dla wyświetlania miniatur przedmiotów
-        float posXmqssILOC = posXmqssI;
-        float posYmqssILOC = posYmqssI;
-        for (int i = 0; i < ittd[0].length; i++) {
-            for (int j = 0; j < ittd.length; j++) {
-                if (k < itemsLoc.size()) {
-                    ittd[j][i] = new ItemToDisplay(posXmqssILOC, posYmqssILOC, itemsLoc.get(k));
-                    k++;
-                }
-                posXmqssILOC += 50.5f;
-            }
-            posYmqssILOC += 47.5f;
-            posXmqssILOC = 305;
-        }
-//------------------------------------------------W
-        int kW = 0;
-        //Generowanie współrzędnych dla wyświetlania miniatur broni
-        float posXmqssILOCW = posXmqssIW;
-        float posYmqssILOCW = posYmqssIW;
-        for (int i = 0; i < ittdW[0].length; i++) {
-            for (int j = 0; j < ittdW.length; j++) {
-                if (kW < itemsW.size()) {
-                    ittdW[j][i] = new ItemToDisplay(posXmqssILOCW, posYmqssILOCW, itemsW.get(kW));
-                    kW++;
-                }
-                posXmqssILOCW += 50.0f;
-            }
-            posYmqssILOCW += 47.0f;
-            posXmqssILOCW = 683;
-        }
-        localCoinAmount = 6969;
+        updateItemList();
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-
-        //Tło sceny - rozmyty printscreen
-        actualScr = screenBlur.ScreenClass.screenNumber();
-        Image skrinGB = new Image(actualScr);
+        // Tło sceny - rozmyty printscreen
+        Image skrinGB = new Image(screenBlur.ScreenClass.screenNumber());
         g.drawImage(skrinGB, 0, 0);
-        //Okna plecaka i broni
-        Image menuW = new Image("graphic/menu/BagEquipScene2.png");
-        g.drawImage(menuW, 0, 0);
 
-        g.drawImage(new Image("graphic/menu/CoinBagButtons.png"), 0, 0);
+        // Główna ramka itemów i eqipu
+        g.drawImage(BagMainFrame, 0, 0);
+
+        // Render ikony monet
+        g.drawImage(coins, 0, 0);
 
         Fonts.print18().drawString(100, 10, mouse);
         Fonts.print18().drawString(100, 70, String.valueOf(selectedItem));
         Fonts.print18().drawString(900, 70, String.valueOf(selectedEquip));
+
 //------------------------------------------------
         int k = 0;
         //Rysowanie miniatur przedmiotów
-        for (int i = 0; i < ittd[0].length; i++) {
-            for (int j = 0; j < ittd.length; j++) {
-                if (k < itemsLoc.size()) {
-                    g.drawImage(new Image(ittd[j][i].item.miniaturePath), ittd[j][i].corXi, ittd[j][i].corYi);
+        for (int i = 0; i < itemToDisplay[0].length; i++) {
+            for (int j = 0; j < itemToDisplay.length; j++) {
+                if (k < core.GameStatus.itemsInBag.size()) {
+                    g.drawImage(new Image("graphic/items/" + itemToDisplay[j][i].item.getId() + ".png"), itemToDisplay[j][i].corXi, itemToDisplay[j][i].corYi);
                     k++;
                 }
             }
         }
-        //------------------stary sposób wyswietlania kartki z opisem przedmiotu----------------
-//////        //Wyswietlenie tła kartki w oknie plecaka
-//////        g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), 307, 403);
-//////        //Wyswietlenie opisu przedmiotu
-//////        try {
-//////            g.drawImage(new Image(ittd[corXsqis][corYsqis].item.itemDescriptionPath), 307, 403);
-//////        } catch (NullPointerException npe) {
-//////            g.drawImage(new Image("graphic/items/descriptions/mkPusty.png"), 307, 403);
-//////        }
 //------------------------------------------------W
         //Rysowanie miniatur broni
         int kW = 0;
-        for (int i = 0; i < ittdW[0].length; i++) {
-            for (int j = 0; j < ittdW.length; j++) {
-                if (kW < itemsLoc.size()) {
-                    g.drawImage(new Image(ittdW[j][i].item.miniaturePath), ittdW[j][i].corXi, ittdW[j][i].corYi);
+        for (int i = 0; i < equipToDisplay[0].length; i++) {
+            for (int j = 0; j < equipToDisplay.length; j++) {
+                if (kW < core.GameStatus.equipInBag.size()) {
+                    g.drawImage(new Image("graphic/equip/" + equipToDisplay[j][i].equip.getId() + ".png"), equipToDisplay[j][i].corXi, equipToDisplay[j][i].corYi);
                     kW++;
                 }
             }
         }
-        //------------------stary sposób wyswietlania kartki z opisem broni----------------
-//////        //Wyswietlenie tła kartki w oknie broni
-//////        g.drawImage(new Image("graphic/itemsWeap/descriptions/malaKartka.png"), 683, 403);
-//////        //Wyswietlenie opisu broni
-//////        try {
-//////            g.drawImage(new Image(ittdW[corXsqisW][corYsqisW].item.itemDescriptionPath), 683, 403);
-//////        } catch (NullPointerException npe) {
-//////            g.drawImage(new Image("graphic/itemsWeap/descriptions/mkPusty.png"), 683, 403);
-//////        }
-//------------------------------------------------
-        //Fonts.print18().drawString(760, 585, "Powrót do gry");
-        //g.drawRoundRect(750, 575, 190, 30, 6);
 
         //Wysiwetlanie kwadratów wyboru
         g.drawRect(r.getX(), r.getY(), r.getHeight(), r.getWidth());
         g.drawRect(rW.getX(), rW.getY(), rW.getHeight(), rW.getWidth());
 
-        Fonts.print18().drawString(420, 100, "Plecak");
-        Fonts.print18().drawString(770, 100, "Wyposażenie");
         //------------------------------------------------
-        Fonts.print18().drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(corXsqis));
-        Fonts.print18().drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(corYsqis));
+        Fonts.print18().drawString(100, 30, "Pozycja X kwadratu = " + String.valueOf(squareItemSelectionXPosition));
+        Fonts.print18().drawString(100, 50, "Pozycja Y kwadratu = " + String.valueOf(squareItemSelectionYPosition));
 
         //------------------------------------------------W
-        Fonts.print18().drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(corXsqisW));
-        Fonts.print18().drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(corYsqisW));
+        Fonts.print18().drawString(900, 30, "Pozycja X kwadratu wyposażenia = " + String.valueOf(squareEquipSelectionXPosition));
+        Fonts.print18().drawString(900, 50, "Pozycja Y kwadratu wyposażenia = " + String.valueOf(squareEquipSelectionYPosition));
         //------------------------------------------------
+
+        //Monety
+        Fonts.print25().drawString(379, 576, String.valueOf(core.GameStatus.money), Color.yellow);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(504, 557, "EQUIP", ArrayOfColors[0]);
+        Fonts.print18().drawString(510, 596, "DROP", ArrayOfColors[1]);
+
+        //Przyciski itemów
+        Fonts.print18().drawString(800, 557, "EQUIP", ArrayOfColors[2]);
+        Fonts.print18().drawString(801, 596, "DROP", ArrayOfColors[3]);
+
+        if (czyPlecak) {
+            g.drawImage(darkFrameR, 0, 0);
+        } else {
+            g.drawImage(darkFrameL, 0, 0);
+        }
+
+        Fonts.print18().drawString(420, 100, "Plecak");
+        Fonts.print18().drawString(770, 100, "Wyposażenie");
 
         //@Gajwer
         if (bagCursorActivate) {
@@ -216,28 +164,20 @@ public class BagState extends BasicGameState {
             RednerEquipDescription(g);
             bagEqCursorActivate = false;
         }
-
-        //Monety
-        Fonts.print25().drawString(379, 576, String.valueOf(localCoinAmount), Color.yellow);
-
-        //Przyciski itemów
-        Fonts.print18().drawString(493, 556, "EQUIP", ctab[0]);
-        Fonts.print18().drawString(493, 595, " DROP", ctab[1]);
-
-        //Przyciski itemów
-        Fonts.print18().drawString(788, 556, "EQUIP", ctab[2]);
-        Fonts.print18().drawString(788, 595, " DROP", ctab[3]);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg,
             int i) throws SlickException {
 
-        //skrinGB = new Image("graphic/menu/skrin1.png");
         Input input = gc.getInput();
         int xpos = Mouse.getX();
         int ypos = Mouse.getY();
         mouse = "x= " + xpos + " y=" + ypos;
+
+        //update listy itemow w oczekiwaniu na zalozenie badz usuniecie
+        updateItemList();
+
         //powrót do gry
         if (((xpos > 588 && xpos < 636) && (ypos > 606 && ypos < 636))
                 || // X w lewym oknie
@@ -250,42 +190,42 @@ public class BagState extends BasicGameState {
         if (input.isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(1);
         }
-        for (int j = 0; j < ctab.length; j++) {
-            ctab[j] = Color.white;
+        for (int j = 0; j < ArrayOfColors.length; j++) {
+            ArrayOfColors[j] = Color.white;
         }
 
         //Przycisk załóż item
-        if ((xpos > 471 && xpos < 598) && (ypos > 138 && ypos < 170)) {
-            ctab[0] = co;
+        if (czyPlecak && (xpos > 471 && xpos < 598) && (ypos > 138 && ypos < 170)) {
+            ArrayOfColors[0] = colorOrange;
             if (input.isMouseButtonDown(0)) {
-                ctab[0] = Color.gray;
+                ArrayOfColors[0] = Color.gray;
                 //zalozItem();
             }
         }
 
         //Przycisk wyrzuć item
-        if ((xpos > 471 && xpos < 598) && (ypos > 97 && ypos < 134)) {
-            ctab[1] = co;
+        if (czyPlecak && (xpos > 471 && xpos < 598) && (ypos > 97 && ypos < 134)) {
+            ArrayOfColors[1] = colorOrange;
             if (input.isMouseButtonDown(0)) {
-                ctab[1] = Color.gray;
+                ArrayOfColors[1] = Color.gray;
                 //wyrzucItem();
             }
         }
 
         //Przycisk załóż equip
-        if ((xpos > 766 && xpos < 893) && (ypos > 138 && ypos < 170)) {
-            ctab[2] = co;
+        if (!czyPlecak && (xpos > 766 && xpos < 893) && (ypos > 138 && ypos < 170)) {
+            ArrayOfColors[2] = colorOrange;
             if (input.isMouseButtonDown(0)) {
-                ctab[2] = Color.gray;
+                ArrayOfColors[2] = Color.gray;
                 //zalozEq();
             }
         }
 
         //Przycisk wyrzuć equip
-        if ((xpos > 766 && xpos < 893) && (ypos > 97 && ypos < 134)) {
-            ctab[3] = co;
+        if (!czyPlecak && (xpos > 766 && xpos < 893) && (ypos > 97 && ypos < 134)) {
+            ArrayOfColors[3] = colorOrange;
             if (input.isMouseButtonDown(0)) {
-                ctab[3] = Color.gray;
+                ArrayOfColors[3] = Color.gray;
                 //wyrzucEq();
             }
         }
@@ -317,86 +257,68 @@ public class BagState extends BasicGameState {
         if (czyPlecak) {
             // Sterowanie kwadratem wyboru p w plecaku
             if (input.isKeyPressed(Input.KEY_UP)) {
-                if (corYsqis > 0) {
-                    corYsqis--;
+                if (squareItemSelectionYPosition > 0) {
+                    squareItemSelectionYPosition--;
                     r.setY(r.getY() - 47.5f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_DOWN)) {
-                if (corYsqis < 7) {
-                    corYsqis++;
+                if (squareItemSelectionYPosition < 7) {
+                    squareItemSelectionYPosition++;
                     r.setY(r.getY() + 47.5f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_LEFT)) {
-                if (corXsqis > 0) {
-                    corXsqis--;
+                if (squareItemSelectionXPosition > 0) {
+                    squareItemSelectionXPosition--;
                     r.setX(r.getX() - 50.5f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_RIGHT)) {
-                if (corXsqis < 5) {
-                    corXsqis++;
+                if (squareItemSelectionXPosition < 5) {
+                    squareItemSelectionXPosition++;
                     r.setX(r.getX() + 50.5f);
                 }
             }
         } else {
-            //------------------------W
+            //------------------------
             // Sterowanie kwadratem wyboru broni
             if (input.isKeyPressed(Input.KEY_UP)) {
-                if (corYsqisW > 0) {
-                    corYsqisW--;
+                if (squareEquipSelectionYPosition > 0) {
+                    squareEquipSelectionYPosition--;
                     rW.setY(rW.getY() - 47f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_DOWN)) {
-                if (corYsqisW < 7) {
-                    corYsqisW++;
+                if (squareEquipSelectionYPosition < 7) {
+                    squareEquipSelectionYPosition++;
                     rW.setY(rW.getY() + 47f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_LEFT)) {
-                if (corXsqisW > 0) {
-                    corXsqisW--;
+                if (squareEquipSelectionXPosition > 0) {
+                    squareEquipSelectionXPosition--;
                     rW.setX(rW.getX() - 50f);
                 }
             }
 
             if (input.isKeyPressed(Input.KEY_RIGHT)) {
-                if (corXsqisW < 5) {
-                    corXsqisW++;
+                if (squareEquipSelectionXPosition < 5) {
+                    squareEquipSelectionXPosition++;
                     rW.setX(rW.getX() + 50f);
                 }
             }
         }
-        //@Gajwer
-        int iS = 305;
-        int iE = 556;
-        int jS = 221;
-        int jE = 551;
-        int iL = 50;
-        int jL = 48;
-        int iW = 43;
-        int iH = 44;
         int itemPositionInBag = 0;
         if (czyPlecak) {
-            /*for (int j = iS; j < iE; j += iL) {
-                for (int k = jS; k < jE; k += jL) {
-                    if((xpos >= j && xpos <= j + iW)&&(ypos >= k && ypos <= k + iH)){
-                        System.out.println("test" + licznik);
-                        licznik++;
-                    }
-                }
-            }*/
-
             for (int j = 551; j >= 220; j -= 47) {
                 for (int k = 305; k <= 557; k += 50) {
-                    if (((xpos >= k) && (xpos <= k + iW)) && ((ypos <= j) && (ypos >= j - iH))) {
+                    if (((xpos >= k) && (xpos <= k + 43)) && ((ypos <= j) && (ypos >= j - 44))) {
                         selectedItem = itemPositionInBag;
                         selectedItemX = k + 43;
                         selectedItemY = Math.abs(720 - j) + 22;
@@ -405,28 +327,11 @@ public class BagState extends BasicGameState {
                 }
             }
         }
-        int ieS = 305;
-        int ieE = 556;
-        int jeS = 221;
-        int jeE = 551;
-        int ieL = 50;
-        int jeL = 48;
-        int ieW = 43;
-        int ieH = 44;
         int equipPositionInBag = 0;
         if (!czyPlecak) {
-            /*for (int j = iS; j < iE; j += iL) {
-                for (int k = jS; k < jE; k += jL) {
-                    if((xpos >= j && xpos <= j + iW)&&(ypos >= k && ypos <= k + iH)){
-                        System.out.println("test" + licznik);
-                        licznik++;
-                    }
-                }
-            }*/
-
             for (int j = 551; j >= 220; j -= 47) {
                 for (int k = 684; k <= 933; k += 50) {
-                    if (((xpos >= k) && (xpos <= k + ieW)) && ((ypos <= j) && (ypos >= j - ieH))) {
+                    if (((xpos >= k) && (xpos <= k + 43)) && ((ypos <= j) && (ypos >= j - 44))) {
                         selectedEquip = equipPositionInBag;
                         selectedEquipX = k + 43;
                         selectedEquipY = Math.abs(720 - j) + 22;
@@ -435,13 +340,15 @@ public class BagState extends BasicGameState {
                 }
             }
         }
+
     }
 
     public void RednerItemDescription(Graphics g) throws SlickException {
-        if (bagCursorActivate && selectedItem != -1 && itemsLoc.size() > selectedItem) {
-            g.drawImage(new Image("graphic/items/descriptions/malaKartkaWieksza.png"), selectedItemX, selectedItemY);
+        if (bagCursorActivate && core.GameStatus.itemsInBag != null && selectedItem != -1 && core.GameStatus.itemsInBag.size() > selectedItem) {
+            g.drawImage(new Image("graphic/menu/malaKartkaWieksza.png"), selectedItemX, selectedItemY);
 
-            String n = itemsLoc.get(selectedItem).outsideItem.getDescription();
+            selectedItem++;
+            String n = core.GameStatus.itemsInBag.get(selectedItem).getDescription();
             int size = n.length() / 3 + 1;
 
             String descArray[] = new String[3];
@@ -449,35 +356,33 @@ public class BagState extends BasicGameState {
             descArray[1] = n.substring(size, 2 * size);
             descArray[2] = n.substring(2 * size, n.length());
 
-            Fonts.print28().drawString(selectedItemX + 40, selectedItemY + 15, itemsLoc.get(selectedItem).outsideItem.getName(), Color.black);//"Nazwa przedmiotu"
+            Fonts.print28().drawString(selectedItemX + 40, selectedItemY + 15, core.GameStatus.itemsInBag.get(selectedItem).getName(), Color.black);//"Nazwa przedmiotu"
             Fonts.print18().drawString(selectedItemX + 20, selectedItemY + 45, descArray[0], Color.black); //Pierwsza linijka opisu
             Fonts.print18().drawString(selectedItemX + 20, selectedItemY + 63, descArray[1], Color.black); //Druga linijka opisu
             Fonts.print18().drawString(selectedItemX + 20, selectedItemY + 81, descArray[2], Color.black); //Trzecia linijka opisu
 
-            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 1) {
+            if (core.GameStatus.itemsInBag.get(selectedItem).getnOF() <= 1) {
                 Fonts.print18().drawString(selectedItemX + 40, selectedItemY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
             }
-            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 2) {
+            if (core.GameStatus.itemsInBag.get(selectedItem).getnOF() <= 2) {
                 Fonts.print18().drawString(selectedItemX + 40, selectedItemY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
             }
-            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 3) {
+            if (core.GameStatus.itemsInBag.get(selectedItem).getnOF() <= 3) {
                 Fonts.print18().drawString(selectedItemX + 40, selectedItemY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
             }
-            if (itemsLoc.get(selectedItem).outsideItem.getnOF() <= 4) {
+            if (core.GameStatus.itemsInBag.get(selectedItem).getnOF() <= 4) {
                 Fonts.print18().drawString(selectedItemX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
             }
 
         }
-//        else if(bagCursorDeactivate){ //Wyłączono
-//            g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), -666, -666);
-//        }
     }
 
     public void RednerEquipDescription(Graphics g) throws SlickException {
-        if (bagEqCursorActivate && selectedEquip != 0 && itemsW.size() > selectedEquip) {
-            g.drawImage(new Image("graphic/items/descriptions/malaKartkaWieksza.png"), selectedEquipX, selectedEquipY);
+        if (bagEqCursorActivate && core.GameStatus.itemsInBag != null && selectedEquip != 0 && core.GameStatus.equipInBag.size() > selectedEquip) {
+            g.drawImage(new Image("graphic/menu/malaKartkaWieksza.png"), selectedEquipX, selectedEquipY);
 
-            String n = itemsW.get(selectedEquip).outsideItem.getDescription();
+            selectedItem++;
+            String n = core.GameStatus.equipInBag.get(selectedEquip).getDescription();
             int size = n.length() / 3 + 1;
 
             String descArray[] = new String[3];
@@ -485,27 +390,24 @@ public class BagState extends BasicGameState {
             descArray[1] = n.substring(size, 2 * size);
             descArray[2] = n.substring(2 * size, n.length());
 
-            Fonts.print28().drawString(selectedEquipX + 40, selectedEquipY + 15, itemsW.get(selectedEquip).outsideItem.getName(), Color.black);//"Nazwa przedmiotu"
+            Fonts.print28().drawString(selectedEquipX + 40, selectedEquipY + 15, core.GameStatus.equipInBag.get(selectedEquip).getName(), Color.black);//"Nazwa przedmiotu"
             Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 45, descArray[0], Color.black); //Pierwsza linijka opisu
             Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 63, descArray[1], Color.black); //Druga linijka opisu
             Fonts.print18().drawString(selectedEquipX + 20, selectedEquipY + 81, descArray[2], Color.black); //Trzecia linijka opisu
 
-            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 1) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
+            if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 1) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 105, "Punkty zdrowia: ", Color.black); //Cecha A = wartość
             }
-            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 2) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
+            if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 2) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 123, "Punkty many: ", Color.black); //Cecha B = wartość
             }
-            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 3) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
+            if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 3) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 141, "Kamień teleportacyjny: ", Color.black); //Cecha C = wartość
             }
-            if (itemsW.get(selectedEquip).outsideItem.getnOF() <= 4) {
-                Fonts.print18().drawString(selectedEquipX + 40, selectedItemY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
+            if (core.GameStatus.equipInBag.get(selectedEquip).getnOF() <= 4) {
+                Fonts.print18().drawString(selectedEquipX + 40, selectedEquipY + 159, "Id klucza: ", Color.black); //Cecha D = wartość
             }
         }
-//        else if(bagCursorDeactivate){ //Wyłączono
-//            g.drawImage(new Image("graphic/items/descriptions/malaKartka.png"), -666, -666);
-//        }
     }
 
     public BagState(int bag) {
@@ -516,24 +418,43 @@ public class BagState extends BasicGameState {
         return 4;
     }
 
-}
+    public static void updateItemList() {
+        //Generowanie współrzędnych dla wyświetlania miniatur przedmiotów
+        int licznik = 0;
 
-class ItemLocal {
+        float posXmqssILOC = posXmqssI;
+        float posYmqssILOC = posYmqssI;
+        Iterator<Item> item = core.GameStatus.itemsInBag.values().iterator();
 
-    String name; // nazwa przedmiotu 
-    String miniaturePath; // scieżka miniatury
-    String itemDescriptionPath; // scieżka do opisu przedmiotu
-    model.Item outsideItem; // chwilowe połączenie z zewnątrz
+        for (int i = 0; i < itemToDisplay[0].length; i++) {
+            for (int j = 0; j < itemToDisplay.length; j++) {
+                if (item.hasNext()) {
+                    itemToDisplay[j][i] = new ItemToDisplay(posXmqssILOC, posYmqssILOC, item.next());
+                    licznik++;
+                }
+                posXmqssILOC += 50.5f;
+            }
+            posYmqssILOC += 47.5f;
+            posXmqssILOC = 305;
+        }
+//------------------------------------------------
+//Generowanie współrzędnych dla wyświetlania miniatur broni
+        licznik = 0;
 
-    public ItemLocal(String nazwa, String sciezka_miniatury, String sciezka_opisu) {
-        this.name = nazwa;
-        this.miniaturePath = sciezka_miniatury;
-        this.itemDescriptionPath = sciezka_opisu;
-    }
-
-    public ItemLocal(model.Item outsideItem, String miniaturePath) {
-        this.outsideItem = outsideItem;
-        this.miniaturePath = miniaturePath;
+        float posXmqssILOCW = posXmqssIW;
+        float posYmqssILOCW = posYmqssIW;
+        Iterator<Equip> equip = core.GameStatus.equipInBag.values().iterator();
+        for (int i = 0; i < equipToDisplay[0].length; i++) {
+            for (int j = 0; j < equipToDisplay.length; j++) {
+                if (equip.hasNext()) {
+                    equipToDisplay[j][i] = new EquipToDisplay(posXmqssILOCW, posYmqssILOCW, equip.next());
+                    licznik++;
+                }
+                posXmqssILOCW += 50.0f;
+            }
+            posYmqssILOCW += 47.0f;
+            posXmqssILOCW = 683;
+        }
     }
 
 }
@@ -542,12 +463,24 @@ class ItemToDisplay {
 
     float corXi; // współrzędna X wyświetlania miniatury przedmiotu
     float corYi; // współrzędna Y wyświetlania miniatury przedmiotu
-    ItemLocal item; //Przedmiot
+    Item item; //Przedmiot
 
-    public ItemToDisplay(float wspXp, float wspYp, ItemLocal item) {
+    public ItemToDisplay(float wspXp, float wspYp, Item item) {
         this.corXi = wspXp;
         this.corYi = wspYp;
         this.item = item;
     }
+}
 
+class EquipToDisplay {
+
+    float corXi; // współrzędna X wyświetlania miniatury przedmiotu
+    float corYi; // współrzędna Y wyświetlania miniatury przedmiotu
+    model.Equip equip; //Przedmiot
+
+    public EquipToDisplay(float wspXp, float wspYp, model.Equip equip) {
+        this.corXi = wspXp;
+        this.corYi = wspYp;
+        this.equip = equip;
+    }
 }

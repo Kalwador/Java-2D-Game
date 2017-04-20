@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/model/Enemy.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/gameUtils/LocationName.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/model/LadujSkille.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/model/Hero.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/actor/Keys.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/actor/CollisionsFields.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/actor/Movement.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/model/Skill.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/states/PlayState.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/hud/Hud.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/hud/Frame.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/states/CreateState.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/model/Usage.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/actor/Portals.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/actor/Event.java</file>
+            <file>file:/C:/Users/Simon/Desktop/gra%20beta/Java-2D-Game-master/LegendaryAdventure/src/states/FightState.java</file>
+        </group>
     </open-files>
 </project-private>

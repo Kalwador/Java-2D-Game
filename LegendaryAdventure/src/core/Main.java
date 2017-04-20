@@ -7,7 +7,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Main extends StateBasedGame {
 
-    public static final String GAMENAME = "Legendary Adventure - Alpha 3.5";
+    public static final String GAMENAME = "Legendary Adventure - Alpha 4.0";
     
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
@@ -42,29 +42,14 @@ public class Main extends StateBasedGame {
         this.addState(new states.PauseState(PAUSE));
         this.addState(new states.NewGameState(NEWGAME));
         this.addState(new states.LoadGameState(LOADGAME));
-        this.addState(new states.SaveGameState(SAVEGAME));
+        this.addState(new states.SaveState(SAVEGAME));
         this.addState(new states.FightState(FIGHT));
-        this.addState(new states.CreateCharacterState(CREATE));
+        this.addState(new states.CreateState(CREATE));
     }
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
         enterState(MENU);
-        this.getState(MENU).init(gc, this);
-        this.getState(PLAY).init(gc, this);
-        this.getState(OPTIONS).init(gc, this);
-        this.getState(CHARACTER).init(gc, this);
-        this.getState(BAG).init(gc, this);
-        this.getState(QUESTS).init(gc, this);
-        this.getState(SKILLS).init(gc, this);
-        this.getState(MAP).init(gc, this);
-        this.getState(CREDITS).init(gc, this);
-        this.getState(PAUSE).init(gc, this);
-        this.getState(NEWGAME).init(gc, this);
-        this.getState(LOADGAME).init(gc, this);
-        this.getState(SAVEGAME).init(gc, this);
-        this.getState(FIGHT).init(gc, this);
-        this.getState(CREATE).init(gc, this);
     }
 
     public static void main(String[] args) {
@@ -78,5 +63,4 @@ public class Main extends StateBasedGame {
             e.printStackTrace();
         }
     }
-    
 }

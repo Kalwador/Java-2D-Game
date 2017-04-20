@@ -1,20 +1,25 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.newdawn.slick.SlickException;
+import model.LadujSkille;
 
 public class Hero {
 
+    private LadujSkille laduj = new LadujSkille();
+    
     public String heroName;
 
     public int heroLevel;
     public int tempHeroExperience;
     public int maxHeroExperience;  //odpowiedni wzór wzrostu tej wartości przy levelowaniu to: 'maxHeroExperience += Math.log(maxHeroExperience);'
 
-    public int tempHeroHealth;
-    public int maxHeroHealth;
+    public static double tempHeroHealth;
+    public static double maxHeroHealth;
 
-    public int tempHeroMana;
-    public int maxHeroMana;
+    public static double tempHeroMana;
+    public static double maxHeroMana;
 
     public double heroAttack;
     public double heroDeffence;
@@ -27,21 +32,21 @@ public class Hero {
     public int inteligence;
 
     public int levelPoints;
-
+    
     //wywolana tylko przy tworzeniu nowej postaci
     public Hero() throws SlickException {
 
-        heroName = "Hero";
+        heroName= "";
 
         heroLevel = 1;
         tempHeroExperience = 0;
         maxHeroExperience = 100;
 
-        tempHeroHealth = 10;
-        maxHeroHealth = 10;
+        tempHeroHealth = 50;
+        maxHeroHealth = 100;
 
-        tempHeroMana = 10;
-        maxHeroMana = 10;
+        tempHeroMana = 50;
+        maxHeroMana = 50;
 
         heroAttack = 2.0;
         heroDeffence = 2.0;
@@ -56,6 +61,7 @@ public class Hero {
         attackSpeed = 1.0;
 
         levelPoints = 3;
+
     }
 
     /**
@@ -76,7 +82,7 @@ public class Hero {
      * @param levelPoints
      */
 
-    public Hero(String heroName, int heroLevel, int tempHeroExperience, int maxHeroExperience, int tempHeroHealth, int maxHeroHealth, int tempHeroMana, int maxHeroMana, double heroDeffence, double heroAttack, int strenght, int agility, int inteligence, int levelPoints) {
+    public Hero(String heroName, int heroLevel, int tempHeroExperience, int maxHeroExperience, double tempHeroHealth, double maxHeroHealth, double tempHeroMana, double maxHeroMana, double heroDeffence, double heroAttack, int strenght, int agility, int inteligence, int levelPoints) {
         this.heroName = heroName;
         this.heroLevel = heroLevel;
         this.tempHeroExperience = tempHeroExperience;
@@ -91,6 +97,9 @@ public class Hero {
         this.agility = agility;
         this.inteligence = inteligence;
         this.levelPoints = levelPoints;
+//        HashMap<Integer,Skill> hudSkill = new HashMap<Integer,Skill>();
+//        hudSkill.put(1, laduj.getSkill(1));
+//        System.out.println(hudSkill);
     }
 
     public static int getMaxHeroExp(int lvl) {
@@ -100,4 +109,16 @@ public class Hero {
         }
         return maxHeroExperience;
     }
+
+    public double getTempHeroMana() {
+        return tempHeroMana;
+    }
+
+    public double getMaxHeroMana() {
+        return maxHeroMana;
+    }
+    
+    
+    
+    
 }

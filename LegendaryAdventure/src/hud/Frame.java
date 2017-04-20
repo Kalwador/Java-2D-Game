@@ -5,6 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+
 public class Frame {
 
     //mini Mapa w rogu
@@ -58,9 +59,10 @@ public class Frame {
         miniMapPointer.draw(8+((220*core.GameStatus.x)/core.Camera.mapWidth),470+((220*core.GameStatus.y)/core.Camera.mapHeight));
         
         //render pasków życia i many
-        healthBar.draw(1095, 639, (int) (134 * (GameStatus.hero.tempHeroHealth / (double) GameStatus.hero.maxHeroHealth)), 16);
-        manaBar.draw(1095, 677, (int) (134 * (GameStatus.hero.tempHeroMana / (double) GameStatus.hero.maxHeroMana)), 16);
-
+        healthBar.draw(1095, 639, (int) (134 * (GameStatus.hero.tempHeroHealth /  GameStatus.hero.maxHeroHealth)), 16);
+        //manaBar.draw(1095, 677, (int) (134 * (GameStatus.hero.tempHeroMana / (double) GameStatus.hero.maxHeroMana)), 16);
+        manaBar.draw(1095, 677, (int) (134 * (GameStatus.hero.getTempHeroMana() /  GameStatus.hero.getMaxHeroMana())), 16);
+        
         //render ramki
         g.drawImage(mainFrame, 0, 0);
     }

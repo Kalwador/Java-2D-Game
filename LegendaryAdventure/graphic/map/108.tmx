@@ -39,29 +39,35 @@
  <tileset firstgid="3738" name="HF1_Indoors_2" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../tiles/HF1_Indoors_2.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="3994" name="collisions" tilewidth="32" tileheight="32" tilecount="5" columns="5">
-  <image source="../tiles/collisions.png" width="160" height="32"/>
- </tileset>
- <tileset firstgid="3999" name="$Human_HF1_Royalty_4" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="3994" name="$Human_HF1_Royalty_4" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Royalty_4.png" width="210" height="280"/>
  </tileset>
- <tileset firstgid="4011" name="$Human_HF1_Royalty_2" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4006" name="$Human_HF1_Royalty_2" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Royalty_2.png" width="210" height="280"/>
  </tileset>
- <tileset firstgid="4023" name="$Human_HF1_Royalty_1" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4018" name="$Human_HF1_Royalty_1" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Royalty_1.png" width="219" height="292"/>
  </tileset>
- <tileset firstgid="4035" name="$Human_HF1_Male_11" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4030" name="$Human_HF1_Male_11" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Male_11.png" width="210" height="280"/>
  </tileset>
- <tileset firstgid="4047" name="$Human_HF1_Male_15" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4042" name="$Human_HF1_Male_15" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Male_15.png" width="210" height="280"/>
  </tileset>
- <tileset firstgid="4059" name="$Human_HF1_Male_19" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4054" name="$Human_HF1_Male_19" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Male_19.png" width="210" height="280"/>
  </tileset>
- <tileset firstgid="4071" name="$Human_HF1_Male_20" tilewidth="70" tileheight="70" tilecount="12" columns="3">
+ <tileset firstgid="4066" name="$Human_HF1_Male_20" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Male_20.png" width="210" height="280"/>
+ </tileset>
+ <tileset firstgid="4078" name="collisions" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../tiles/collisions.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="4083" name="wolfs62x62" tilewidth="62" tileheight="62" tilecount="2" columns="2">
+  <image source="../MOBsprite/wolfs62x62.png" width="159" height="85"/>
+ </tileset>
+ <tileset firstgid="4085" name="orc120x120" tilewidth="120" tileheight="120" tilecount="2" columns="2">
+  <image source="../MOBsprite/orc120x120.png" width="254" height="122"/>
  </tileset>
  <layer name="bg" width="100" height="100">
   <data encoding="base64" compression="gzip">
@@ -88,24 +94,34 @@
    H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
   </data>
  </layer>
- <layer name="coll" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WW24sIQxEs4PsP1+z1HxEIzHEgJ+4GlySpdxpMGWfNn1/vr++fkCDo2yPt4RF2d5PC09ZfWienRJRmp3l4WWVI7uvSCw0vfTI0efJ6tuTWGQo+z0uDv+FfKcg84m6X1BZ9N7QVDywhMrjJElqQuNxu6J4aPNnaqcHr35pevoUHjuVyUNyzmyvtmZEPYFHCYfHyZLUuIOH52xE+EV6RxB4KPy+lLHy8rE2Q5fxELHLEAIPSe3Fo3hE9Jh6zu1V8bBp1P/29508OOdIaisesTyktT2dB1EPFI/b5oOoB57H4vfiUfPxUYdEVK85a4pH7HzMat7Jw4NDl6t4BPGQ1o3MY1Y/1QfOmgwektoJHqvc/Zri4c9jS0g8td6ov0/lgSiKAfVckqN4xGk0D1QPEHjcKMu7a+XBOSeq3lt5rxTNcDb3pf/S8qD2r86RrL9VxSNHnt90Ti+pe+oEUb3xfMc033Ipj5PmIZKH5f9kmrO8vVlCqygeFt+re4+7h+HvFRRqncJD6a94KL8fI59GfyEsEHj0e7Qs3nu5+bVC5aGsY/g7l4d1PqyzcgqPRX3DOfPmwdnD8Hssj5E0TDT1oPKQ8uHcK9zQ5rf2VrMHdT48vUzqFvNon0XM1I08tHMl3aPpQfGQf9cFNaj2IPDo15/AQyMUHoSv4lE8isfYVzqPDC638ZAwOJWHpi4EHszeuarmI/+OIvxdw6OpGY5F4614gDC5hUfrp3iofKXORxaT4oHFJZDH6xQeO7kUj+LB9AXHY1WPB7dsHqMaInm056LNSDaPia/HzYeHigcGh85b8Tifh6mO4uHKQczD0p+I9ck8wkLiI7LG/t+oPFD0rjmiB1QuRBbed4PVS59/5Vmam8qBxiMil6YOy3xwGI7Wo7DofXI9zObGw4vUhyR3n38nD07umU9OzlGulafRM66PVa5Rbip/Jo/+jBUPia8Vw9nf7f7I+ZCyQJuPSB7c/R5C4CHxSXnt13HeV855nLtw5CkjLDXNahz1edYPyZke71LUOxnJw8vH+7nHGV65IhQ9H1Yv/XPPs1C0876K9G2tB0G7vx8lWt4cOExO56atLZLFzNPpPCTawWDF5Gk8PL1m9L++J3/K7vlNTLJ7eSOX7D6dziS75lOieOBG8cCMYoEVxQMvisdn/AJ/+ZrgQJwAAA==
-  </data>
- </layer>
- <layer name="portal" width="100" height="100">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DQQkAQAgAMBvYH8saQcHPwW2wiHdVzgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuKnc/0ED4/3yskCcAAA=
-  </data>
- </layer>
  <layer name="npc" width="100" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3bQQ0AIQwEQBzgP+HHFwEIQMAJOA1owATwoDMausmmaUtOAAAAAAAAAAAAAAAAQEDTbxFs98sVAAAAQAjdHggA4IiqZwEAAAAAAAAAAABAeM1dMY8bl2b8kyUAAAAAAIAtFgI6nydAnAAA
+   H4sIAAAAAAAAC+3aQQ0AIQwEQBzg/8MXAQhAAALQgAtMcEdCZxT00U02TVMCAAAAAAAAAAAAAAAAIlr59gTwnilXAAAAACE0dyAAgE8UPQsAAAAAAAAAAAAAwqv+inlc/2nHhywBAAAAAAAcsQGZwDhxQJwAAA==
   </data>
  </layer>
- <layer name="item" width="100" height="100">
+ <layer name="mobs" width="100" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQEAAAwCoDWw/7GuPsYAPgcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwBWr2Hj0CcAAA=
+   H4sIAAAAAAAAC+3dMREAIAwEwTjAv04QgIGQgoohu+0J+PIjAACAzBrnNosGwP/sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALyt+qcFAOCej2cAAACgkw2VQ8PUQJwAAA==
+  </data>
+ </layer>
+ <layer name="portal" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DUQkAIBQEMBtc/5RXwQgK/jxwgzVrrOYcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA3zf0fbIUkr8hAnAAA
+  </data>
+ </layer>
+ <layer name="coll" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WXY4cIQyE9wa5/9uccM+Qh2ikHmLAv7jGuCRLm2kwZX9tOr9/fn5+QYOjbI+3hEXZ3quFp6w+NM+qRJRWZ3l42eXI7isSC00vPXKMebL69k0sMpT5HjcHWlEsVn3VzBOaou6X03OhrRlNzQNLqDwqSVITGg+p/2qK4qHNn6mTHrz6penpt/A4qUweknNWe7U1I+obeLRweFSWpMYTPDxnI8Iv0juCwEPh96WMnZePtRm6jIeIXYYQeEhqbx7NI6LH1HNur5qHTbP+P38/yYNzjqS25hHLQ1rbt/Mg6oHicdt8EPXA89j83jx6Pj7qkIjqNWdN84idj1XNJ3l4cBhyNY8gHtK6kXms6qf6wFmTwUNSO8Fjl3tc0zz8eRwJiaenN+rvqjwQRTGgnktyNI84zeaB6gECjxtleXetPDjnRNV7K++dohmu5r71v7Q8qP27cyTrb1XzyJHnN53TS+qeqiCqN57vmOZbLuVRaR4ieVj+T6Y5y9ubJbSK4mHxvbv3uHsY/l5BoVYVHkp/zUP5/Zj5NPoLYYHAY9yjZfHey82vFSoPZR3T37k8rPNhnZUqPDb1TefMmwdnD8NvWR4zaZho6kHlIeXDuVe4oc1v7a1mD+p8eHpZ1C3m8XwWMVM38tDOlXSPpgfNQ/5dF9Sg2oPAY1xfgYdGKDwIX82jeTSPua90HhlcbuMhYVCVh6YuBB7M3rmq5yP/jiL8XcPjUfOWRQab5nHf90Ppy5UH1efmIfKVOh+nOQzemgcIl0Aeryo8TnJpHs2D6QuOx64eD27ZPGY1RPJ4nos2I9k8Fr6+bj481DwwOAzemkd9HqY6mocrBzEPS38i1ifzCAuJj8gax3+j8kDRu+aIHlC5EFl43w1WL2P+nWdpbioHGo+IXJo6LPPBYThbj8Ji9Mn1sJobDy9SH5LcY/6TPDi5Vz45OWe5dp5mz7g+drlmuan8mTzGM3Y8JL52DFd/P/dHzoeUBdp8RPLg7veQhUekr5lPyuu4jvO+cs7j3IUzT5mhqWlV46zPq35IzvR4j6LexwgO3j7ezz3O8MoVoai58PIyPvc8C0Un7qkTvq31IOjUd6O1ljcHDpPq3LS1RbLY3feVeUh0ksGs59/Gw9NrRv/7e/JP2T2/iUl2L2/kkt2n6kyya64SzQM3mgdmNAusaB540Tw+4y9ncC9hQJwAAA==
+  </data>
+ </layer>
+ <layer name="npcarea" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3bsQ3AIAxFwWzA/lsyQkpaBwL5iu4klzR+lQt6uwAAAAAAAAAAAAAAAGC73sbwvdkeOu6hxz/okUUPAACAdW6rLHpk0SOLHgAAAAAAAAAAAAAAAMzyNyWLHu9b2emTt9rVnNqTHjV6AAAAAAAAFTcvxw29QJwAAA==
+  </data>
+ </layer>
+ <layer name="mobsarea" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dQQqAIBAF0G7g/Y/pDVoFBhIROH7oPRAX7fwOBor2dgAAEKC3e3v7jTXGcZ7lcfXyqKE++DvzPMvTGkE99QEAAAAAAAAAAAAAAAAAAAAAAEAF915lcS9cFnlkkUcW6wcAAAAAAAAV7EdlsUeYZXyHlv3UBwBfOYuVZfzHksd+6gMAAADWOwElQR1CQJwAAA==
   </data>
  </layer>
 </map>

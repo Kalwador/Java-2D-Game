@@ -24,6 +24,12 @@
  <tileset firstgid="2450" name="$Human_HF1_Male_13" tilewidth="70" tileheight="70" tilecount="12" columns="3">
   <image source="../NPCsprite/$Human_HF1_Male_13.png" width="210" height="280"/>
  </tileset>
+ <tileset firstgid="2462" name="demons" tilewidth="150" tileheight="150" tilecount="2" columns="1">
+  <image source="../MOBsprite/demons150x150.png" width="150" height="338"/>
+ </tileset>
+ <tileset firstgid="2464" name="monsterthree" tilewidth="130" tileheight="130" tilecount="2" columns="1">
+  <image source="../MOBsprite/monsterthree130x130.png" width="160" height="357"/>
+ </tileset>
  <layer name="bg" width="50" height="50">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+1ZQQrDMAxrYU/pdho7Zfv/09bCDMYkIXSSE4cedLWjWrKddF2WZSXhteP2w5OYh40ZeaQBzoPgcRvgPCgeUWtieXj55A3GJ8MjgXNYDrmcEaC1mqt/JIhWNY9txx2Eh8mHim3j5ngg9Wu1qj3OiOulK1a+XjwOWG0geSC9UdOxAJXH9it0b7c6PhO/Zb5F6LvCvTbfvP3B9p2XP1jxLY8R/dESfzZdoft5CWxdoft5ySOovaSkKya0R9h7CRO1/sjigewltl9tJhdLr+z7ILOnz9Z3Z+NxaDjKXpLzB2MvydVZ8qH9kQr5EJDYlgdLwyweW4EHawdivfvU5iBjB/J890HPEPFhhHttqw+j89B6veZHP39c+9W4uP4b+PtD3/V6/zf4BylzfqmxnoUe7z5oWA6sneeMP1q+p8Rhv5GU9oTW95mWndATZ3mMBtvPe58HwSNqLbx5fAEg0+ugECcAAA==
@@ -44,14 +50,19 @@
    H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAODfAC7KO00QJwAA
   </data>
  </layer>
- <layer name="eff" width="50" height="50" visible="0">
+ <layer name="eff" width="50" height="50">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAODfAC7KO00QJwAA
   </data>
  </layer>
- <layer name="coll" width="50" height="50">
+ <layer name="npc" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WUQ7AEBBE+9tju3m/JI0QxezGvppE0KbG012k+7qSYcmy9PAonhzRdTj2Uo0j91fqVszW3q3WdI6IInMo/3fPW+VD5ogoMgdl36VwRBSZg7LvenEoRY4rT29FndtUDq/zQykyh5co+fGeQ60/Mq8dOBQic1DuJaXP6vOvaq1D73luU+NKOe4fzkHv/Oit3Wye974fycOTH3uJfH5QOCKKzEGJKwpHRFlzlPcQK6/D0R5rpqi8FTocOm+FduAglAfuzdNBECcAAA==
+   H4sIAAAAAAAAC+3OsQ0AIAgAQVpWN3EDhqWQGTQxd823HwEAAAAAAAAAAPftPK3pyncvwB8avwaYARAnAAA=
+  </data>
+ </layer>
+ <layer name="mobs" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XuwkAIBBEQVP7z/10agkKgp4yU8ELd1MCZmq+XbCuPNQKAADRvfQF2ONLAQCRdVsFAIBPNNuWAwYeW7eeECcAAA==
   </data>
  </layer>
  <layer name="portal" width="50" height="50">
@@ -59,14 +70,19 @@
    H4sIAAAAAAAAC+3PMQ0AAAjAMF5so5wDDRyQNpmAVcaqyum6Lx8AAAAAAAAAAABfNS+u+CsQJwAA
   </data>
  </layer>
- <layer name="npc" width="50" height="50">
+ <layer name="coll" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3aoQ0AMAgAQWznxpF0gw6LYYMmqDvzS3yeAAAAAAAAAACAdXe+lTctHwvwqQFQoZx8ECcAAA==
+   H4sIAAAAAAAAC+2W0Q6FIAxDffWz/fP7ZLKQuSF2QJvbhGAwUo5jjOs8jquw3ar0mNFmcnheu8uuU5WDVR6HZRztn+Lqvfvaq3MwSpkDGe/MG+WjzMEoZQ6Vc1eFAy0Fj6e4VPm0Y4g+8kD7zOSoiEmUi0zagQN9LjJz2LlW1Q+klDlmia2eZ8r2Q+8cqzkQUuZA1/PIG+UTxQM13qvoXhON38+75f2I7LqRDKvqh1e7quvg7PzI/t1onmffv8lD1nxopcyhUj9UOBilzKGyr1Q4GFXN0d5D0F6Vc0c+DBzemnvbF0/rzcrReiP051jrvVv7AQvQ1KYQJwAA
   </data>
  </layer>
- <layer name="item" width="50" height="50">
+ <layer name="npcarea" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQ0AAAwDoL31PeHV0QT4HAAAAAAAAAAAAMwrPk2W8xAnAAA=
+   H4sIAAAAAAAAC+3PsQ0AMAjAMFbu5vGOXbsBlS3lgFQGAAAAAAAAAMCTyttmPmb55QPodwCn5tDUECcAAA==
+  </data>
+ </layer>
+ <layer name="mobsarea" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XwQqAIBCE4a6+tw8uBUGY6EVtZ/o/CPK2w7paOR2XnN5PVL06R+tInrWR43ujHA7zAQAA5nK4d+valXP01ipa/ZiZZeeeXdmTnXt25b+Aw+ydnHKon+kA4MDhPHb8xlbvR+tdjcNsAADwJy739l0/OWJwyuEwH4itACo49Z0QJwAA
   </data>
  </layer>
 </map>

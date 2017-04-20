@@ -6,11 +6,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 /**
- * 
- * Obsługuje sprite postaci bohatera, jego animację, 
- * czasy animacji oraz kierunek ruchu
+ * Obsługuje sprite postaci bohatera, jego animację, czasy animacji oraz
+ * kierunek ruchu
  */
-
 public class Sprite {
 
     //wygląd bohatera
@@ -20,7 +18,7 @@ public class Sprite {
     //prędkość animacji uzależniona od prędkości poruszania
     int durationScalar = (int) (100 / Hero.movementSpeed);
 
-    //animacja avatar
+    //animacja avataru
     public int[] duration = {durationScalar, durationScalar, durationScalar, durationScalar, durationScalar, durationScalar};
     public Animation avatar, movingUp, movingDown, movingLeft, movingRight;
 
@@ -28,28 +26,25 @@ public class Sprite {
     public Sprite() throws SlickException {
 
         //lokalizacja avataru
-//        imgSprite = new Image("graphic/heroSprite/heroTest.png");
-        imgSprite = new Image("graphic/heroSprite/avatar"+GameStatus.spriteNumber+".png");
-        
+        imgSprite = new Image("graphic/heroSprite/avatar" + GameStatus.spriteNumber + ".png");
+
         //ilość klatek na szerokość
-        int widthSubImageLength = 6; 
-        
+        int widthSubImageLength = 6;
+
         //rozmiar avataru
         this.heroHeight = imgSprite.getHeight() / 4;
         this.heroWidth = imgSprite.getWidth() / widthSubImageLength;
-        
-        Image [] walkDown = new Image[widthSubImageLength]; 
-        Image [] walkLeft = new Image[widthSubImageLength]; 
-        Image [] walkRight = new Image[widthSubImageLength];  
-        Image [] walkUp = new Image[widthSubImageLength]; 
-        
-//        int j = 0;
+
+        Image[] walkDown = new Image[widthSubImageLength];
+        Image[] walkLeft = new Image[widthSubImageLength];
+        Image[] walkRight = new Image[widthSubImageLength];
+        Image[] walkUp = new Image[widthSubImageLength];
+
         for (int w = 0, h = 0; w < imgSprite.getWidth(); w += heroWidth) {
             walkDown[h] = imgSprite.getSubImage(w, heroHeight * 0, heroWidth, heroHeight);
             walkUp[h] = imgSprite.getSubImage(w, heroHeight * 1, heroWidth, heroHeight);
             walkLeft[h] = imgSprite.getSubImage(w, heroHeight * 2, heroWidth, heroHeight);
             walkRight[h] = imgSprite.getSubImage(w, heroHeight * 3, heroWidth, heroHeight);
-            
             h++;
         }
 
@@ -62,5 +57,5 @@ public class Sprite {
         //ustawienie początkowego położenia avatar
         avatar = movingDown;
     }
-    
+
 }
