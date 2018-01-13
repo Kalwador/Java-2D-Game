@@ -11,4 +11,4 @@ Java, Slick 2D,
 * Wilk Adrian
 * Piotrowski Maciej
 * Półzieć Szymon
-
+* Szpila Piotr
