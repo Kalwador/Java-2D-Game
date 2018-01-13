@@ -1,4 +1,4 @@
-# LegendaryAdventure 
+# LegendaryAdventure - 2D RPG Game
 ##### Version Alpha 4.5
 
 ## Tools: 
